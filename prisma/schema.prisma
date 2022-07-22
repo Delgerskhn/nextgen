@@ -1,0 +1,158 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["filterJson"]
+}
+
+// In the future we need to add country or nationality column
+model User {
+  id                  String           @id @default(cuid())
+  email               String?           @unique
+  emailVerified       DateTime?
+  passwordDigest      String?
+  phoneNumber         String?          @unique
+  phoneNumberVerified DateTime?
+  accounts            Account[]
+  role                UserRole         @default(STUDENT)
+  profile             Profile?
+  subscription        Subscription?
+  createdAt           DateTime         @default(now())
+  updatedAt           DateTime         @updatedAt
+}
+
+enum UserRole {
+  STUDENT
+  TEACHER
+  ADMIN
+}
+
+model Account {
+  id                String   @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refreshToken      String?
+  accessToken       String?
+  tokenType         String?
+  expiresAt         Int?
+  scope             String?
+  idToken           String?
+  sessionState      String?
+  oauthTokenSecret  String?
+  oauthToken        String?
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @default(now())
+
+  @@unique([provider, providerAccountId])
+}
+
+model Profile {
+  id           String    @id @default(cuid())
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String    @unique
+  firstName    String    @default("")
+  lastName     String    @default("")
+  firstNameEng String?   @default("")
+  lastNameEng  String?   @default("")
+  birthDate    DateTime?
+  height       Int?
+  weight       Int?
+  country      String? //Will create country table and map to this property
+  language     String?
+  sex          String?
+  picture      String    @default("")
+  notifyEmail  Boolean   @default(true)
+  notifyPush   Boolean   @default(true)
+  notifyBadge  Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Session {
+  id        String   @id
+  sid       String   @unique
+  data      String
+  expiresAt DateTime
+}
+   
+   
+ 
+model Product {
+  id           String         @id @default(cuid())
+  active       Boolean        @default(false)
+  name         String
+  description  String?
+  image        String?
+  metadata     Json?
+  prices       Price[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+
+model Price {
+  id              String         @id @default(cuid())
+  product         Product        @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId       String
+  active          Boolean        @default(false)
+  currency        String
+  interval        PriceInterval?
+  unitAmount      Int?
+  intervalCount   Int?
+  trialPeriodDays Int?
+  type            PriceType?
+  subscriptions   Subscription[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+//cardTable
+model Subscription {
+  id                String             @id @default(cuid())
+  user              User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId            String             @unique
+  price             Price              @relation(fields: [priceId], references: [id])
+  priceId           String
+  status            SubscriptionStatus
+  startDate         DateTime?
+  endedAt           DateTime?
+  trialEnd          DateTime?
+  trialStart        DateTime?
+  cancelAt          DateTime?
+  cancelAtPeriodEnd Boolean?
+  canceledAt        DateTime?
+  metadata          Json?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+}
+
+enum PriceType {
+  recurring
+  one_time
+}
+
+enum SubscriptionStatus {
+  active
+  canceled
+  incomplete
+  incomplete_expired
+  past_due
+  trialing
+  unpaid
+}
+
+enum PriceInterval {
+  day
+  month
+  week
+  year
+}
+ 
