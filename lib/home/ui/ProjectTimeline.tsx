@@ -18,12 +18,13 @@ import {
   RiNumber5,
   RiNumber6,
 } from "react-icons/ri";
+import { FlipBox } from "@ui/Flipbox";
 
 export const ProjectTimeline = () => {
   return (
     <Box maxW={"container.xl"} mx="auto" w="full">
       <VStack>
-        <Heading size="xl" my="6">
+        <Heading size="xl" mt="16" mb="6">
           Үе шатууд
         </Heading>
         <SimpleThreeColumns />
@@ -40,7 +41,7 @@ interface FeatureProps {
 
 const Feature = ({ title, text, icon }: FeatureProps) => {
   return (
-    <Stack>
+    <Stack bg="gray.50" rounded={"md"} boxShadow="xl" p="6">
       <Flex
         w={16}
         h={16}
@@ -65,45 +66,43 @@ export default function SimpleThreeColumns() {
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         <Feature
           icon={<Icon color="gray.600" as={RiNumber1} w={10} h={10} />}
-          title={"Lifetime Support"}
-          text={
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
-          }
+          title={"Сонгон шалгаруулалт"}
+          text={`Оролцогчдыг сонгон 
+            шалгаруулхад харьяа 
+            аймаг, дүүргийн ЗДТГ 
+            болон Залуучуудын 
+            агентлагуудтай 
+            ажиллах`}
         />
         <Feature
           icon={<Icon color="gray.600" as={RiNumber2} w={10} h={10} />}
-          title={"Unlimited Donations"}
+          title={"Асуудлыг задлан шинжлэх"}
           text={
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
+            "Ирүүлсэн асуудалд дүн шинжилгээ хийх. Problem diagnostic. System analysis."
           }
         />
         <Feature
           icon={<Icon color="gray.600" as={RiNumber3} w={10} h={10} />}
-          title={"Instant Delivery"}
-          text={
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
-          }
+          title={"Шийдлийг бататгах"}
+          text={`Шийдлээ баталгаажуулж бүрэн хэмжээний 
+            төсөл боловсруулж 
+            хөрөнгө босгоно.`}
         />
         <Feature
           icon={<Icon color="gray.600" as={RiNumber4} w={10} h={10} />}
-          title={"Instant Delivery"}
+          title={"Шийдлийг хэрэгжүүлэх"}
           text={
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
+            "Төслийг хэрэгжүүлж явцыг Web Portal үүсгэн хянаж явцын тайлан тавьна."
           }
         />
         <Feature
           icon={<Icon color="gray.600" as={RiNumber5} w={10} h={10} />}
-          title={"Instant Delivery"}
-          text={
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
-          }
-        />
-        <Feature
-          icon={<Icon color="gray.600" as={RiNumber6} w={10} h={10} />}
-          title={"Instant Delivery"}
-          text={
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
-          }
+          title={"Дүгнэлт"}
+          text={`Шилдэг төслийг 
+            шалгаруулан 
+            хаалтын арга 
+            хэмжээ зохион 
+            байгуулах.`}
         />
       </SimpleGrid>
     </Box>

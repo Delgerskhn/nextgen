@@ -65,8 +65,13 @@ export function Hero() {
           </Stack>
         </VStack>
       </Flex>
-      <VStack m="6" mx="12">
-        <Text fontWeight={"bold"} fontSize="xl" textAlign={"center"}>
+      <VStack bg="gray.50" p="6" px="12">
+        <Text
+          fontWeight={"bold"}
+          color="gray.900"
+          fontSize="xl"
+          textAlign={"center"}
+        >
           Шинэ сэргэлт (NextGen) төслийн уралдаан нь Монгол Улсын иргэдийн аж
           амьдралд бодитоор тулгамдаж буй хөгжлийн асуудлуудыг залуучуудын
           оролцоо, бүтээлч санаачилга болон хамтын ажиллагаанд тулгуурлан
