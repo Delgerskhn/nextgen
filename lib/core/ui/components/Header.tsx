@@ -14,11 +14,12 @@ import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
 import { AiOutlineUser } from "react-icons/ai";
 import { useLayoutBreakPointValue } from "@lib/core/data/layout_break_point_value";
+import { useRouter } from "next/router";
 
 export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
   const variant = useLayoutBreakPointValue();
-
+  const router = useRouter();
   return (
     <Box>
       <Flex
@@ -49,7 +50,9 @@ export const Header = () => {
             as={AiOutlineUser}
             bg="transparent"
             variant={"ghost"}
-            onClick={() => {}}
+            onClick={() => {
+              router.push("/account/profile");
+            }}
             aria-label={"User auth"}
           />
         </Stack>

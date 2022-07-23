@@ -20,6 +20,7 @@ import {
 } from "@ui/index";
 import { useProfile, useUpdateProfile } from "@lib/profile/data/profileHooks";
 import { navItems } from ".";
+import { useAuth } from "@lib/auth/ui";
 type ProfileInput = {
   firstName: string;
   lastName: string;
@@ -34,6 +35,7 @@ type ProfileInput = {
 export const ProfilePage = () => {
   const { t, lang } = useTranslation("account");
   const { data: profile, refetch } = useProfile();
+  const { data: user } = useAuth();
   const profileMutation = useUpdateProfile();
   const {
     register,
@@ -45,10 +47,7 @@ export const ProfilePage = () => {
   useEffect(() => {
     setValue("firstName", profile ? profile.firstName : "");
     setValue("lastName", profile ? profile.lastName : "");
-    setValue("firstNameEng", profile ? profile.firstNameEng : "");
-    setValue("lastNameEng", profile ? profile.lastNameEng : "");
-    setValue("birthDate", profile ? profile.birthDate : null);
-    setValue("sex", profile ? profile.sex : "");
+    setValue("emailAddress", user?.email || "");
   }, [setValue, profile]);
 
   const onSubmit = handleSubmit((p) => {
@@ -91,19 +90,6 @@ export const ProfilePage = () => {
           <chakra.form>
             <Text size="sm">{t("profile-hint")}</Text>
             <Flex flex={1} gap={10} flexWrap={"wrap"} flexDir={"column"}>
-              <FormControl id="country" isInvalid={!!errors.country} flex={1}>
-                <FormLabel>{t("country-of-residence")}</FormLabel>
-                <Select
-                  {...register("country", { required: "Country is required" })}
-                >
-                  <option value="mn" selected>
-                    Mongolia
-                  </option>
-                </Select>
-                <FormErrorMessage>
-                  {errors.country && errors.country.message}
-                </FormErrorMessage>
-              </FormControl>
               <FormControl
                 id="first-name"
                 isInvalid={!!errors.firstName}
@@ -131,41 +117,6 @@ export const ProfilePage = () => {
                 </FormErrorMessage>
               </FormControl>
 
-              <FormControl id="firstNameEng" isInvalid={!!errors.firstNameEng}>
-                <FormLabel>{t("first-name-eng")}</FormLabel>
-                <Input
-                  type="text"
-                  autoComplete="off"
-                  {...register("firstNameEng", {
-                    required: "This is required",
-                  })}
-                />
-                <FormErrorMessage>
-                  {errors.firstNameEng && errors.firstNameEng.message}
-                </FormErrorMessage>
-              </FormControl>
-              <FormControl id="lastNameEng" isInvalid={!!errors.lastNameEng}>
-                <FormLabel>{t("last-name-eng")}</FormLabel>
-                <Input
-                  type="text"
-                  autoComplete="off"
-                  {...register("lastNameEng", { required: "This is required" })}
-                />
-                <FormErrorMessage>
-                  {errors.lastNameEng && errors.lastNameEng.message}
-                </FormErrorMessage>
-              </FormControl>
-              <FormControl id="phone-number" isInvalid={!!errors.phoneNumber}>
-                <FormLabel>{t("phone-number")}</FormLabel>
-                <Input
-                  type="text"
-                  autoComplete="phoneNumber"
-                  {...register("phoneNumber", { required: "This is required" })}
-                />
-                <FormErrorMessage>
-                  {errors.phoneNumber && errors.phoneNumber.message}
-                </FormErrorMessage>
-              </FormControl>
               <FormControl id="emailAddress" isInvalid={!!errors.emailAddress}>
                 <FormLabel>{t("email-address")}</FormLabel>
                 <Input
@@ -177,30 +128,6 @@ export const ProfilePage = () => {
                 />
                 <FormErrorMessage>
                   {errors.emailAddress && errors.emailAddress.message}
-                </FormErrorMessage>
-              </FormControl>
-              <FormControl id="birthDate" isInvalid={!!errors.birthDate}>
-                <FormLabel>{t("birth-date")}</FormLabel>
-                <Input
-                  type="date"
-                  autoComplete="birthDate"
-                  {...register("birthDate", { required: "This is required" })}
-                />
-                <FormErrorMessage>
-                  {errors.birthDate && errors.birthDate.message}
-                </FormErrorMessage>
-              </FormControl>
-              <FormControl id="sex" isInvalid={!!errors.birthDate}>
-                <FormLabel>{t("sex")}</FormLabel>
-                <Select
-                  placeholder="Select sex"
-                  {...register("sex", { required: "This is required" })}
-                >
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </Select>
-                <FormErrorMessage>
-                  {errors.sex && errors.sex.message}
                 </FormErrorMessage>
               </FormControl>
             </Flex>

@@ -1,29 +1,155 @@
-import NextLink from "next/link";
+import {
+  Button,
+  Checkbox,
+  Flex,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+  Text,
+  Link,
+  Stack,
+  Image,
+  Box,
+  FormErrorMessage,
+  IconButton,
+  InputGroup,
+  InputRightElement,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { useLogin } from "@lib/auth/data/authHooks";
+import { toaster } from "@ui/index";
+import { Header } from "@ui/components/Header";
 import useTranslation from "next-translate/useTranslation";
-import { SEO, Center, Link } from "@ui/index";
-import { AuthLayout } from "@lib/auth/ui";
-import { AuthForm } from "@lib/auth/ui/AuthForm";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { HiEyeOff, HiEye } from "react-icons/hi";
+type FormValues = {
+  email: string;
+  password: string;
+};
+export default function LoginPage() {
+  const { t: ta } = useTranslation("auth");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>();
+  const loginMutation = useLogin();
+  const router = useRouter();
+  const { isOpen, onToggle } = useDisclosure();
 
-const LoginPage = () => {
-  const { t } = useTranslation("auth");
-
+  const onSubmit = handleSubmit((authInput) => {
+    loginMutation.mutate(authInput, {
+      onError: (error: any) => {
+        toaster.error(ta(error.translationKey));
+      },
+      onSuccess: (user) => {
+        //onst nextPath: string = router.query.redirectTo
+        // ? router.query.redirectTo.toString()
+        // : defaultPaths[user.role];
+        router.push("/");
+      },
+    });
+  });
   return (
     <>
-      <SEO title={t("login")} />
-      <AuthLayout
-        header={t("login-header")}
-        footer={
-          <Center>
-            <NextLink href="/auth/signup">
-              <Link>{t("create-new-account")}</Link>
-            </NextLink>
-          </Center>
-        }
-      >
-        <AuthForm type="login"/>
-      </AuthLayout>
+      <Header />
+      <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
+        <Flex p={8} flex={1} align={"center"} justify={"center"}>
+          <Stack spacing={4} w={"full"} maxW={"md"}>
+            <Heading fontSize={"2xl"}>Sign in to your account</Heading>
+            <FormControl id="email" isInvalid={!!errors.email}>
+              <FormLabel>Email address</FormLabel>
+              <Input
+                type="email"
+                autoComplete="email"
+                {...register("email", {
+                  required: "This is required",
+                })}
+              />
+              <FormErrorMessage>
+                {errors.email && errors.email.message}
+              </FormErrorMessage>
+            </FormControl>
+            <FormControl id="password" isInvalid={!!errors.password}>
+              <FormLabel>Password</FormLabel>
+              <InputGroup>
+                <Input
+                  type={isOpen ? "text" : "password"}
+                  autoComplete="current-password"
+                  required
+                  {...register("password", {
+                    required: "This is required",
+                    minLength: {
+                      value: 8,
+                      message: "Minimum length should be 8",
+                    },
+                  })}
+                />
+                <InputRightElement>
+                  <IconButton
+                    bg="transparent !important"
+                    variant="ghost"
+                    aria-label={isOpen ? "Mask password" : "Reveal password"}
+                    icon={isOpen ? <HiEyeOff /> : <HiEye />}
+                    onClick={onToggle}
+                  />
+                </InputRightElement>
+              </InputGroup>
+              <FormErrorMessage>
+                {errors.password && errors.password.message}
+              </FormErrorMessage>
+            </FormControl>
+            <Stack spacing={6}>
+              <Stack
+                direction={{ base: "column", sm: "row" }}
+                align={"start"}
+                justify={"space-between"}
+              >
+                <Checkbox>Remember me</Checkbox>
+                <Link color={"blue.500"}>Forgot password?</Link>
+              </Stack>
+              <Button onClick={onSubmit} colorScheme={"blue"} variant={"solid"}>
+                Sign in
+              </Button>
+            </Stack>
+            <Stack pt={6}>
+              <Text align={"center"}>
+                Do not have account?{" "}
+                <Link href="/auth/signup" color={"blue.400"}>
+                  Sign up
+                </Link>
+              </Text>
+            </Stack>
+          </Stack>
+        </Flex>
+        <Flex
+          flex={1}
+          backgroundPosition="center"
+          backgroundRepeat={"no-repeat"}
+          backgroundImage="url(https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80)"
+        >
+          <Flex
+            marginX={"auto"}
+            h="min-content"
+            p="6"
+            rounded="lg"
+            mt="24"
+            bg="rgba(0,0,0,0.3)"
+          >
+            <Image src="/hero_text.png" h="200px" />
+          </Flex>
+
+          {/* <Image
+          alt={"Login Image"}
+          objectFit={"cover"}
+          src={
+            "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80"
+          }
+        /> */}
+        </Flex>
+      </Stack>
     </>
   );
-};
-
-export default LoginPage;
+}

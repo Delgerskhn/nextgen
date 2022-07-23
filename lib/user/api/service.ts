@@ -2,6 +2,7 @@ import { compare, hash } from "bcryptjs";
 import { prisma } from "@api/prisma";
 import { String } from "aws-sdk/clients/cloudtrail";
 import { getCurrentDate } from "@api/currentDate";
+import { SignupInput } from "@lib/auth/data/types";
 
 const saltRounds = 10;
 
@@ -100,11 +101,25 @@ export const getUserById = async (id: string) => {
     select: defaultSelect,
   });
 };
-export const createUser = async (email: string, password: string) => {
-  
+export const createUser = async ({
+  email,
+  password,
+  firstName,
+  lastName,
+}: SignupInput) => {
+  console.log("Password here:", password);
   const passwordDigest = await hash(password, saltRounds);
   return prisma.user.create({
-    data: { email, passwordDigest },
+    data: {
+      email,
+      passwordDigest,
+      profile: {
+        create: {
+          firstName,
+          lastName,
+        },
+      },
+    },
     select: defaultSelect,
   });
 };
