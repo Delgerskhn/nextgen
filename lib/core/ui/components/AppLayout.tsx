@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
-import { useBreakpointValue } from "@chakra-ui/react";
+import { Box, useBreakpointValue } from "@chakra-ui/react";
 import { useCurrentUser } from "@lib/auth/data/authHooks";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -32,7 +32,11 @@ export const AppLayout = ({
   return (
     <>
       <Header />
-      {children}
+      <Box as="main" display="flex" px="6">
+        <Box maxW={contentWidth} mx="auto" w="full">
+          {children}
+        </Box>
+      </Box>
       <Footer />
     </>
   );
