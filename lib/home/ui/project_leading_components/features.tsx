@@ -46,7 +46,7 @@ export const CountryFeatures = () => {
 export const GreenDevelopFeatures = () => {
   return (
     <Box p={4}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+      <SimpleGrid columns={{ base: 1 }} spacing={10}>
         <Feature
           icon={<Icon as={FcAssistant} w={10} h={10} />}
           title={"БАЙГАЛЬ ОРЧИН"}
@@ -60,7 +60,7 @@ export const GreenDevelopFeatures = () => {
 export const GovernmentBuilt = () => {
   return (
     <Box p={4}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+      <SimpleGrid columns={{ base: 1 }} spacing={10}>
         <Feature
           icon={<Icon as={FcAssistant} w={10} h={10} />}
           title={"ТӨРИЙН БҮТЭЭМЖ"}

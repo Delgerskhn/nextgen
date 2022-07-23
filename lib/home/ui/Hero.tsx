@@ -33,35 +33,7 @@ export function Hero() {
           bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
         >
           <Stack maxW={"2xl"} align={"flex-start"} spacing={6}>
-            {/* <Heading
-            color={"white"}
-            as="h1"
-            size="4xl"
-            fontWeight={700}
-            lineHeight={1.2}
-            // fontSize={useBreakpointValue({ base: "3xl", md: "4xl" })}
-          >
-            Шинэ сэргэлт
-          </Heading> */}
             <Image src="/hero_text.png" />
-            <Stack direction={"row"}>
-              {/* <Button
-              bg={"blue.400"}
-              rounded={"full"}
-              color={"white"}
-              _hover={{ bg: "blue.500" }}
-            >
-              Show me more
-            </Button>
-            <Button
-              bg={"whiteAlpha.300"}
-              rounded={"full"}
-              color={"white"}
-              _hover={{ bg: "whiteAlpha.500" }}
-            >
-              Show me more
-            </Button> */}
-            </Stack>
           </Stack>
         </VStack>
       </Flex>
@@ -69,8 +41,9 @@ export function Hero() {
         <Text
           // fontWeight={"bold"}
           color="gray.900"
-          fontSize="xl"
+          fontSize="lg"
           textAlign={"center"}
+          lineHeight="8"
         >
           Шинэ сэргэлт (NextGen) төслийн уралдаан нь Монгол Улсын иргэдийн аж
           амьдралд бодитоор тулгамдаж буй хөгжлийн асуудлуудыг залуучуудын

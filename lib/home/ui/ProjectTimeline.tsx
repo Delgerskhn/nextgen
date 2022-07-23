@@ -24,7 +24,17 @@ export const ProjectTimeline = () => {
   return (
     <Box maxW={"container.xl"} mx="auto" w="full">
       <VStack>
-        <Heading size="xl" mt="16" mb="6">
+        <Heading
+          size="xl"
+          w="50%"
+          textAlign={"center"}
+          bg="#013365"
+          color={"white"}
+          fontFamily={"NotoSans"}
+          mt="16"
+          mb="6"
+          py={10}
+        >
           Үе шатууд
         </Heading>
         <SimpleThreeColumns />
@@ -45,16 +55,20 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
       bg="gray.50"
       rounded={"md"}
       border={"1px solid "}
-      borderColor="yellow.700"
+      borderColor="#013365"
       boxShadow="xl"
       p="6"
+      _hover={{
+        transform: "translateY(-20px)",
+        transition: "0.5s",
+      }}
     >
       <Flex
         w={16}
         h={16}
         align={"center"}
         justify={"center"}
-        color={"white"}
+        color={"#013365"}
         rounded={"full"}
         bg={"gray.100"}
         mb={1}
@@ -72,7 +86,7 @@ export default function SimpleThreeColumns() {
     <Box p={4}>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         <Feature
-          icon={<Icon color="gray.600" as={RiNumber1} w={10} h={10} />}
+          icon={<Icon color="#013365" as={RiNumber1} w={10} h={10} />}
           title={"Сонгон шалгаруулалт"}
           text={`Оролцогчдыг сонгон 
             шалгаруулхад харьяа 
@@ -82,28 +96,28 @@ export default function SimpleThreeColumns() {
             ажиллах`}
         />
         <Feature
-          icon={<Icon color="gray.600" as={RiNumber2} w={10} h={10} />}
+          icon={<Icon color="#013365" as={RiNumber2} w={10} h={10} />}
           title={"Асуудлыг задлан шинжлэх"}
           text={
             "Ирүүлсэн асуудалд дүн шинжилгээ хийх. Problem diagnostic. System analysis."
           }
         />
         <Feature
-          icon={<Icon color="gray.600" as={RiNumber3} w={10} h={10} />}
+          icon={<Icon color="#013365" as={RiNumber3} w={10} h={10} />}
           title={"Шийдлийг бататгах"}
           text={`Шийдлээ баталгаажуулж бүрэн хэмжээний 
             төсөл боловсруулж 
             хөрөнгө босгоно.`}
         />
         <Feature
-          icon={<Icon color="gray.600" as={RiNumber4} w={10} h={10} />}
+          icon={<Icon color="#013365" as={RiNumber4} w={10} h={10} />}
           title={"Шийдлийг хэрэгжүүлэх"}
           text={
             "Төслийг хэрэгжүүлж явцыг Web Portal үүсгэн хянаж явцын тайлан тавьна."
           }
         />
         <Feature
-          icon={<Icon color="gray.600" as={RiNumber5} w={10} h={10} />}
+          icon={<Icon color="#013365" as={RiNumber5} w={10} h={10} />}
           title={"Дүгнэлт"}
           text={`Шилдэг төслийг 
             шалгаруулан 

@@ -8,8 +8,9 @@ import {
   Tabs,
   VStack,
   SimpleGrid,
+  Icon,
 } from "@chakra-ui/react";
-
+import { GiRadarCrossSection } from "react-icons/gi";
 import {
   CountryFeatures,
   GovernmentBuilt,
@@ -19,15 +20,30 @@ import {
 export const ProjectLeadingSectors = () => {
   return (
     <Box maxW={"container.xl"} mx="auto" w="full">
-      <VStack>
-        <Heading size="xl" mt="16" mb="6">
-          Төслийн тэргүүлэх чиглэл
+      <VStack w={"full"}>
+        <Heading
+          w="50%"
+          textAlign={"center"}
+          bg="#013365"
+          color={"white"}
+          size="xl"
+          mt="16"
+          mb="6"
+          fontFamily={"NotoSans"}
+          py={10}
+        >
+          <Icon as={GiRadarCrossSection} /> Төслийн тэргүүлэх чиглэл
         </Heading>
-        <Tabs size="lg" variant="enclosed" align="center">
-          <TabList>
+        <Tabs w={"full"} size="lg" variant="enclosed" align="center" minH={408}>
+          <TabList borderColor={"#013365"} _active={{ color: "#013365" }}>
             <Tab
               _focus={{
                 outline: "none",
+              }}
+              className="active-tab"
+              _active={{
+                borderColor: "#013365",
+                color: "#013365",
               }}
             >
               Хот хөдөөгийн сэргэлт
@@ -36,6 +52,10 @@ export const ProjectLeadingSectors = () => {
               _focus={{
                 outline: "none",
               }}
+              className="active-tab"
+              _active={{
+                borderColor: "#013365",
+              }}
             >
               Ногоон хөгжлийн сэргэлт
             </Tab>
@@ -43,11 +63,15 @@ export const ProjectLeadingSectors = () => {
               _focus={{
                 outline: "none",
               }}
+              className="active-tab"
+              _active={{
+                borderColor: "#013365",
+              }}
             >
               Төрийн бүтээмжийн сэргэлт
             </Tab>
           </TabList>
-          <TabPanels>
+          <TabPanels px={20}>
             <TabPanel>
               <CountryFeatures />
             </TabPanel>

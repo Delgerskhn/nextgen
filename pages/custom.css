@@ -30,11 +30,15 @@ body {
 
 .active-menu-item > hr {
     width: 0px;
-    transition: 1.5s;
+    transition: 1s;
 }
 .active-menu-item:hover > hr { 
     transition: 500ms;
     width : 100%
 }
 
-
+.active-tab:focus {
+    color : "#013365" !important;
+    font-weight: bold;
+    border-color: "#013365" !important;
+}
