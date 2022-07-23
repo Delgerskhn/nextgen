@@ -1,10 +1,39 @@
 
+@font-face {
+    font-family: 'NotoSans';
+    src : url('../assets/fonts/NotoSans-Bold.ttf');
+    src : url('../assets/fonts/NotoSans-BoldItalic.ttf');
+    src : url('../assets/fonts/NotoSans-Light.ttf');
+    src : url('../assets/fonts/NotoSans-Medium.ttf');
+    src : url('../assets/fonts/NotoSans-Regular.ttf');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Helvetica';
+    src: url("../assets/fonts/Helvetica.ttc");
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat-Bold.ttf');
+    src: url('../assets/fonts/Montserrat-ExtraBoldItalic.ttf');
+    src: url('../assets/fonts/Montserrat-Medium.ttf');
+    src: url('../assets/fonts/Montserrat-Regular.ttf');
+    src: url('../assets/fonts/Montserrat-SemiBold.ttf');
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'NotoSans' !important;
+}
+
 .active-menu-item > hr {
     width: 0px;
     transition: 1.5s;
 }
 .active-menu-item:hover > hr { 
-    transition: 1s;
+    transition: 500ms;
     width : 100%
 }
 

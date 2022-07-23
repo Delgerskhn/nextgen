@@ -44,7 +44,7 @@ export const ProjectLeadingSectors = () => {
                 outline: "none",
               }}
             >
-              Төрийн бүтээлт
+              Төрийн бүтээмжийн сэргэлт
             </Tab>
           </TabList>
           <TabPanels>

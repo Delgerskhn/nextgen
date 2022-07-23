@@ -8,7 +8,7 @@ export const CountryFeatures = () => {
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         <Feature
           icon={<Icon as={FcAssistant} w={10} h={10} />}
-          title={"Боловсрол"}
+          title={"БОЛОВСРОЛ"}
           texts={[
             "Хувь хүний хөгжил",
             "Цэцэрлэг, бага, дунд, ахлах сургууль",
@@ -19,7 +19,7 @@ export const CountryFeatures = () => {
         />
         <Feature
           icon={<Icon as={FcDonate} w={10} h={10} />}
-          title={"Эрүүл мэнд"}
+          title={"ЭРҮҮЛ МЭНД"}
           texts={[
             "Эмнэлэг үйлчилгээ",
             "Нийгмийн эрүүл мэнд",
@@ -31,7 +31,7 @@ export const CountryFeatures = () => {
         />
         <Feature
           icon={<Icon as={FcInTransit} w={10} h={10} />}
-          title={"Хөдөлмөр эрхлэлт,амьдрах орчин"}
+          title={"Хөдөлмөр эрхлэлт,амьдрах орчин".toUpperCase()}
           texts={[
             "Амьдрах орчныг сайжруулах",
             "Хөдөлмөр эрхлэлтийн орчин нөхцөл",
@@ -49,7 +49,7 @@ export const GreenDevelopFeatures = () => {
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         <Feature
           icon={<Icon as={FcAssistant} w={10} h={10} />}
-          title={"Байгаль орчин"}
+          title={"БАЙГАЛЬ ОРЧИН"}
           texts={["Дахин боловсруулалт", "Нөхөн сэргээлт", "Аялал жуулчлал"]}
         />
       </SimpleGrid>
@@ -63,7 +63,7 @@ export const GovernmentBuilt = () => {
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         <Feature
           icon={<Icon as={FcAssistant} w={10} h={10} />}
-          title={"Lifetime Support"}
+          title={"ТӨРИЙН БҮТЭЭМЖ"}
           texts={[
             "Төрийн үйлчилгээ",
             "Төрийн хяналт",
