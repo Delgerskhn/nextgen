@@ -77,12 +77,12 @@ export const Header = () => {
             Sign In
           </Button>
           <Button
-            display={{ base: "none", md: "inline-flex" }}
+            as="a"
             fontSize={"sm"}
             fontWeight={600}
             color={"white"}
             bg={"pink.400"}
-            href={"#"}
+            href={"/auth/signup"}
             _hover={{
               bg: "pink.300",
             }}
