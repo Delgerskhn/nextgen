@@ -35,19 +35,8 @@ export const Header = () => {
         align={"center"}
         justifyContent={"space-between"}
       >
-<<<<<<< HEAD
         <Flex>
           <Image src="/logo.png" w="12" />
-=======
-        <Flex justify={{ base: "center", md: "start" }} flex={0}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"Helvetica"}
-            color={useColorModeValue("gray.800", "white")}
-          >
-            Logo
-          </Text>
->>>>>>> c3688590e3357c706afc6748b44c17beeaa6c409
         </Flex>
         <Stack direction={"row"} spacing={16}>
           <DesktopNav />
