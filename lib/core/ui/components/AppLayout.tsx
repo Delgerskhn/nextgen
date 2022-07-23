@@ -32,11 +32,7 @@ export const AppLayout = ({
   return (
     <>
       <Header />
-      <Box as="main" display="flex" px="6">
-        <Box maxW={contentWidth} mx="auto" w="full">
-          {children}
-        </Box>
-      </Box>
+      {children}
       <Footer />
     </>
   );

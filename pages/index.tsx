@@ -1,6 +1,15 @@
 import NextLink from "next/link";
 import useTranslation from "next-translate/useTranslation";
-import { SEO, Flex, Link, HStack, Center, AppLayout, Button } from "@ui/index";
+import {
+  SEO,
+  Flex,
+  Link,
+  HStack,
+  Center,
+  AppLayout,
+  Button,
+  Box,
+} from "@ui/index";
 import { useCurrentUser, useLogout } from "@lib/auth/data/authHooks";
 import { Hero } from "@lib/home/ui/Hero";
 import { ProjectLeadingSectors } from "@lib/home/ui/ProjectLeadingSectors";
