@@ -33,28 +33,10 @@ export const Header = () => {
         align={"center"}
         justifyContent={"space-between"}
       >
-        {/* <Flex
-          flex={{ base: 1, md: "auto" }}
-          ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-        >
-          <IconButton
-            onClick={onToggle}
-            icon={
-              isOpen ? (
-                <Text w={3} h={3} value="Opened" />
-              ) : (
-                <Text w={5} h={5} value="closed" />
-              )
-            }
-            variant={"ghost"}
-            aria-label={"Toggle Navigation"}
-          />
-        </Flex> */}
         <Flex justify={{ base: "center", md: "start" }} flex={0}>
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
+            fontFamily={"Helvetica"}
             color={useColorModeValue("gray.800", "white")}
           >
             Logo

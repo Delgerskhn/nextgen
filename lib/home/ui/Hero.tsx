@@ -67,7 +67,7 @@ export function Hero() {
       </Flex>
       <VStack bg="gray.50" p="6" px="12">
         <Text
-          fontWeight={"bold"}
+          // fontWeight={"bold"}
           color="gray.900"
           fontSize="xl"
           textAlign={"center"}
@@ -78,10 +78,10 @@ export function Hero() {
           оновчтой тодорхойлж, шийдлийг хэрэгжүүлэх төслийн уралдаан бөгөөд
           чадавхжуулах арга хэмжээ юм.
         </Text>
-        <Link color="blue.400" href="#" display="flex" alignItems={"center"}>
+        {/* <Link color="blue.400" href="#" display="flex" alignItems={"center"}>
           Дэлгэрэнгүй
           <Icon as={BsChevronRight} />
-        </Link>
+        </Link> */}
       </VStack>
     </>
   );
