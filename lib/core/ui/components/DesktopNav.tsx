@@ -9,6 +9,7 @@ import {
   PopoverContent,
   Flex,
   Icon,
+  Divider,
 } from "@chakra-ui/react";
 import { BsChevronRight } from "react-icons/bs";
 import { NavItem, NAV_ITEMS } from "./NavItem";
@@ -16,30 +17,39 @@ import { NavItem, NAV_ITEMS } from "./NavItem";
 export const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
-  const popoverContentBgColor = useColorModeValue("white", "gray.800");
-
   return (
-    <Stack direction={"row"} spacing={4}>
+    <Stack direction={"row"} alignItems="center" spacing={30}>
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label}>
-          <Popover trigger={"hover"} placement={"bottom-start"}>
-            <PopoverTrigger>
-              <Link
-                p={2}
-                href={navItem.href ?? "#"}
-                fontSize={"sm"}
-                fontWeight={500}
-                color={linkColor}
-                _hover={{
-                  textDecoration: "none",
-                  color: linkHoverColor,
-                }}
-              >
-                {navItem.label}
-              </Link>
-            </PopoverTrigger>
+        <Box
+          key={navItem.label}
+          className="active-menu-item"
+          position={"relative"}
+        >
+          <Link
+            outline={"none"}
+            p={2}
+            href={navItem.href ?? "#"}
+            fontSize={"medium"}
+            fontWeight="semi-bold"
+            color={linkColor}
+            _hover={{
+              textDecoration: "none",
+              color: linkHoverColor,
+            }}
+            _focus={{ border: 0, outline: "none" }}
+          >
+            {navItem.label}
+          </Link>
+          <Divider bg="GrayText" h={1} bottom={-2} position="absolute" />
+          {/* <Divider
+            className={"active-menu-item mt-2"}
+            borderWidth={1}
+            w={0}
+            borderRadius={10}
+            __css={{}}
+          /> */}
 
-            {navItem.children && (
+          {/* {navItem.children && (
               <PopoverContent
                 border={0}
                 boxShadow={"xl"}
@@ -54,8 +64,7 @@ export const DesktopNav = () => {
                   ))}
                 </Stack>
               </PopoverContent>
-            )}
-          </Popover>
+            )} */}
         </Box>
       ))}
     </Stack>

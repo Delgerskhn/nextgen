@@ -1,36 +1,54 @@
-import { Flex, Box, HStack, useColorModeValue, Text } from "@chakra-ui/react";
-import Link from "next/link";
+import {
+  Flex,
+  Box,
+  HStack,
+  useColorModeValue,
+  Text,
+  Stack,
+  Link,
+} from "@chakra-ui/react";
+import { useLayoutBreakPointValue } from "@lib/core/data/layout_break_point_value";
+import { NAV_ITEMS } from "./NavItem";
 
 export const Footer = ({
   contentWidth = "container.xl",
 }: {
   contentWidth?: string;
 }) => {
+  const variant = useLayoutBreakPointValue();
   return (
     <Flex as="footer">
-      <Box maxW={contentWidth} mx="auto" w="full">
-        <HStack h="full">
-          <Box display={{ base: "none", lg: "flex" }} width={60} />
+      <Box w="full">
+        <HStack
+          h="full"
+          borderTopWidth="1px"
+          borderTopColor={useColorModeValue("gray.200", "gray.800")}
+        >
+          {/* <Box display={{ base: "none", lg: "flex" }} width={60} /> */}
           <Box
             flex="1"
             h="full"
             color={useColorModeValue("gray.200", "gray.800")}
-            borderTopWidth="1px"
-            borderTopColor={useColorModeValue("gray.200", "gray.800")}
-            p={6}
+            px={variant}
+            py={5}
           >
-            <Text as="span">Footer</Text>
-            <Link href="/privacy-policy" passHref>
-              <Box as="a" textDecoration="underline" mx={2}>
-                <Text as="span">privacy policy</Text>
+            <Stack direction={"row"} justifyContent="center" spacing={70}>
+              {NAV_ITEMS.map((el, i) => {
+                return (
+                  <Link fontSize={14} color={"gray.500"}>
+                    {el.label}
+                  </Link>
+                );
+              })}
+            </Stack>
+            <Stack direction="row" justifyContent={"center"} mt={5}>
+              <Box textAlign={"center"} color={"gray.500"} fontSize={14}>
+                <Text>Copyright © 2022 All Rights Reserved - Nextgen</Text>
+                <Text>
+                  Powered By <b> 3GROUP</b>
+                </Text>
               </Box>
-            </Link>
-            •
-            <Link href="/terms-of-service" passHref>
-              <Box as="a" textDecoration="underline" mx={2}>
-                <Text as="span">terms of service</Text>
-              </Box>
-            </Link>
+            </Stack>
           </Box>
         </HStack>
       </Box>
