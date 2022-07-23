@@ -16,15 +16,43 @@ import {
   InputGroup,
   InputRightElement,
   IconButton,
+  FormErrorMessage,
 } from "@chakra-ui/react";
+import { useSignup } from "@lib/auth/data/authHooks";
+import { toaster } from "@ui/index";
 import { Header } from "@ui/components/Header";
+import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { BsEye, BsToggleOff } from "react-icons/bs";
 import { HiEyeOff, HiEye } from "react-icons/hi";
+import { SignupInput } from "@lib/auth/data/types";
 
-export default function LoginPage() {
+export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const signupMutation = useSignup();
+  const { t: ta } = useTranslation("auth");
+  const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignupInput>();
 
+  const onSubmit = handleSubmit((authInput) => {
+    signupMutation.mutate(authInput, {
+      onError: (error: any) => {
+        toaster.error(ta(error.translationKey));
+      },
+      onSuccess: (user) => {
+        //onst nextPath: string = router.query.redirectTo
+        // ? router.query.redirectTo.toString()
+        // : defaultPaths[user.role];
+        router.push("/");
+      },
+    });
+  });
   return (
     <>
       <Header />
@@ -38,35 +66,73 @@ export default function LoginPage() {
               to enjoy all of our cool features ✌️
             </Text>
           </Stack>
-          <Box
-            rounded={"lg"}
-            bg={useColorModeValue("white", "gray.700")}
-            boxShadow={"lg"}
-            p={8}
-          >
+          <Box rounded={"lg"} boxShadow={"lg"} p={8}>
             <Stack spacing={4}>
               <HStack>
                 <Box>
-                  <FormControl id="firstName" isRequired>
+                  <FormControl
+                    id="firstName"
+                    isRequired
+                    isInvalid={!!errors.firstName}
+                  >
                     <FormLabel>First Name</FormLabel>
-                    <Input type="text" />
+                    <Input
+                      type="text"
+                      {...register("firstName", {
+                        required: "This is required",
+                      })}
+                    />
+                    <FormErrorMessage>
+                      {errors.firstName && errors.firstName.message}
+                    </FormErrorMessage>
                   </FormControl>
                 </Box>
                 <Box>
-                  <FormControl id="lastName">
+                  <FormControl id="lastName" isInvalid={!!errors.lastName}>
                     <FormLabel>Last Name</FormLabel>
-                    <Input type="text" />
+                    <Input
+                      type="text"
+                      {...register("lastName", {
+                        required: "This is required",
+                      })}
+                    />
+                    <FormErrorMessage>
+                      {errors.lastName && errors.lastName.message}
+                    </FormErrorMessage>
                   </FormControl>
                 </Box>
               </HStack>
-              <FormControl id="email" isRequired>
+              <FormControl id="email" isRequired isInvalid={!!errors.email}>
                 <FormLabel>Email address</FormLabel>
-                <Input type="email" />
+                <Input
+                  type="email"
+                  {...register("email", {
+                    required: "This is required",
+                  })}
+                />
+                <FormErrorMessage>
+                  {errors.email && errors.email.message}
+                </FormErrorMessage>
               </FormControl>
-              <FormControl id="password" isRequired>
+              <FormControl
+                id="password"
+                isRequired
+                isInvalid={!!errors.password}
+              >
                 <FormLabel>Password</FormLabel>
                 <InputGroup>
-                  <Input type={showPassword ? "text" : "password"} />
+                  <Input
+                    type={showPassword ? "text" : "password"}
+                    autoComplete="current-password"
+                    required
+                    {...register("password", {
+                      required: "This is required",
+                      minLength: {
+                        value: 8,
+                        message: "Minimum length should be 8",
+                      },
+                    })}
+                  />
                   <InputRightElement>
                     <IconButton
                       bg="transparent !important"
@@ -81,12 +147,16 @@ export default function LoginPage() {
                     />
                   </InputRightElement>
                 </InputGroup>
+                <FormErrorMessage>
+                  {errors.password && errors.password.message}
+                </FormErrorMessage>
               </FormControl>
               <Stack spacing={10} pt={2}>
                 <Button
                   loadingText="Submitting"
                   size="lg"
                   bg={"blue.400"}
+                  onClick={onSubmit}
                   color={"white"}
                   _hover={{
                     bg: "blue.500",

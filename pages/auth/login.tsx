@@ -6,14 +6,52 @@ import {
   FormLabel,
   Heading,
   Input,
+  Text,
   Link,
   Stack,
   Image,
   Box,
+  FormErrorMessage,
+  IconButton,
+  InputGroup,
+  InputRightElement,
+  useDisclosure,
 } from "@chakra-ui/react";
+import { useLogin } from "@lib/auth/data/authHooks";
+import { toaster } from "@ui/index";
 import { Header } from "@ui/components/Header";
-
+import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { HiEyeOff, HiEye } from "react-icons/hi";
+type FormValues = {
+  email: string;
+  password: string;
+};
 export default function LoginPage() {
+  const { t: ta } = useTranslation("auth");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>();
+  const loginMutation = useLogin();
+  const router = useRouter();
+  const { isOpen, onToggle } = useDisclosure();
+
+  const onSubmit = handleSubmit((authInput) => {
+    loginMutation.mutate(authInput, {
+      onError: (error: any) => {
+        toaster.error(ta(error.translationKey));
+      },
+      onSuccess: (user) => {
+        //onst nextPath: string = router.query.redirectTo
+        // ? router.query.redirectTo.toString()
+        // : defaultPaths[user.role];
+        router.push("/");
+      },
+    });
+  });
   return (
     <>
       <Header />
@@ -21,13 +59,47 @@ export default function LoginPage() {
         <Flex p={8} flex={1} align={"center"} justify={"center"}>
           <Stack spacing={4} w={"full"} maxW={"md"}>
             <Heading fontSize={"2xl"}>Sign in to your account</Heading>
-            <FormControl id="email">
+            <FormControl id="email" isInvalid={!!errors.email}>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input
+                type="email"
+                autoComplete="email"
+                {...register("email", {
+                  required: "This is required",
+                })}
+              />
+              <FormErrorMessage>
+                {errors.email && errors.email.message}
+              </FormErrorMessage>
             </FormControl>
-            <FormControl id="password">
+            <FormControl id="password" isInvalid={!!errors.password}>
               <FormLabel>Password</FormLabel>
-              <Input type="password" />
+              <InputGroup>
+                <Input
+                  type={isOpen ? "text" : "password"}
+                  autoComplete="current-password"
+                  required
+                  {...register("password", {
+                    required: "This is required",
+                    minLength: {
+                      value: 8,
+                      message: "Minimum length should be 8",
+                    },
+                  })}
+                />
+                <InputRightElement>
+                  <IconButton
+                    bg="transparent !important"
+                    variant="ghost"
+                    aria-label={isOpen ? "Mask password" : "Reveal password"}
+                    icon={isOpen ? <HiEyeOff /> : <HiEye />}
+                    onClick={onToggle}
+                  />
+                </InputRightElement>
+              </InputGroup>
+              <FormErrorMessage>
+                {errors.password && errors.password.message}
+              </FormErrorMessage>
             </FormControl>
             <Stack spacing={6}>
               <Stack
@@ -38,9 +110,17 @@ export default function LoginPage() {
                 <Checkbox>Remember me</Checkbox>
                 <Link color={"blue.500"}>Forgot password?</Link>
               </Stack>
-              <Button colorScheme={"blue"} variant={"solid"}>
+              <Button onClick={onSubmit} colorScheme={"blue"} variant={"solid"}>
                 Sign in
               </Button>
+            </Stack>
+            <Stack pt={6}>
+              <Text align={"center"}>
+                Do not have account?{" "}
+                <Link href="/auth/signup" color={"blue.400"}>
+                  Sign up
+                </Link>
+              </Text>
             </Stack>
           </Stack>
         </Flex>
