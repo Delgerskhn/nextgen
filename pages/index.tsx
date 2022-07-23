@@ -6,13 +6,14 @@ import { useCurrentUser, useLogout } from "@lib/auth/data/authHooks";
 const HomePage = () => {
   const { isLoggedIn, user, error } = useCurrentUser();
   const logoutMutation = useLogout();
-  console.log(error)
+  console.log(error);
   return (
     <>
       <SEO />
       <AppLayout>
         <Flex direction="column">
-          {error && <Center mb={3}>error</Center>}
+          asdf
+          {/* {error && <Center mb={3}>error</Center>}
           {!error && isLoggedIn && (
             <Center mb={3}>{user?.email}-р нэвтэрсэн байна.</Center>
           )}
@@ -30,7 +31,7 @@ const HomePage = () => {
                 </NextLink>
               </>
             )}
-          </HStack>
+          </HStack> */}
         </Flex>
       </AppLayout>
     </>

@@ -1,24 +1,7 @@
 import { ReactNode, useEffect, useState } from "react";
-import NextLink from "next/link";
-import {
-  Box,
-  Flex,
-  LinkBox,
-  Text,
-  HStack,
-  Heading,
-  useColorModeValue,
-  useBreakpointValue,
-} from "@ui/index";
+import { useBreakpointValue } from "@chakra-ui/react";
 import { useCurrentUser } from "@lib/auth/data/authHooks";
-import { Logo } from "./Logo";
-// import { MobileHamburgerMenu } from "./navigation/MobileHamburgerMenu";
-// import { NavMenu } from "./navigation/NavMenu";
-import { LanguageDropdown } from "./navigation/LanguageDropdown";
-import { NotificationDropdown } from "./navigation/NotificationDropdown";
-import { ThemeToggler } from "./navigation/ThemeToggler";
-// import { useMobileMenuState } from "./navigation/useMobileMenuState";
-import { TopRightMenu } from "./navigation/TopRightMenu";
+import { Header } from "./Header";
 import { Footer } from "./Footer";
 
 const roleToRootUrl = {
@@ -49,11 +32,7 @@ export const AppLayout = ({
   return (
     <>
       <Header />
-      <Box as="main" display="flex" px="6">
-        <Box maxW={contentWidth} mx="auto" w="full">
-          {children}
-        </Box>
-      </Box>
+      {children}
       <Footer />
     </>
   );
