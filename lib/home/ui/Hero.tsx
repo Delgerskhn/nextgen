@@ -66,11 +66,12 @@ export function Hero() {
         </VStack>
       </Flex>
       <VStack m="6" mx="12">
-        <Text fontWeight={"bold"} fontSize="2xl" textAlign={"center"}>
-          The Spikes Asia Awards, APAC's most prestigious creative
-          communications awards is now open for entries. These awards now serve
-          as the definitive benchmark for not only creative excellence, but also
-          marketing strategy and effectiveness in Asia-Pacific.
+        <Text fontWeight={"bold"} fontSize="xl" textAlign={"center"}>
+          Шинэ сэргэлт (NextGen) төслийн уралдаан нь Монгол Улсын иргэдийн аж
+          амьдралд бодитоор тулгамдаж буй хөгжлийн асуудлуудыг залуучуудын
+          оролцоо, бүтээлч санаачилга болон хамтын ажиллагаанд тулгуурлан
+          оновчтой тодорхойлж, шийдлийг хэрэгжүүлэх төслийн уралдаан бөгөөд
+          чадавхжуулах арга хэмжээ юм.
         </Text>
         <Link color="blue.400" href="#" display="flex" alignItems={"center"}>
           Дэлгэрэнгүй
