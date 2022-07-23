@@ -19,6 +19,7 @@ import { NotificationDropdown } from "./navigation/NotificationDropdown";
 import { ThemeToggler } from "./navigation/ThemeToggler";
 // import { useMobileMenuState } from "./navigation/useMobileMenuState";
 import { TopRightMenu } from "./navigation/TopRightMenu";
+import { Footer } from "./Footer";
 
 const roleToRootUrl = {
   STUDENT: "/",
@@ -47,92 +48,13 @@ export const AppLayout = ({
 
   return (
     <>
-      <Flex
-        as="header"
-        align="center"
-        px={6}
-        minH={{ base: 16, lg: 40 }}
-        borderBottomColor={{
-          base: useColorModeValue("gray.200", "gray.700"),
-          lg: "initial",
-        }}
-        borderBottomWidth={{ base: "1px", lg: "0px" }}
-      >
-        <Flex
-          justify="space-between"
-          align="center"
-          w="full"
-          maxW="container.xl"
-          mx="auto"
-        >
-          <LinkBox
-            href={`/${rootUrl}`}
-            box={true}
-            flexShrink={0}
-            mx={{ base: 0, lg: 10 }}
-          >
-            <Logo
-              w={{ base: "3.75em", lg: "7.5em" }}
-              color={{
-                base: useColorModeValue("blue.400", "gray.400"),
-                lg: useColorModeValue("gray.400", "gray.400"),
-              }}
-            />
-          </LinkBox>
-
-          <Flex display={{ base: "none", lg: "flex" }} w="full" pl={20}>
-            <Heading variant="main" size={"2xl"} fontWeight={"normal"}>
-              {title}
-            </Heading>
-          </Flex>
-
-          <HStack spacing="8">
-            <HStack
-              spacing="2"
-              display={!isMobile || menuOpen ? "flex" : "none"}
-            >
-              {isLoggedIn && <NotificationDropdown />}
-              <ThemeToggler />
-            </HStack>
-            <HStack spacing="1">
-              {<TopRightMenu setMenuOpen={setMenuOpen} user={user} />}
-            </HStack>
-          </HStack>
-        </Flex>
-      </Flex>
+      <Header />
       <Box as="main" display="flex" px="6">
         <Box maxW={contentWidth} mx="auto" w="full">
           {children}
         </Box>
       </Box>
-      <Flex as="footer">
-        <Box maxW={contentWidth} mx="auto" w="full">
-          <HStack h="full">
-            <Box display={{ base: "none", lg: "flex" }} width={60} />
-            <Box
-              flex="1"
-              h="full"
-              color={useColorModeValue("gray.200", "gray.800")}
-              borderTopWidth="1px"
-              borderTopColor={useColorModeValue("gray.200", "gray.800")}
-              p={6}
-            >
-              <Text as="span">Footer</Text>
-              <NextLink href="/privacy-policy" passHref>
-                <Box as="a" textDecoration="underline" mx={2}>
-                <Text as="span">privacy policy</Text>
-                </Box>
-              </NextLink>
-              •
-              <NextLink href="/terms-of-service" passHref>
-                <Box as="a" textDecoration="underline" mx={2}>
-                <Text as="span">terms of service</Text>
-                </Box>
-              </NextLink>
-            </Box>
-          </HStack>
-        </Box>
-      </Flex>
+      <Footer />
     </>
   );
 };
