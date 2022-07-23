@@ -17,7 +17,6 @@ import { ProjectTimeline } from "@lib/home/ui/ProjectTimeline";
 const HomePage = () => {
   const { isLoggedIn, user, error } = useCurrentUser();
   const logoutMutation = useLogout();
-  console.log(error);
   return (
     <>
       <SEO />
