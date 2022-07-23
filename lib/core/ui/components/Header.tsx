@@ -12,9 +12,12 @@ import {
 } from "@chakra-ui/react";
 import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
+import { AiOutlineUser } from "react-icons/ai";
+import { useLayoutBreakPointValue } from "@lib/core/data/layout_break_point_value";
 
 export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
+  const variant = useLayoutBreakPointValue();
 
   return (
     <Box>
@@ -22,14 +25,15 @@ export const Header = () => {
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
+        py={{ base: 5 }}
+        px={variant}
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
+        justifyContent={"space-between"}
       >
-        <Flex
+        {/* <Flex
           flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
           display={{ base: "flex", md: "none" }}
@@ -46,8 +50,8 @@ export const Header = () => {
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
           />
-        </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+        </Flex> */}
+        <Flex justify={{ base: "center", md: "start" }} flex={0}>
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
@@ -55,40 +59,17 @@ export const Header = () => {
           >
             Logo
           </Text>
-
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
-            <DesktopNav />
-          </Flex>
         </Flex>
-
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-        >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"/auth/login"}
-          >
-            Sign In
-          </Button>
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"pink.400"}
-            href={"#"}
-            _hover={{
-              bg: "pink.300",
-            }}
-          >
-            Sign Up
-          </Button>
+        <Stack direction={"row"} spacing={16}>
+          <DesktopNav />
+          <IconButton
+            size={"sm"}
+            as={AiOutlineUser}
+            bg="transparent"
+            variant={"ghost"}
+            onClick={() => {}}
+            aria-label={"User auth"}
+          />
         </Stack>
       </Flex>
 

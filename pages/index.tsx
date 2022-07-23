@@ -14,7 +14,6 @@ import { useCurrentUser, useLogout } from "@lib/auth/data/authHooks";
 import { Hero } from "@lib/home/ui/Hero";
 import { ProjectLeadingSectors } from "@lib/home/ui/ProjectLeadingSectors";
 import { ProjectTimeline } from "@lib/home/ui/ProjectTimeline";
-
 const HomePage = () => {
   const { isLoggedIn, user, error } = useCurrentUser();
   const logoutMutation = useLogout();

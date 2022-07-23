@@ -7,6 +7,7 @@ import { ChakraProvider, theme, ProgressBar } from "@ui/index";
 import { AuthProvider } from "@lib/auth/ui";
 import { queryClient } from "@util/query";
 import { initAnalytics, logPageView, logEvent } from "@util/analytics";
+import "./custom.css";
 
 import "@fontsource/inter";
 import "@fontsource/inter/500.css";
