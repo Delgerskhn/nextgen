@@ -41,7 +41,14 @@ interface FeatureProps {
 
 const Feature = ({ title, text, icon }: FeatureProps) => {
   return (
-    <Stack bg="gray.50" rounded={"md"} boxShadow="xl" p="6">
+    <Stack
+      bg="gray.50"
+      rounded={"md"}
+      border={"1px solid "}
+      borderColor="yellow.700"
+      boxShadow="xl"
+      p="6"
+    >
       <Flex
         w={16}
         h={16}
