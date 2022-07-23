@@ -27,6 +27,9 @@
 body {
     font-family: 'NotoSans' !important;
 }
+h1,h2,h3,h4 {
+    font-family: 'NotoSans' !important;
+}
 
 .active-menu-item > hr {
     width: 0px;
@@ -41,4 +44,10 @@ body {
     color : "#013365" !important;
     font-weight: bold;
     border-color: "#013365" !important;
+}
+
+
+.time-line-date {
+    font-size: 20px !important;
+    font-weight: bold !important ;
 }

@@ -17,7 +17,7 @@ export const Footer = ({
 }) => {
   const variant = useLayoutBreakPointValue();
   return (
-    <Flex as="footer" mt={10}>
+    <Flex as="footer" mt={20}>
       <Box w="full">
         <HStack
           h="full"

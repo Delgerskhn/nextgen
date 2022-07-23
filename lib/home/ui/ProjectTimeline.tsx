@@ -28,8 +28,8 @@ export const ProjectTimeline = () => {
           size="xl"
           w="50%"
           textAlign={"center"}
-          bg="#013365"
-          color={"white"}
+          // bg="#013365"
+          // color={"white"}
           fontFamily={"NotoSans"}
           mt="16"
           mb="6"
@@ -54,8 +54,8 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
     <Stack
       bg="gray.50"
       rounded={"md"}
-      border={"1px solid "}
-      borderColor="#013365"
+      // border={"1px solid "}
+      // borderColor="#013365"
       boxShadow="xl"
       p="6"
       _hover={{

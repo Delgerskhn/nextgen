@@ -24,15 +24,13 @@ export const ProjectLeadingSectors = () => {
         <Heading
           w="50%"
           textAlign={"center"}
-          bg="#013365"
-          color={"white"}
           size="xl"
           mt="16"
-          mb="6"
+          mb="16"
           fontFamily={"NotoSans"}
           py={10}
         >
-          <Icon as={GiRadarCrossSection} /> Төслийн тэргүүлэх чиглэл
+          Төслийн тэргүүлэх чиглэл
         </Heading>
         <Tabs w={"full"} size="lg" variant="enclosed" align="center" minH={408}>
           <TabList borderColor={"#013365"} _active={{ color: "#013365" }}>

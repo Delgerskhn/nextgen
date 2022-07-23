@@ -34,9 +34,10 @@ export const Header = () => {
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
         justifyContent={"space-between"}
+        alignItems="center"
       >
-        <Flex>
-          <Image src="/logo.png" w="12" />
+        <Flex alignItems={"center"}>
+          <Image src="/logo.png" w="36" />
         </Flex>
         <Stack direction={"row"} spacing={16}>
           <DesktopNav />
