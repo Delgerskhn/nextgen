@@ -34,19 +34,25 @@ export const Header = () => {
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
         justifyContent={"space-between"}
+        alignItems="center"
       >
-        <Flex>
-          <Image src="/logo.png" w="12" />
+        <Flex alignItems={"center"}>
+          <Image src="/logo.png" w="14" />
         </Flex>
-        <Stack direction={"row"} spacing={16}>
+        <Stack direction={"row"} spacing={10}>
           <DesktopNav />
           <IconButton
             size={"sm"}
             as={AiOutlineUser}
             bg="transparent"
-            variant={"ghost"}
+            cursor={"pointer"}
+            color="black"
+            variant={"unstyled"}
             onClick={() => {
               router.push("/account/profile");
+            }}
+            _hover={{
+              color: "#003366",
             }}
             aria-label={"User auth"}
           />

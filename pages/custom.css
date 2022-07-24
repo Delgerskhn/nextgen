@@ -24,8 +24,10 @@
     font-display: swap;
 }
 
-body {
+* {
     font-family: 'NotoSans' !important;
+    word-spacing: 5px;
+    letter-spacing: 1px;
 }
 
 .active-menu-item > hr {
@@ -36,9 +38,17 @@ body {
     transition: 500ms;
     width : 100%
 }
-
+.active-menu-item:hover > a {
+    color: #003366;
+}
 .active-tab:focus {
     color : "#013365" !important;
     font-weight: bold;
     border-color: "#013365" !important;
+}
+
+
+.time-line-date {
+    font-size: 20px !important;
+    font-weight: bold !important ;
 }
