@@ -4,6 +4,7 @@ import {
   Profile,
   Session,
   Product,
+  Project,
   Price,
   Subscription,
 } from "@prisma/client";
@@ -14,6 +15,7 @@ type AppAbility = PrismaAbility<
   [
     string,
     Subjects<{
+      Project: Project;
       User: User;
       Account: Account;
       Profile: Profile;

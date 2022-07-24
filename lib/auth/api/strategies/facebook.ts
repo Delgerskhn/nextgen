@@ -11,11 +11,12 @@ export const facebookStrategy = new Strategy(
   },
   async function (accessToken, refreshToken, profile, cb) {
     const email = profile.emails ? profile.emails[0].value : "";
-   
+
     const user = await manageExternalUser(
       email,
       "facebook",
       profile.id,
+      "someid",
       accessToken,
       refreshToken
     );

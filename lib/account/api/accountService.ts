@@ -20,3 +20,11 @@ export const updateAccount = (data: Account) => {
     data: data,
   });
 };
+
+export const getAccountsByUserId = (userId: string) => {
+  return prisma.account.findMany({
+    where: {
+      userId,
+    },
+  });
+};
