@@ -16,7 +16,7 @@ handler
   })
   .post(async (req, res) => {
     try {
-      const user = createUser(req.body.email, req.body.password);
+      const user = createUser({ ...req.body });
       res.sendSuccess(user);
     } catch (error) {
       res.sendError(500, ERROR_MESSAGES.INTERNAL_SERVER_ERROR);

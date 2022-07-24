@@ -34,15 +34,13 @@ export const manageExternalUser = async (
   email: string,
   provider: string,
   providerAccountId: string,
+  id: string,
   accessToken: string,
   refreshToken: string
 ) => {
   const account = await prisma.account.findUnique({
     where: {
-      provider_providerAccountId: {
-        provider,
-        providerAccountId,
-      },
+      id: id,
     },
     include: {
       user: true,
