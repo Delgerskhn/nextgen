@@ -29,9 +29,9 @@ export const DesktopNav = () => {
             outline={"none"}
             p={2}
             href={navItem.href ?? "#"}
-            fontSize={"medium"}
-            fontWeight="semi-bold"
-            color={linkColor}
+            fontSize={"lg"}
+            fontWeight="bold"
+            color={"black"}
             _hover={{
               textDecoration: "none",
               color: linkHoverColor,
@@ -40,7 +40,15 @@ export const DesktopNav = () => {
           >
             {navItem.label}
           </Link>
-          <Divider bg="GrayText" h={1} bottom={-2} position="absolute" />
+          <Divider
+            opacity={1}
+            style={{
+              backgroundColor: "#003366",
+            }}
+            h={1}
+            bottom={-2}
+            position="absolute"
+          />
           {/* <Divider
             className={"active-menu-item mt-2"}
             borderWidth={1}
