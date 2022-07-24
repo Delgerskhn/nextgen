@@ -23,12 +23,11 @@ export const ProjectLeadingSectors = () => {
       <VStack w={"full"}>
         <Heading
           w="50%"
+          my="24"
           textAlign={"center"}
           bg="#013365"
           color={"white"}
           size="xl"
-          mt="16"
-          mb="6"
           fontFamily={"NotoSans"}
           py={10}
         >

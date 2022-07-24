@@ -31,8 +31,7 @@ export const ProjectTimeline = () => {
           bg="#013365"
           color={"white"}
           fontFamily={"NotoSans"}
-          mt="16"
-          mb="6"
+          my="24"
           py={10}
         >
           Үе шатууд
@@ -54,8 +53,8 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
     <Stack
       bg="gray.50"
       rounded={"md"}
-      border={"1px solid "}
-      borderColor="#013365"
+    //   border={"1px solid "}
+    //   borderColor="#013365"
       boxShadow="xl"
       p="6"
       _hover={{
