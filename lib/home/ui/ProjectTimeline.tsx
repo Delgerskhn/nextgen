@@ -19,10 +19,12 @@ import {
   RiNumber6,
 } from "react-icons/ri";
 import { FlipBox } from "@ui/Flipbox";
+import { useLayoutBreakPointValue } from "@lib/core/data/layout_break_point_value";
 
 export const ProjectTimeline = () => {
+  let value = useLayoutBreakPointValue();
   return (
-    <Box maxW={"container.xl"} mx="auto" w="full">
+    <Stack px={value} w="full">
       <VStack>
         <Heading
           size="xl"
@@ -38,7 +40,7 @@ export const ProjectTimeline = () => {
         </Heading>
         <SimpleThreeColumns />
       </VStack>
-    </Box>
+    </Stack>
   );
 };
 
@@ -52,10 +54,8 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
   return (
     <Stack
       bg="gray.50"
-      rounded={"md"}
       // border={"1px solid "}
       // borderColor="#013365"
-      boxShadow="xl"
       p="6"
       _hover={{
         transform: "translateY(-20px)",

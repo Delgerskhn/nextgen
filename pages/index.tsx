@@ -18,6 +18,8 @@ import { Goal } from "@lib/home/ui/Goal";
 import { Target } from "@lib/home/ui/Target";
 import { Future } from "@lib/home/ui/future";
 import { Selection } from "@lib/home/ui/selection";
+import { Map } from "@lib/home/ui/map";
+import { Mentor } from "@lib/home/ui/mentor";
 const HomePage = () => {
   const { isLoggedIn, user, error } = useCurrentUser();
   const logoutMutation = useLogout();
@@ -32,7 +34,10 @@ const HomePage = () => {
           <Selection />
           <ProjectLeadingSectors />
           <Future />
+          <Selection />
           <ProjectTimeline />
+          <Mentor />
+          <Map />
         </Flex>
       </AppLayout>
     </>
