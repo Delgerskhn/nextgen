@@ -31,8 +31,8 @@ export const ProjectTimeline = () => {
           // bg="#013365"
           // color={"white"}
           fontFamily={"NotoSans"}
-          my="24"
-          py={10}
+          mb="12"
+          mt="24"
         >
           Үе шатууд
         </Heading>
