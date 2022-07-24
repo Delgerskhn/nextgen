@@ -27,7 +27,7 @@ export const Hero = () => {
           bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
         >
           <Heading size={"3xl"} color="white" fontFamily="NotoSans">
-            Удирдамж
+            Зорилго
           </Heading>
         </VStack>
       </Flex>

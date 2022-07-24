@@ -7,14 +7,15 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useLayoutBreakPointValue } from "@lib/core/data/layout_break_point_value";
 import React, { ReactNode } from "react";
 
 export const Target = () => {
+  let value = useLayoutBreakPointValue();
+
   return (
-    <Box>
+    <Box px={value}>
       <Box
-        maxW={"container.xl"}
-        mx="auto"
         w="full"
         textAlign="center"
         py={10}

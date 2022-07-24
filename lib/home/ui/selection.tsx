@@ -13,6 +13,7 @@ import {
   Icon,
   Button,
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { ReactElement, useState } from "react";
 import {
   IoAnalyticsSharp,
@@ -76,6 +77,7 @@ const TransitionImage = ({ url, is_right }: TransitionImageProps) => {
 
 export const Selection = () => {
   const [is_show, setShow] = useState(false);
+  const router = useRouter();
   return (
     <Container maxW={"5xl"} py={12} experimental_spaceY="40">
       <Heading textAlign={"center"} size={"xl"}>
@@ -84,14 +86,7 @@ export const Selection = () => {
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
         <Stack spacing={4}>
           <Heading>Тавигдах шаардлага</Heading>
-          <Stack
-            spacing={4}
-            divider={
-              <StackDivider
-                borderColor={useColorModeValue("gray.100", "gray.700")}
-              />
-            }
-          >
+          <Stack spacing={4}>
             <UnorderedList lineHeight={8}>
               <Feature
                 icon={
@@ -146,6 +141,7 @@ export const Selection = () => {
               _hover={{
                 background: "#003366",
               }}
+              onClick={() => router.push("/guidance")}
             >
               Дэлгэрэнгүй
             </Button>
@@ -161,14 +157,7 @@ export const Selection = () => {
         </Flex>
         <Stack spacing={4}>
           <Heading>Үйл явц</Heading>
-          <Stack
-            spacing={4}
-            divider={
-              <StackDivider
-                borderColor={useColorModeValue("gray.100", "gray.700")}
-              />
-            }
-          >
+          <Stack spacing={4}>
             <UnorderedList lineHeight={8}>
               <Feature
                 icon={
@@ -219,6 +208,7 @@ export const Selection = () => {
               _hover={{
                 background: "#003366",
               }}
+              onClick={() => router.push("/guidance")}
             >
               Дэлгэрэнгүй
             </Button>

@@ -43,7 +43,7 @@ export const Mentor = () => {
                 >
                   <Image
                     height={230}
-                    width={282}
+                    width={{ base: "full", lg: 282 }}
                     objectFit={"cover"}
                     src={el.image}
                   />

@@ -33,17 +33,17 @@ export const ProjectLeadingSectors = () => {
         >
           Төслийн тэргүүлэх чиглэл
         </Heading>
-        <Tabs w={"full"} size="lg" variant="enclosed" align="center" minH={408}>
-          <TabList borderColor={"#013365"} _active={{ color: "#013365" }}>
+        <Tabs size="lg" align="center" minH={408}>
+          <TabList color={"#003366"}>
             <Tab
               _focus={{
                 outline: "none",
               }}
-              className="active-tab"
-              _active={{
-                borderColor: "#013365",
-                color: "#013365",
+              _selected={{
+                color: "#003366",
+                borderColor: "#003366",
               }}
+              className="active-tab"
             >
               Хот хөдөөгийн сэргэлт
             </Tab>
@@ -55,6 +55,10 @@ export const ProjectLeadingSectors = () => {
               _active={{
                 borderColor: "#013365",
               }}
+              _selected={{
+                color: "#003366",
+                borderColor: "#003366",
+              }}
             >
               Ногоон хөгжлийн сэргэлт
             </Tab>
@@ -63,8 +67,9 @@ export const ProjectLeadingSectors = () => {
                 outline: "none",
               }}
               className="active-tab"
-              _active={{
-                borderColor: "#013365",
+              _selected={{
+                color: "#003366",
+                borderColor: "#003366",
               }}
             >
               Төрийн бүтээмжийн сэргэлт

@@ -7,19 +7,58 @@ import {
   Flex,
   Icon,
   Collapse,
+  Box,
+  Divider,
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import { NAV_ITEMS, NavItem } from "./NavItem";
 
-export const MobileNav = () => {
+type Props = {
+  is_open: boolean;
+};
+export const MobileNav = ({ is_open }: Props) => {
+  const linkHoverColor = useColorModeValue("gray.800", "white");
   return (
     <Stack
       bg={useColorModeValue("white", "gray.800")}
       p={4}
-      display={{ md: "none" }}
+      display={{ base: is_open ? "block" : "none", lg: "none" }}
+      transition=".3s"
+      overflow={"hidden"}
+      spacing="7"
     >
       {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+        <Box
+          key={navItem.label}
+          className="active-menu-item"
+          position={"relative"}
+          width={"fit-content"}
+        >
+          <Link
+            outline={"none"}
+            p={2}
+            href={navItem.href ?? "#"}
+            fontSize={"lg"}
+            fontWeight="bold"
+            color={"black"}
+            _hover={{
+              textDecoration: "none",
+              color: linkHoverColor,
+            }}
+            _focus={{ border: 0, outline: "none" }}
+          >
+            {navItem.label}
+          </Link>
+          <Divider
+            opacity={1}
+            style={{
+              backgroundColor: "#003366",
+            }}
+            h={1}
+            bottom={-2}
+            position="absolute"
+          />
+        </Box>
       ))}
     </Stack>
   );

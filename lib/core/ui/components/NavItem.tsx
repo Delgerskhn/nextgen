@@ -21,6 +21,7 @@ export interface NavItem {
 export const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Нүүр",
+    href: "/",
     // children: [
     //   // {
     //   //   label: "Explore Design Work",
@@ -33,6 +34,10 @@ export const NAV_ITEMS: Array<NavItem> = [
     //   //   href: "#",
     //   // },
     // ],
+  },
+  {
+    label: "Удирдамж",
+    href: "/guidance",
   },
   {
     label: "Хамрах хүрээ",
@@ -51,7 +56,7 @@ export const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Зорилго",
-    href: "#",
+    href: "/goal",
   },
   {
     label: "Үр дүн",

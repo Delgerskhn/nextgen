@@ -44,8 +44,8 @@
 .active-tab:focus {
     color : "#013365" !important;
     font-weight: bold;
-    border-color: "#013365" !important;
 }
+
 
 
 .time-line-date {

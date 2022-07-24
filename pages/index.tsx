@@ -30,7 +30,7 @@ const HomePage = () => {
         <Flex direction="column">
           <Hero />
           <Selection />
-          {/* <ProjectLeadingSectors /> */}
+          <ProjectLeadingSectors />
           <Future />
           <ProjectTimeline />
           <Mentor />

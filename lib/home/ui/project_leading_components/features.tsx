@@ -4,7 +4,7 @@ import { Feature } from "./feature";
 
 export const CountryFeatures = () => {
   return (
-    <Box p={4}>
+    <Box p={4} w={"80%"}>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         <Feature
           icon={<Icon as={FcAssistant} w={10} h={10} />}

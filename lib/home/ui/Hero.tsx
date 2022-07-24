@@ -22,7 +22,7 @@ export function Hero() {
         w={"full"}
         h={"600px"}
         backgroundImage={
-          "url(https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)"
+          "url(https://t4.ftcdn.net/jpg/04/84/11/15/360_F_484111532_W0WOkKeXQzF75XusA7R8e3llIDXqyCFm.jpg)"
         }
         backgroundSize={"cover"}
         backgroundPosition={"center center"}
