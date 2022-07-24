@@ -16,6 +16,8 @@ import { ProjectLeadingSectors } from "@lib/home/ui/ProjectLeadingSectors";
 import { ProjectTimeline } from "@lib/home/ui/ProjectTimeline";
 import { Future } from "@lib/home/ui/future";
 import { Selection } from "@lib/home/ui/selection";
+import { Map } from "@lib/home/ui/map";
+import { Mentor } from "@lib/home/ui/mentor";
 const HomePage = () => {
   const { isLoggedIn, user, error } = useCurrentUser();
   const logoutMutation = useLogout();
@@ -25,11 +27,12 @@ const HomePage = () => {
       <AppLayout>
         <Flex direction="column">
           <Hero />
-          <Selection />
           <ProjectLeadingSectors />
-
           <Future />
+          <Selection />
           <ProjectTimeline />
+          <Mentor />
+          <Map />
         </Flex>
       </AppLayout>
     </>

@@ -13,7 +13,7 @@ import {
   Icon,
   Button,
 } from "@chakra-ui/react";
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import {
   IoAnalyticsSharp,
   IoLogoBitcoin,
@@ -25,11 +25,57 @@ interface FeatureProps {
   iconBg: string;
   icon?: ReactElement;
 }
+type TransitionImageProps = {
+  url: string;
+  is_right: boolean;
+};
 const Feature = ({ text, icon, iconBg }: FeatureProps) => {
-  return <ListItem fontWeight={600}>{text}</ListItem>;
+  return <ListItem>{text}</ListItem>;
+};
+
+const TransitionImage = ({ url, is_right }: TransitionImageProps) => {
+  const [is_show, setShow] = useState(false);
+  return (
+    <>
+      <Stack
+        bg="#003366"
+        h="full"
+        w="full"
+        transition="ease"
+        transitionDuration={".3s"}
+        transform={`${
+          is_show &&
+          (is_right ? "translate(-10px, 10px)" : "translate(10px, -10px)")
+        }`}
+      />
+      <Image
+        position={"absolute"}
+        rounded={"md"}
+        alt={"feature image"}
+        src={url}
+        objectFit={"cover"}
+        w={"full"}
+        h={"full"}
+        borderRadius={0}
+        transition="ease"
+        transitionDuration={".3s"}
+        onMouseEnter={(e) => {
+          setShow(true);
+          e.currentTarget.style.transform = is_right
+            ? "translate(10px , -10px)"
+            : "translate(-10px , 10px)";
+        }}
+        onMouseLeave={(e) => {
+          setShow(false);
+          e.currentTarget.style.transform = "translate(0px , 0px)";
+        }}
+      />
+    </>
+  );
 };
 
 export const Selection = () => {
+  const [is_show, setShow] = useState(false);
   return (
     <Container maxW={"5xl"} py={12} experimental_spaceY="40">
       <Heading textAlign={"center"} size={"xl"}>
@@ -96,33 +142,22 @@ export const Selection = () => {
               fontWeight={"bold"}
               borderRadius={0}
               width={"fit-content"}
-              _focus={{
-                backgroundColor: "transparent",
+              _focus={{}}
+              _hover={{
+                background: "#003366",
               }}
             >
               Дэлгэрэнгүй
             </Button>
           </Stack>
         </Stack>
-        <Flex>
-          <Image
-            rounded={"md"}
-            alt={"feature image"}
-            src={"/meeting.png"}
-            objectFit={"cover"}
-            borderRadius={0}
-          />
+        <Flex position={"relative"} direction="row">
+          <TransitionImage url={"/meeting.png"} is_right={true} />
         </Flex>
       </SimpleGrid>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-        <Flex>
-          <Image
-            rounded={"md"}
-            alt={"feature image"}
-            src={"/scholarship.png"}
-            objectFit={"cover"}
-            borderRadius={0}
-          />
+        <Flex position={"relative"} direction="row">
+          <TransitionImage url={"/scholarship.png"} is_right={false} />
         </Flex>
         <Stack spacing={4}>
           <Heading>Үйл явц</Heading>
@@ -181,6 +216,9 @@ export const Selection = () => {
               fontWeight={"bold"}
               borderRadius={0}
               width={"fit-content"}
+              _hover={{
+                background: "#003366",
+              }}
             >
               Дэлгэрэнгүй
             </Button>
