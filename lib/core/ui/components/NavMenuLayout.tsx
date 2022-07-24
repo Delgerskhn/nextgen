@@ -16,6 +16,7 @@ import {
 import useTranslation from "next-translate/useTranslation";
 import { useMobileMenuState } from "./navigation/useMobileMenuState";
 import { FiArrowLeft } from "react-icons/fi";
+import { useLogout } from "@lib/auth/data/authHooks";
 
 const NavTitle = ({
   title,
@@ -210,7 +211,8 @@ export const NavMenuLayout = ({
   const { t } = useTranslation("interview");
   const { isMenuOpen, toggle } = useMobileMenuState();
   const isMobile = useBreakpointValue({ base: true, lg: false });
-
+  const logout = useLogout();
+  const onLogout = () => logout.mutate();
   return (
     <Stack
       direction={{ base: "column", lg: "row" }}
@@ -243,6 +245,13 @@ export const NavMenuLayout = ({
               onToggle={toggle}
             />
           ))}
+          <NavItem
+            key={"logout"}
+            name={"Гарах"}
+            isMobile={isMobile}
+            isMenuOpen={isMenuOpen}
+            onToggle={onLogout}
+          />
         </UnorderedList>
       </Box>
       <Box flex="1" h="full" display="flex" flexDirection="column">

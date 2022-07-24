@@ -1,8 +1,10 @@
+import { useAuth } from "@lib/auth/ui";
 import { uploadToS3 } from "@lib/file/data/uploadHooks";
 import { FileUploader } from "@lib/file/ui/FileUploader";
 import {
   Button,
   chakra,
+  Divider,
   FormControl,
   FormErrorMessage,
   FormLabel,
@@ -12,7 +14,7 @@ import {
   toaster,
 } from "@ui/index";
 import { useForm } from "react-hook-form";
-import { useUpdateProject } from "../data/projectHooks";
+import { useProject, useUpdateProject } from "../data/projectHooks";
 
 type ProjectFileInput = {
   projectIntro: File[];
@@ -22,46 +24,73 @@ type ProjectFileInput = {
 
 export const ProjectForm = () => {
   const updateProject = useUpdateProject();
-  const onFileUpload = (f: File) => {
+  const { data: user } = useAuth();
+  const { data, refetch } = useProject(user?.id);
+  const onTeamIntroUpload = (f: File) => {
     uploadToS3(f).then((key) => {
       toaster.success("Амжилттай хадгаллаа.");
-      updateProject.mutate({
-        teamIntroFile: key,
-      });
+      updateProject.mutate(
+        {
+          userId: user?.id,
+          teamIntroFile: key,
+        },
+        { onSuccess: () => refetch() }
+      );
     });
   };
-
+  const onProjectIntroUpload = (f: File) => {
+    uploadToS3(f).then((key) => {
+      toaster.success("Амжилттай хадгаллаа.");
+      updateProject.mutate(
+        {
+          userId: user?.id,
+          teamIntroFile: key,
+        },
+        { onSuccess: () => refetch() }
+      );
+    });
+  };
+  const onProjectDocUpload = (f: File) => {
+    uploadToS3(f).then((key) => {
+      toaster.success("Амжилттай хадгаллаа.");
+      updateProject.mutate(
+        {
+          userId: user?.id,
+          teamIntroFile: key,
+        },
+        { onSuccess: () => refetch() }
+      );
+    });
+  };
   return (
-    <NavContentLayout
-      actions={
-        <Button
-          variant={"control"}
-          // isLoading={profileMutation.isLoading}
-          type="submit"
-          // onClick={onSubmit}
-        >
-          Хадгалах
-        </Button>
-      }
-    >
+    <>
       <chakra.form>
         <Heading size="md">Төслийн мэдээллээ оруулна уу.</Heading>
-
+        <Divider my="4" />
         <FormControl>
           <FormLabel>Багийн танилцуулга видео</FormLabel>
-          <FileUploader onUpload={onFileUpload} />
+          <FileUploader
+            onUpload={onTeamIntroUpload}
+            defaultFileKey={data?.teamIntroFile || undefined}
+          />
         </FormControl>
 
         <FormControl>
           <FormLabel>Төслийн танилцуулга видео</FormLabel>
-          <Input type="file" multiple={false} />
+          <FileUploader
+            onUpload={onProjectIntroUpload}
+            defaultFileKey={data?.projectIntroFile || undefined}
+          />
         </FormControl>
 
         <FormControl>
           <FormLabel>Төслийн бичиг баримт</FormLabel>
-          <Input type="file" multiple={false} />
+          <FileUploader
+            onUpload={onProjectDocUpload}
+            defaultFileKey={data?.projectDocFile || undefined}
+          />
         </FormControl>
       </chakra.form>
-    </NavContentLayout>
+    </>
   );
 };

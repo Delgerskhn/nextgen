@@ -18,6 +18,7 @@ import {
   Select,
   Flex,
   Heading,
+  Box,
 } from "@ui/index";
 import { useProfile, useUpdateProfile } from "@lib/profile/data/profileHooks";
 import { navItems } from ".";
@@ -48,17 +49,19 @@ export const ProfilePage = () => {
   return (
     <AppLayout title={t("profile")}>
       <SEO title={t("profile")} />
+      <Box h="12"></Box>
       <NavMenuLayout
         title={t("profile")}
-        backLink={{ name: t(`back-button`), link: "/" }}
         navItems={navItems.map((navItem) => ({
           name: t(`${navItem.name}`),
           link: navItem.link,
           type: navItem.name === "profile" ? "active" : "",
         }))}
       >
-        <AccountList />
-        <ProjectForm />
+        <NavContentLayout>
+          <ProjectForm />
+          <AccountList />
+        </NavContentLayout>
       </NavMenuLayout>
     </AppLayout>
   );

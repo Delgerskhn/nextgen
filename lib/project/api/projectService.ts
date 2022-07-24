@@ -6,3 +6,20 @@ export const createProject = (data: Project) => {
     data: data,
   });
 };
+
+export const updateProject = (data: Project) => {
+  return prisma.project.update({
+    where: {
+      userId: data.userId,
+    },
+    data: data,
+  });
+};
+
+export const getProjectByUserId = (userId: string) => {
+  return prisma.project.findUnique({
+    where: {
+      userId,
+    },
+  });
+};
