@@ -13,6 +13,7 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import { BsChevronRight } from "react-icons/bs";
+import { Countdown } from "./countdown";
 
 export function Hero() {
   return (
@@ -27,16 +28,19 @@ export function Hero() {
         backgroundPosition={"center center"}
       >
         <VStack
+          pt="5"
           w={"full"}
-          justify={"center"}
+          justify={"flex-start"}
           px={useBreakpointValue({ base: 4, md: 8 })}
           bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
         >
-          <Stack maxW={"2xl"} align={"flex-start"} spacing={6}>
+          <Stack maxW={"md"} align={"flex-start"} spacing={6}>
             <Image src="/hero_text.png" />
           </Stack>
+          <Countdown />
         </VStack>
       </Flex>
+
       <VStack bg="gray.50" p="6" px="12">
         <Text
           // fontWeight={"bold"}

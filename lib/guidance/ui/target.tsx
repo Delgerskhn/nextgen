@@ -7,8 +7,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { ReactNode } from "react";
-import { FaLightbulb } from "react-icons/fa";
+import React, { ReactNode } from "react";
 
 export const Target = () => {
   return (

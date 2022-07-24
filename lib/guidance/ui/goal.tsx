@@ -1,6 +1,6 @@
 import { Box, Heading, Icon, Text } from "@chakra-ui/react";
 import { FaLightbulb } from "react-icons/fa";
-
+import React from "react";
 export const Goal = () => {
   return (
     <Box
