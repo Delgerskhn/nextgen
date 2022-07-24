@@ -2,10 +2,10 @@ import fetch from "cross-fetch";
 import { fetcher } from "@util/query";
 
 const getSignedUrl = async (file: File) => {
-  const { signedRequest, url } = await fetcher.get(
+  const { signedRequest, url, key } = await fetcher.get(
     `file/upload?fileName=${file.name}&fileType=${file.type}`
   );
-  return { signedRequest, url };
+  return { signedRequest, url, key };
 };
 
 const uploadFile = async (file: File, signedRequest: string) => {
@@ -18,7 +18,7 @@ const uploadFile = async (file: File, signedRequest: string) => {
 };
 
 export const uploadToS3 = async (file: File) => {
-  const { signedRequest, url } = await getSignedUrl(file);
+  const { signedRequest, url, key } = await getSignedUrl(file);
   await uploadFile(file, signedRequest);
-  return url;
+  return key;
 };

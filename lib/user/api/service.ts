@@ -3,6 +3,7 @@ import { prisma } from "@api/prisma";
 import { String } from "aws-sdk/clients/cloudtrail";
 import { getCurrentDate } from "@api/currentDate";
 import { SignupInput } from "@lib/auth/data/types";
+import { AppError, ERROR_MESSAGES } from "@util/errors";
 
 const saltRounds = 10;
 
@@ -65,6 +66,8 @@ export const manageExternalUser = async (
         providerAccountId,
         accessToken,
         refreshToken,
+        lastName: "",
+        firstName: "",
       },
     });
     return user;
@@ -108,17 +111,19 @@ export const createUser = async ({
   lastName,
 }: SignupInput) => {
   console.log("Password here:", password);
+  if (
+    (await prisma.user.count({
+      where: {
+        email,
+      },
+    })) > 0
+  )
+    throw new AppError(400, ERROR_MESSAGES.BAD_REQUEST, "already-have-account");
   const passwordDigest = await hash(password, saltRounds);
   return prisma.user.create({
     data: {
       email,
       passwordDigest,
-      profile: {
-        create: {
-          firstName,
-          lastName,
-        },
-      },
     },
     select: defaultSelect,
   });

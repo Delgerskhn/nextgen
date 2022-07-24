@@ -55,7 +55,6 @@ const variants = {
   },
   default: {
     field: {
-      background: "gray.850",
       border: "1px solid",
       borderColor: "gray.400",
       borderRadius: "3px",

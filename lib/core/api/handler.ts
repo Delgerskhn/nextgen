@@ -17,11 +17,11 @@ const middlewares = [
 ];
 
 export const createHandler = (options = {}) => {
-  console.log('create handler')
+  console.log("create handler");
   return nc<AppRequest, AppResponse>({
     onError: (err, _, res) => {
       console.error(err);
-      res.status(500).end(err.toString());
+      res.sendError(err);
     },
     onNoMatch: (_, res) => {
       res.status(404).end("Page is not found");
