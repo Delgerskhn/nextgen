@@ -1,4 +1,5 @@
 import { S3 } from "aws-sdk";
+import { randomUUID } from "crypto";
 
 const s3 = new S3({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -8,14 +9,14 @@ const s3 = new S3({
 const bucket = process.env.AWS_BUCKET;
 
 const generateKey = (fileName: string) => {
-  // TODO: Generate unique key
-  return fileName;
+  const ext = fileName.split(".").pop();
+  return `${randomUUID()}.${ext}`;
 };
 
 export const getUploadKey = async (
   fileName: string,
   fileType: string
-): Promise<{ signedRequest: string; url: string }> => {
+): Promise<{ signedRequest: string; url: string; key: string }> => {
   return new Promise((resolve, reject) => {
     const key = generateKey(fileName);
     s3.getSignedUrl(
@@ -30,6 +31,7 @@ export const getUploadKey = async (
         resolve({
           signedRequest: data,
           url: `https://${bucket}.s3.amazonaws.com/${key}`,
+          key,
         });
       }
     );

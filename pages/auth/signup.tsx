@@ -17,6 +17,8 @@ import {
   InputRightElement,
   IconButton,
   FormErrorMessage,
+  Select,
+  Divider,
 } from "@chakra-ui/react";
 import { useSignup } from "@lib/auth/data/authHooks";
 import { toaster } from "@ui/index";
@@ -28,10 +30,14 @@ import { useForm } from "react-hook-form";
 import { BsEye, BsToggleOff } from "react-icons/bs";
 import { HiEyeOff, HiEye } from "react-icons/hi";
 import { SignupInput } from "@lib/auth/data/types";
+import { useCreateAccount } from "@lib/account/data/accountHook";
+import { useCreateProject } from "@lib/project/data/projectHooks";
 
 export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
   const signupMutation = useSignup();
+  const createAccount = useCreateAccount();
+  const createProject = useCreateProject();
   const { t: ta } = useTranslation("auth");
   const router = useRouter();
   const {
@@ -46,6 +52,18 @@ export default function SignupPage() {
         toaster.error(ta(error.translationKey));
       },
       onSuccess: (user) => {
+        const { firstName, lastName, sex, age, projectName } = authInput;
+        createAccount.mutate({
+          firstName,
+          lastName,
+          userId: user.id,
+          sex,
+          age,
+        });
+        createProject.mutate({
+          name: projectName,
+          userId: user.id,
+        });
         //onst nextPath: string = router.query.redirectTo
         // ? router.query.redirectTo.toString()
         // : defaultPaths[user.role];
@@ -67,7 +85,25 @@ export default function SignupPage() {
             </Text>
           </Stack>
           <Box rounded={"lg"} boxShadow={"lg"} p={8}>
+            <FormControl
+              id="projectName"
+              isRequired
+              isInvalid={!!errors.projectName}
+            >
+              <FormLabel>Төслийн нэр</FormLabel>
+              <Input
+                type="email"
+                {...register("projectName", {
+                  required: "This is required",
+                })}
+              />
+              <FormErrorMessage>
+                {errors.projectName && errors.projectName.message}
+              </FormErrorMessage>
+            </FormControl>
             <Stack spacing={4}>
+              <FormLabel mt="4">Төслийн ахлагчийн мэдээлэл</FormLabel>
+              <Divider />
               <HStack>
                 <Box>
                   <FormControl
@@ -75,7 +111,7 @@ export default function SignupPage() {
                     isRequired
                     isInvalid={!!errors.firstName}
                   >
-                    <FormLabel>First Name</FormLabel>
+                    <FormLabel>Нэр</FormLabel>
                     <Input
                       type="text"
                       {...register("firstName", {
@@ -89,7 +125,7 @@ export default function SignupPage() {
                 </Box>
                 <Box>
                   <FormControl id="lastName" isInvalid={!!errors.lastName}>
-                    <FormLabel>Last Name</FormLabel>
+                    <FormLabel>Овог</FormLabel>
                     <Input
                       type="text"
                       {...register("lastName", {
@@ -102,8 +138,46 @@ export default function SignupPage() {
                   </FormControl>
                 </Box>
               </HStack>
+              <HStack>
+                <Box flex="1">
+                  <FormControl id="lastName" isInvalid={!!errors.lastName}>
+                    <FormLabel>Хүйс</FormLabel>
+                    <Select
+                      type="text"
+                      {...register("sex", {
+                        required: "This is required",
+                      })}
+                    >
+                      <option>Male</option>
+                      <option>Female</option>
+                    </Select>
+                    <FormErrorMessage>
+                      {errors.lastName && errors.lastName.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                </Box>
+                <Box flex="1">
+                  <FormControl id="lastName" isInvalid={!!errors.lastName}>
+                    <FormLabel>Нас</FormLabel>
+                    <Select
+                      type="number"
+                      {...register("age", {
+                        required: "This is required",
+                        valueAsNumber: true,
+                      })}
+                    >
+                      {new Array(100).fill(0).map((_, i) => (
+                        <option>{i + 1}</option>
+                      ))}
+                    </Select>
+                    <FormErrorMessage>
+                      {errors.lastName && errors.lastName.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                </Box>
+              </HStack>
               <FormControl id="email" isRequired isInvalid={!!errors.email}>
-                <FormLabel>Email address</FormLabel>
+                <FormLabel>И-мэйл хаяг</FormLabel>
                 <Input
                   type="email"
                   {...register("email", {
@@ -119,7 +193,7 @@ export default function SignupPage() {
                 isRequired
                 isInvalid={!!errors.password}
               >
-                <FormLabel>Password</FormLabel>
+                <FormLabel>Нууц үг</FormLabel>
                 <InputGroup>
                   <Input
                     type={showPassword ? "text" : "password"}
