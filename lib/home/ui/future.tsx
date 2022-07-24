@@ -7,23 +7,23 @@ export const Future = () => {
       justifyContent="center"
       alignItems={"center"}
       background="#003366"
-      py="24"
+      py="10"
     >
       <Heading
         color={"white"}
         fontFamily={"NotoSans"}
         fontWeight="bold"
-        size="3xl"
+        size="xl"
       >
         НАДААР ДУТНА
       </Heading>
-      <Heading color={"white"} fontFamily={"NotoSans"} size="lg">
+      <Heading color={"white"} fontFamily={"NotoSans"} size="md">
         Миний ирээдүй минийх
       </Heading>
       <Stack direction={"row"} justifyContent={"center"}>
         <Image
           src="https://static1.s123-cdn-static-a.com/ready_uploads/svg/normal_604d334b11e87.svg"
-          width={"100%"}
+          width={"70%"}
         />
       </Stack>
     </Stack>

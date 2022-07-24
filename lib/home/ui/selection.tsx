@@ -50,12 +50,12 @@ const TransitionImage = ({ url, is_right }: TransitionImageProps) => {
       />
       <Image
         position={"absolute"}
-        rounded={"md"}
+        // rounded={"md"}
         alt={"feature image"}
         src={url}
         objectFit={"cover"}
         w={"full"}
-        h={"full"}
+        h={{ base: 200, md: "full" }}
         borderRadius={0}
         transition="ease"
         transitionDuration={".3s"}

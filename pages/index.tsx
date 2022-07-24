@@ -14,12 +14,12 @@ import { useCurrentUser, useLogout } from "@lib/auth/data/authHooks";
 import { Hero } from "@lib/home/ui/Hero";
 import { ProjectLeadingSectors } from "@lib/home/ui/ProjectLeadingSectors";
 import { ProjectTimeline } from "@lib/home/ui/ProjectTimeline";
-import { Goal } from "@lib/home/ui/Goal";
-import { Target } from "@lib/home/ui/Target";
 import { Future } from "@lib/home/ui/future";
 import { Selection } from "@lib/home/ui/selection";
 import { Map } from "@lib/home/ui/map";
 import { Mentor } from "@lib/home/ui/mentor";
+import { Partner } from "@lib/home/ui/partner";
+import { Countdown } from "@lib/home/ui/countdown";
 const HomePage = () => {
   const { isLoggedIn, user, error } = useCurrentUser();
   const logoutMutation = useLogout();
@@ -29,14 +29,12 @@ const HomePage = () => {
       <AppLayout>
         <Flex direction="column">
           <Hero />
-          <Goal />
-          <Target />
           <Selection />
-          <ProjectLeadingSectors />
+          {/* <ProjectLeadingSectors /> */}
           <Future />
-          <Selection />
           <ProjectTimeline />
           <Mentor />
+          <Partner />
           <Map />
         </Flex>
       </AppLayout>

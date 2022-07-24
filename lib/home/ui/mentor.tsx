@@ -15,7 +15,9 @@ export const Mentor = () => {
   let value = useLayoutBreakPointValue();
   return (
     <Stack mx={value} mt={20}>
-      <Heading textAlign={"center"}>MENTOR/Хөтөч</Heading>
+      <Heading textAlign={"center"} size="xl">
+        Mentor/Хөтөч
+      </Heading>
       <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacingX={5} pt={5}>
         {MENTOR.map((el, i) => {
           return (
