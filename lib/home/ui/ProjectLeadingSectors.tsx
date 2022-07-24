@@ -23,6 +23,7 @@ export const ProjectLeadingSectors = () => {
       <VStack w={"full"}>
         <Heading
           w="50%"
+          my="24"
           textAlign={"center"}
           size="xl"
           mt="16"

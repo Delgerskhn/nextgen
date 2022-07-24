@@ -14,6 +14,8 @@ import { useCurrentUser, useLogout } from "@lib/auth/data/authHooks";
 import { Hero } from "@lib/home/ui/Hero";
 import { ProjectLeadingSectors } from "@lib/home/ui/ProjectLeadingSectors";
 import { ProjectTimeline } from "@lib/home/ui/ProjectTimeline";
+import { Goal } from "@lib/home/ui/Goal";
+import { Target } from "@lib/home/ui/Target";
 import { Future } from "@lib/home/ui/future";
 import { Selection } from "@lib/home/ui/selection";
 import { Map } from "@lib/home/ui/map";
@@ -27,6 +29,9 @@ const HomePage = () => {
       <AppLayout>
         <Flex direction="column">
           <Hero />
+          <Goal />
+          <Target />
+          <Selection />
           <ProjectLeadingSectors />
           <Future />
           <Selection />
