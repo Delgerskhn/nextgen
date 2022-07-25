@@ -54,6 +54,7 @@ export default function SignupPage() {
       onSuccess: (user) => {
         const { firstName, lastName, sex, age, projectName } = authInput;
         createAccount.mutate({
+          pictureKey: null,
           firstName,
           lastName,
           userId: user.id,
