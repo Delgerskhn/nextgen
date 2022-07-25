@@ -1,5 +1,5 @@
 import { useAuth } from "@lib/auth/ui";
-import { uploadToS3 } from "@lib/file/data/uploadHooks";
+import { removeFromS3, uploadToS3 } from "@lib/file/data/uploadHooks";
 import { FileUploader } from "@lib/file/ui/FileUploader";
 import {
   Button,
@@ -22,45 +22,36 @@ type ProjectFileInput = {
   document: File[];
 };
 
+type ProjectFileField = "teamIntroFile" | "projectIntroFile" | "projectDocFile";
+
 export const ProjectForm = () => {
   const updateProject = useUpdateProject();
   const { data: user } = useAuth();
   const { data, refetch } = useProject(user?.id);
-  const onTeamIntroUpload = (f: File) => {
+  const onUploadFile = (field: ProjectFileField) => (f: File) => {
     uploadToS3(f).then((key) => {
       toaster.success("Амжилттай хадгаллаа.");
       updateProject.mutate(
         {
           userId: user?.id,
-          teamIntroFile: key,
+          [field]: key,
         },
         { onSuccess: () => refetch() }
       );
     });
   };
-  const onProjectIntroUpload = (f: File) => {
-    uploadToS3(f).then((key) => {
-      toaster.success("Амжилттай хадгаллаа.");
-      updateProject.mutate(
-        {
-          userId: user?.id,
-          teamIntroFile: key,
-        },
-        { onSuccess: () => refetch() }
-      );
-    });
-  };
-  const onProjectDocUpload = (f: File) => {
-    uploadToS3(f).then((key) => {
-      toaster.success("Амжилттай хадгаллаа.");
-      updateProject.mutate(
-        {
-          userId: user?.id,
-          teamIntroFile: key,
-        },
-        { onSuccess: () => refetch() }
-      );
-    });
+  const onDeleteFile = (field: ProjectFileField) => (key: string) => {
+    removeFromS3(key)
+      .then((key) => {
+        updateProject.mutate(
+          {
+            userId: user?.id,
+            [field]: null,
+          },
+          { onSuccess: () => refetch() }
+        );
+      })
+      .catch((e) => toaster.error("Алдаа гарлаа."));
   };
   return (
     <>
@@ -70,7 +61,8 @@ export const ProjectForm = () => {
         <FormControl>
           <FormLabel>Багийн танилцуулга видео</FormLabel>
           <FileUploader
-            onUpload={onTeamIntroUpload}
+            onDelete={onDeleteFile("teamIntroFile")}
+            onUpload={onUploadFile("teamIntroFile")}
             defaultFileKey={data?.teamIntroFile || undefined}
           />
         </FormControl>
@@ -78,7 +70,8 @@ export const ProjectForm = () => {
         <FormControl>
           <FormLabel>Төслийн танилцуулга видео</FormLabel>
           <FileUploader
-            onUpload={onProjectIntroUpload}
+            onDelete={onDeleteFile("projectIntroFile")}
+            onUpload={onUploadFile("projectIntroFile")}
             defaultFileKey={data?.projectIntroFile || undefined}
           />
         </FormControl>
@@ -86,7 +79,8 @@ export const ProjectForm = () => {
         <FormControl>
           <FormLabel>Төслийн бичиг баримт</FormLabel>
           <FileUploader
-            onUpload={onProjectDocUpload}
+            onDelete={onDeleteFile("projectDocFile")}
+            onUpload={onUploadFile("projectDocFile")}
             defaultFileKey={data?.projectDocFile || undefined}
           />
         </FormControl>

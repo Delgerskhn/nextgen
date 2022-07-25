@@ -5,10 +5,15 @@ import { BiTrash } from "react-icons/bi";
 
 type PropsType = {
   onUpload: (f: File) => void;
+  onDelete: (key: string) => void;
   defaultFileKey?: string;
 };
 
-export const FileUploader = ({ defaultFileKey, onUpload }: PropsType) => {
+export const FileUploader = ({
+  defaultFileKey,
+  onUpload,
+  onDelete,
+}: PropsType) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   function onSave() {
@@ -28,6 +33,7 @@ export const FileUploader = ({ defaultFileKey, onUpload }: PropsType) => {
         >
           <Text color="gray.500">{defaultFileKey}</Text>
           <IconButton
+            onClick={() => onDelete(defaultFileKey)}
             size="sm"
             colorScheme={"red"}
             bg="red.500"

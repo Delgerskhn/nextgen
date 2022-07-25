@@ -25,3 +25,7 @@ export const uploadToS3 = async (file: File) => {
   await uploadFile(file, signedRequest);
   return key;
 };
+
+export const removeFromS3 = async (key: string) => {
+  return fetcher.delete(`file?fileKey=${key}`);
+};
