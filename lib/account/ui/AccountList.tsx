@@ -2,6 +2,8 @@ import {
   Box,
   Divider,
   Heading,
+  Icon,
+  IconButton,
   SimpleGrid,
   Table,
   TableCaption,
@@ -13,15 +15,23 @@ import {
   Th,
   Thead,
   Tr,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useAuth } from "@lib/auth/ui";
 import { NavContentLayout } from "@ui/components/NavContentLayout";
+import { BiPlus } from "react-icons/bi";
 import { useAccounts } from "../data/accountHook";
 import { AccountInfo } from "./Account";
+import { EditAccountInfo } from "./EditAccountInfo";
 
 export const AccountList = () => {
   const { data: user } = useAuth();
-  const { data: accounts } = useAccounts(user?.id);
+  const { data: accounts, refetch } = useAccounts(user?.id);
+  const { isOpen: isAdding, onOpen: onAdd, onClose } = useDisclosure();
+  const onAccountAdd = () => {
+    refetch({});
+    onClose();
+  };
   return (
     <>
       <Heading size="md">Багийн мэдээллээ оруулна уу.</Heading>
@@ -35,10 +45,19 @@ export const AccountList = () => {
               <Th>Овог</Th>
               <Th isNumeric>Нас</Th>
               <Th>Хүйс</Th>
-              <Th></Th>
+              <Th>
+                <IconButton
+                  onClick={onAdd}
+                  aria-label=""
+                  icon={<Icon color="gray.900" as={BiPlus} />}
+                />
+              </Th>
             </Tr>
           </Thead>
           <Tbody>
+            {isAdding && (
+              <EditAccountInfo userId={user?.id} onSave={onAccountAdd} />
+            )}
             {accounts?.map((r) => (
               <AccountInfo key={r.id} {...r} />
             ))}
