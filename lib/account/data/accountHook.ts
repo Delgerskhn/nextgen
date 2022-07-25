@@ -16,7 +16,9 @@ export const useUpdateAccount = () => {
 };
 
 export const useAccounts = (userId: string | undefined) => {
-  return useQuery<Account[]>(["account", userId], () =>
-    fetcher.get(`account/${userId}`)
+  return useQuery<Account[]>(
+    ["account", userId],
+    () => fetcher.get(`account/${userId}`),
+    { cacheTime: 0, staleTime: 0 }
   );
 };
