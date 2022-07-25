@@ -6,5 +6,5 @@ export type AccountCreateInput = Pick<
 >;
 export type AccountUpdateInput = Pick<
   Account,
-  "firstName" | "lastName" | "age" | "sex"
+  "firstName" | "lastName" | "age" | "sex" | "id" | "pictureKey"
 >;

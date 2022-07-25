@@ -31,6 +31,22 @@ export const deleteObject = async (fileKey: string) => {
   });
 };
 
+export const getObjectSignedUrl = async (fileKey: string) => {
+  return new Promise<{ url: string }>((res, rej) => {
+    s3.getSignedUrl(
+      "getObject",
+      {
+        Bucket: bucket,
+        Key: fileKey,
+      },
+      (error, url) => {
+        if (error) rej(error);
+        res({ url });
+      }
+    );
+  });
+};
+
 export const getUploadKey = async (
   fileName: string,
   fileType: string

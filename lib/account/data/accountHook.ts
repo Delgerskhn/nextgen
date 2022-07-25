@@ -17,6 +17,6 @@ export const useUpdateAccount = () => {
 
 export const useAccounts = (userId: string | undefined) => {
   return useQuery<Account[]>(["account", userId], () =>
-    userId ? fetcher.get(`account/${userId}`) : []
+    fetcher.get(`account/${userId}`)
   );
 };

@@ -62,6 +62,7 @@ export const ProjectForm = () => {
           <FormLabel>Багийн танилцуулга видео</FormLabel>
           <FileUploader
             onDelete={onDeleteFile("teamIntroFile")}
+            accept="video/*"
             onUpload={onUploadFile("teamIntroFile")}
             defaultFileKey={data?.teamIntroFile || undefined}
           />
@@ -70,6 +71,7 @@ export const ProjectForm = () => {
         <FormControl>
           <FormLabel>Төслийн танилцуулга видео</FormLabel>
           <FileUploader
+            accept="video/*"
             onDelete={onDeleteFile("projectIntroFile")}
             onUpload={onUploadFile("projectIntroFile")}
             defaultFileKey={data?.projectIntroFile || undefined}
@@ -79,6 +81,7 @@ export const ProjectForm = () => {
         <FormControl>
           <FormLabel>Төслийн бичиг баримт</FormLabel>
           <FileUploader
+            accept=".doc,.pdf,.docx"
             onDelete={onDeleteFile("projectDocFile")}
             onUpload={onUploadFile("projectDocFile")}
             defaultFileKey={data?.projectDocFile || undefined}
