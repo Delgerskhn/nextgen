@@ -98,7 +98,7 @@ export const Mentor = () => {
       </Stack>
       {/* {MENTOR.map((el, i) => {
           return (
-            <Center py={12}>
+            <Center key={i} py={12}>
               <Box
                 role={"group"}
                 maxW={"330px"}

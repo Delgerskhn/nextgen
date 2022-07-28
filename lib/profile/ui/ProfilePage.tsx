@@ -49,7 +49,6 @@ export const ProfilePage = () => {
   return (
     <AppLayout title={t("profile")}>
       <SEO title={t("profile")} />
-      <Box h="12"></Box>
       <NavMenuLayout
         title={t("profile")}
         navItems={navItems.map((navItem) => ({

@@ -1,3 +1,4 @@
+import { rejects } from "assert";
 import { S3 } from "aws-sdk";
 import { randomUUID } from "crypto";
 
@@ -11,6 +12,39 @@ const bucket = process.env.AWS_BUCKET;
 const generateKey = (fileName: string) => {
   const ext = fileName.split(".").pop();
   return `${randomUUID()}.${ext}`;
+};
+
+export const deleteObject = async (fileKey: string) => {
+  return new Promise<{ success: boolean }>((res, rej) => {
+    s3.deleteObject(
+      {
+        Bucket: bucket || "",
+        Key: fileKey,
+      },
+      (error, data) => {
+        if (error) rej(error);
+        res({
+          success: true,
+        });
+      }
+    );
+  });
+};
+
+export const getObjectSignedUrl = async (fileKey: string) => {
+  return new Promise<{ url: string }>((res, rej) => {
+    s3.getSignedUrl(
+      "getObject",
+      {
+        Bucket: bucket,
+        Key: fileKey,
+      },
+      (error, url) => {
+        if (error) rej(error);
+        res({ url });
+      }
+    );
+  });
 };
 
 export const getUploadKey = async (

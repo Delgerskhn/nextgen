@@ -54,6 +54,7 @@ export default function SignupPage() {
       onSuccess: (user) => {
         const { firstName, lastName, sex, age, projectName } = authInput;
         createAccount.mutate({
+          pictureKey: null,
           firstName,
           lastName,
           userId: user.id,
@@ -78,11 +79,9 @@ export default function SignupPage() {
         <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
           <Stack align={"center"}>
             <Heading fontSize={"4xl"} textAlign={"center"}>
-              Sign up
+              {/* Бүртгэл */}
             </Heading>
-            <Text fontSize={"lg"} color={"gray.600"}>
-              to enjoy all of our cool features ✌️
-            </Text>
+            <Text fontSize={"lg"} color={"gray.600"}></Text>
           </Stack>
           <Box rounded={"lg"} boxShadow={"lg"} p={8}>
             <FormControl
@@ -167,7 +166,7 @@ export default function SignupPage() {
                       })}
                     >
                       {new Array(100).fill(0).map((_, i) => (
-                        <option>{i + 1}</option>
+                        <option key={i}>{i + 1}</option>
                       ))}
                     </Select>
                     <FormErrorMessage>
@@ -236,14 +235,14 @@ export default function SignupPage() {
                     bg: "blue.500",
                   }}
                 >
-                  Sign up
+                  Бүртгүүлэх
                 </Button>
               </Stack>
               <Stack pt={6}>
                 <Text align={"center"}>
-                  Already a user?{" "}
+                  Бүртгэлтэй юу?{" "}
                   <Link href="/auth/login" color={"blue.400"}>
-                    Login
+                    Нэвтрэх
                   </Link>
                 </Text>
               </Stack>

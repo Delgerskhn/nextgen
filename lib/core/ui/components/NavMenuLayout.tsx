@@ -106,7 +106,7 @@ const NavItem = ({
   const colors = {
     bg: "green.500",
     fg: "white",
-    cl: !isMobile && colorMode !== "dark" ? "green.500" : "white",
+    cl: !isMobile && colorMode !== "dark" ? "green.500" : "gray",
     br: "transparent",
   };
   if (bullet) {
@@ -222,13 +222,13 @@ export const NavMenuLayout = ({
       spacing={0}
     >
       <Box width={{ base: "full", lg: 60 }} ml={0}>
-        <NavTitle title={t(title)} backLink={backLink} isMobile={isMobile} />
+        {/* <NavTitle title={t(title)} backLink={backLink} isMobile={isMobile} /> */}
         <UnorderedList
           styleType="none"
           ml={0}
           py={{ base: 0, lg: 3 }}
           bg={{
-            base: useColorModeValue("purple.200", "gray.700"),
+            base: useColorModeValue("white", "gray.700"),
             lg: "inherit",
           }}
         >
