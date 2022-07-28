@@ -21,7 +21,7 @@ export const Mentor = () => {
       <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacingX={5} pt={5}>
         {MENTOR.map((el, i) => {
           return (
-            <Center py={12}>
+            <Center key={i} py={12}>
               <Box
                 role={"group"}
                 maxW={"330px"}

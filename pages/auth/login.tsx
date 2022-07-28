@@ -58,14 +58,14 @@ export default function LoginPage() {
       <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
         <Flex p={8} flex={1} align={"center"} justify={"center"}>
           <Stack spacing={4} w={"full"} maxW={"md"}>
-            <Heading fontSize={"2xl"}>Sign in to your account</Heading>
+            <Heading fontSize={"2xl"}></Heading>
             <FormControl id="email" isInvalid={!!errors.email}>
-              <FormLabel>Email address</FormLabel>
+              <FormLabel>И-мэйл хаяг</FormLabel>
               <Input
                 type="email"
                 autoComplete="email"
                 {...register("email", {
-                  required: "This is required",
+                  required: "Заавал",
                 })}
               />
               <FormErrorMessage>
@@ -73,17 +73,17 @@ export default function LoginPage() {
               </FormErrorMessage>
             </FormControl>
             <FormControl id="password" isInvalid={!!errors.password}>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Нууц үг</FormLabel>
               <InputGroup>
                 <Input
                   type={isOpen ? "text" : "password"}
                   autoComplete="current-password"
                   required
                   {...register("password", {
-                    required: "This is required",
+                    required: "Заавал",
                     minLength: {
                       value: 8,
-                      message: "Minimum length should be 8",
+                      message: "Багадаа 8 үсэг тоо орсон байх ёстой.",
                     },
                   })}
                 />
@@ -107,18 +107,18 @@ export default function LoginPage() {
                 align={"start"}
                 justify={"space-between"}
               >
-                <Checkbox>Remember me</Checkbox>
-                <Link color={"blue.500"}>Forgot password?</Link>
+                <Checkbox>Сануулах</Checkbox>
+                <Link color={"blue.500"}>Нууц үгээ мартсан?</Link>
               </Stack>
               <Button onClick={onSubmit} colorScheme={"blue"} variant={"solid"}>
-                Sign in
+                Нэвтрэх
               </Button>
             </Stack>
             <Stack pt={6}>
               <Text align={"center"}>
-                Do not have account?{" "}
+                Бүртгэл байхгүй?{" "}
                 <Link href="/auth/signup" color={"blue.400"}>
-                  Sign up
+                  Бүртгүүлэх
                 </Link>
               </Text>
             </Stack>

@@ -58,6 +58,7 @@ const variants = {
       border: "1px solid",
       borderColor: "gray.400",
       borderRadius: "3px",
+      background: "white",
       p: 3,
       _focus: {
         zIndex: 1,

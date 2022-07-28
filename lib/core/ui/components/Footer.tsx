@@ -54,7 +54,12 @@ export const Footer = ({
                 </Heading>
                 {NAV_ITEMS.map((el, i) => {
                   return (
-                    <Link fontSize={14} fontWeight="bold" color={"#003366"}>
+                    <Link
+                      key={i}
+                      fontSize={14}
+                      fontWeight="bold"
+                      color={"#003366"}
+                    >
                       {el.label}
                     </Link>
                   );

@@ -150,7 +150,7 @@ export const EditAccountInfo = ({
             })}
           >
             {new Array(100).fill(0).map((_, i) => (
-              <option>{i + 1}</option>
+              <option key={i}>{i + 1}</option>
             ))}
           </Select>
           <FormErrorMessage>
