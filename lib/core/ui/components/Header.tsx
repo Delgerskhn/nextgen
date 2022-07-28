@@ -18,33 +18,28 @@ import { AiOutlineUser } from "react-icons/ai";
 import { useLayoutBreakPointValue } from "@lib/core/data/layout_break_point_value";
 import { useRouter } from "next/router";
 import { FiMenu } from "react-icons/fi";
+import { border, color } from "constant";
 
 export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
   const variant = useLayoutBreakPointValue();
   const router = useRouter();
   return (
-    <Box>
+    <Box bg={color.primary}>
       <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 5 }}
         px={variant}
-        borderBottom={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
         justifyContent={"space-between"}
-        alignItems="center"
+        alignItems="flex-end"
       >
         <Flex alignItems={"center"}>
           <Link href="/">
-            <Image src="/logo.png" w="14" />
+            <Image src="/logo.png" w="24" />
           </Link>
         </Flex>
         <Stack direction={"row"} spacing={10}>
-          {/* <Collapse in={isOpen} animateOpacity></Collapse> */}
           <IconButton
             size={"sm"}
             as={FiMenu}
@@ -60,21 +55,15 @@ export const Header = () => {
             aria-label={"User auth"}
           />
           <DesktopNav />
-          <IconButton
-            size={"sm"}
-            as={AiOutlineUser}
-            bg="transparent"
-            cursor={"pointer"}
-            color="black"
-            variant={"unstyled"}
-            onClick={() => {
-              router.push("/account/profile");
-            }}
-            _hover={{
-              color: "#003366",
-            }}
-            aria-label={"User auth"}
-          />
+          <Button
+            bg={color.orange}
+            _hover={{}}
+            _focus={{}}
+            borderRadius={border.button_border_radius}
+            textColor={color.white}
+          >
+            Бүртгүүлэх
+          </Button>
         </Stack>
       </Flex>
       <MobileNav is_open={isOpen} />

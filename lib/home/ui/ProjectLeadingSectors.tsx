@@ -10,6 +10,8 @@ import {
   SimpleGrid,
   Icon,
 } from "@chakra-ui/react";
+import { colors } from "@ui/foundations/colors";
+import { color } from "constant";
 import { GiRadarCrossSection } from "react-icons/gi";
 import {
   CountryFeatures,
@@ -19,22 +21,20 @@ import {
 
 export const ProjectLeadingSectors = () => {
   return (
-    <Box maxW={"container.xl"} mx="auto" w="full">
+    <Box   w="full" bg={color.white}>
       <VStack w={"full"}>
         <Heading
           w="50%"
-          my="24"
           textAlign={"center"}
           size="xl"
-          mt="16"
-          mb="16"
+          mt="5"
           fontFamily={"NotoSans"}
           py={10}
         >
-          Төслийн тэргүүлэх чиглэл
+          {"Төслийн тэргүүлэх чиглэл".toUpperCase()}
         </Heading>
-        <Tabs size="lg" align="center" minH={408}>
-          <TabList color={"#003366"}>
+        <Tabs size="lg" align="center" minH={408} w="full">
+          <TabList fontWeight={"bold"} color={color.primary}>
             <Tab
               _focus={{
                 outline: "none",
@@ -75,7 +75,7 @@ export const ProjectLeadingSectors = () => {
               Төрийн бүтээмжийн сэргэлт
             </Tab>
           </TabList>
-          <TabPanels px={20}>
+          <TabPanels >
             <TabPanel>
               <CountryFeatures />
             </TabPanel>

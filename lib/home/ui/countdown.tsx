@@ -20,11 +20,14 @@ const AppStyled = styled.div`
 `;
 
 const ContainerStyled = styled.section`
-  margin: auto;
   padding: 1rem;
+  padding-left : 0px;
+  padding-right : 0px;
 
   @media (min-width: 48em) {
     padding: 4rem;
+    padding-left : 0px;
+  padding-right : 0px;
   }
 `;
 
@@ -59,12 +62,12 @@ const CounterStyled = styled.div`
   border-radius: 1rem;
   color: white;
   display: flex;
+  align-items : center;
   flex-direction: column;
-//   font-family: "JetBrains Mono", mono;
   font-size: 50px;
   font-weight: 100;
   line-height: 1;
-  padding: 2vw
+  padding: 10px;
   text-align: center;
 
   h2 {
@@ -80,6 +83,7 @@ const CounterStyled = styled.div`
     text-transform: uppercase;
     white-space: nowrap;
     width: 100%;
+    text-align: 'center';
   }
 `;
 const nextYear = new Date().getFullYear();
@@ -100,8 +104,8 @@ const generateTimeDisplay = (): TimeDisplayValuesType => {
 
 const Counter = ({ displayValue, label }: CounterType) => (
   <CounterStyled>
-    <h2 style={{ color: "white", fontSize: "15px" }}>{label}</h2>
-    {displayValue}
+    <h2 style={{ color: "white", fontSize: "15px",textAlign : 'center' }}>{label}</h2>
+    <p>{displayValue}</p>
   </CounterStyled>
 );
 

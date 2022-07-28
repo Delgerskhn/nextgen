@@ -31,11 +31,8 @@ const HomePage = () => {
           <Hero />
           <Selection />
           <ProjectLeadingSectors />
-          <Future />
           <ProjectTimeline />
           <Mentor />
-          <Partner />
-          <Map />
         </Flex>
       </AppLayout>
     </>

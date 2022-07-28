@@ -1,4 +1,4 @@
-import { Flex, Stack, Text } from "@chakra-ui/react";
+import { Flex, ListItem, Stack, Text, UnorderedList } from "@chakra-ui/react";
 import React, { ReactElement } from "react";
 
 interface FeatureProps {
@@ -21,12 +21,14 @@ export const Feature = ({ title, icon, texts }: FeatureProps) => (
       {icon}
     </Flex>
     <Text fontWeight={600}>{title}</Text>
+    <UnorderedList spacing={5} pt={5}>
     {texts.map((el, i) => {
       return (
-        <Text key={i} color={"gray.600"}>
+        <ListItem listStylePos={"inside"}    key={i} color={"gray.600"}>
           {el}
-        </Text>
+        </ListItem>
       );
     })}
+    </UnorderedList>
   </Stack>
 );

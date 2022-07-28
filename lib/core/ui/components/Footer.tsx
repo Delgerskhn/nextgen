@@ -9,8 +9,10 @@ import {
   Icon,
   Heading,
   SimpleGrid,
+  Image,
 } from "@chakra-ui/react";
 import { useLayoutBreakPointValue } from "@lib/core/data/layout_break_point_value";
+import { color } from "constant";
 import {
   FaFacebook,
   FaInstagram,
@@ -27,51 +29,67 @@ export const Footer = ({
 }) => {
   const variant = useLayoutBreakPointValue();
   return (
-    <Flex as="footer" w={"80%"} mx="auto" mt={10}>
+    <Flex
+      as="footer"
+      w={"full"}
+      mx="auto"
+      pt={14}
+      bg={color.primary}
+      backgroundImage="url('/3hand.png')"
+      backgroundRepeat={"no-repeat"}
+      style={{
+        backgroundSize: "60%",
+        backgroundPosition: "130%",
+        backgroundAttachment: "fixed",
+        backgroundPositionY: "130%",
+      }}
+    >
       <Box w="full">
-        <HStack
-          h="full"
-          w={{ base: "full" }}
-
-          // bg="#013365"
-        >
-          {/* <Box display={{ base: "none", lg: "flex" }} width={60} /> */}
-          <Box
-            flex="1"
-            h="full"
-            color={useColorModeValue("gray.200", "gray.800")}
-            px={variant}
-            py={5}
-          >
+        <HStack h="full" w={{ base: "full" }}>
+          <Box flex="1" h="full" px={variant} py={5}>
             <SimpleGrid
               direction="row"
               justifyContent="space-between"
-              columns={{ base: 1, md: 3 }}
+              columns={{ base: 1, md: 4 }}
             >
-              <Stack direction={"column"} justifyContent="" spacing={4}>
-                <Heading size="xs" color={"black"}>
+              <Stack direction={"row"}>
+                <Image src="/govern.png" w={65} height="50" />
+                <Image src="/government.png" w={65} height="50" />
+              </Stack>
+              <Stack
+                direction={"column"}
+                justifyContent=""
+                spacing={4}
+                mt={{ base: 10, md: 0 }}
+              >
+                <Heading size="sm" color={color.white}>
                   Холбоосууд
                 </Heading>
                 {NAV_ITEMS.map((el, i) => {
                   return (
-                    <Link fontSize={14} fontWeight="bold" color={"#003366"}>
+                    <Link fontSize={14} fontWeight="bold" color={color.white}>
                       {el.label}
                     </Link>
                   );
                 })}
               </Stack>
-              <Stack direction={"column"} justifyContent="" spacing={4}>
-                <Heading size="xs" color={"black"}>
+              <Stack
+                direction={"column"}
+                justifyContent=""
+                spacing={4}
+                mt={{ base: 10, md: 0 }}
+              >
+                <Heading size="sm" color={color.white}>
                   Холбоо барих
                 </Heading>
 
                 {FOOTER.CONTACT.map((el, i) => {
                   return (
                     <Stack key={i} alignItems={"center"} flexDirection={"row"}>
-                      <Icon as={el.icon} color={"black"} />
+                      <Icon as={el.icon} color={color.white} />
                       <Text
                         style={{ marginTop: 0, marginLeft: 10 }}
-                        color={"black"}
+                        color={color.white}
                       >
                         {el.value}
                       </Text>
@@ -79,8 +97,8 @@ export const Footer = ({
                   );
                 })}
               </Stack>
-              <Stack>
-                <Heading size="xs" color={"black"}>
+              <Stack mt={{ base: 10, md: 0 }}>
+                <Heading size="sm" color={color.white}>
                   Сошиал хаягууд
                 </Heading>
                 <Stack direction="row">
@@ -88,42 +106,32 @@ export const Footer = ({
                     return (
                       <Box
                         key={i}
-                        bg={el.bg}
-                        p={2}
-                        px={3}
+                        bg={color.white}
+                        p={3}
                         alignItems="center"
                         justifyContent={"center"}
                         flexDirection="row"
                         cursor={"pointer"}
                         display={"flex"}
+                        rounded="full"
                       >
-                        <Icon as={el.icon} color="white" fontSize={20} />
+                        <Icon as={el.icon} color={el.bg} fontSize={20} />
                       </Box>
                     );
                   })}
                 </Stack>
-                <Text fontSize={"xs"} color={"black"}>
-                  Шинэ сэргэлт (NextGen) залуучуудын төслийн уралдаан нь Монгол
-                  Улсын иргэдийн аж амьдралд бодитоор тулгамдаж буй хөгжлийн
-                  асуудлуудыг залуучуудын оролцоо, бүтээлч санаачилга болон
-                  хамтын ажиллагаанд тулгуурлан оновчтой тодорхойлж, шийдлийг
-                  хэрэгжүүлэх төслийн уралдаан бөгөөд чадавхжуулах арга хэмжээ
-                  юм.
-                </Text>
               </Stack>
             </SimpleGrid>
             <Stack
               direction="row"
-              textColor={"#003366"}
+              justifyContent={"center"}
+              textColor={color.white}
               mt={5}
               py={10}
               pb={5}
               fontSize="sm"
             >
-              <Text>Copyright © 2022 All Rights Reserved - Nextgen</Text>
-              <Text>
-                Powered By <b> 3GROUP</b>
-              </Text>
+              <Text>2022 NEXT GEN MNL All Rights Reserved.</Text>
             </Stack>
           </Box>
         </HStack>

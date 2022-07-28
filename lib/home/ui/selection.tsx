@@ -13,6 +13,7 @@ import {
   Icon,
   Button,
 } from "@chakra-ui/react";
+import { border, color } from "constant";
 import { useRouter } from "next/router";
 import { ReactElement, useState } from "react";
 import {
@@ -79,7 +80,7 @@ export const Selection = () => {
   const [is_show, setShow] = useState(false);
   const router = useRouter();
   return (
-    <Container maxW={"5xl"} py={12} experimental_spaceY="40">
+    <Container maxW={"5xl"} py={12} experimental_spaceY="16">
       <Heading textAlign={"center"} size={"xl"}>
         Сонгон шалгаруулалт
       </Heading>
@@ -132,14 +133,17 @@ export const Selection = () => {
               />
             </UnorderedList>
             <Button
-              bg="#003366"
-              color={"white"}
+              color={color.primary}
+              bgColor={"transparent"}
               fontWeight={"bold"}
-              borderRadius={0}
+              borderColor ={color.primary}
+              borderWidth={2}
+              rounded={border.button_border_radius}
               width={"fit-content"}
               _focus={{}}
               _hover={{
-                background: "#003366",
+                background: color.primary,
+                color : color.white
               }}
               onClick={() => router.push("/guidance")}
             >
@@ -200,13 +204,17 @@ export const Selection = () => {
               />
             </UnorderedList>
             <Button
-              bg="#003366"
-              color={"white"}
+              bg="transparent"
+              color={color.primary}
               fontWeight={"bold"}
-              borderRadius={0}
+              borderColor ={color.primary}
+              borderWidth={2}
+              rounded={border.button_border_radius}
               width={"fit-content"}
+              _focus={{}}
               _hover={{
-                background: "#003366",
+                background: color.primary,
+                color : color.white
               }}
               onClick={() => router.push("/guidance")}
             >

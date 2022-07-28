@@ -11,12 +11,11 @@ import {
   Icon,
   Divider,
 } from "@chakra-ui/react";
+import { color } from "constant";
 import { BsChevronRight } from "react-icons/bs";
 import { NavItem, NAV_ITEMS } from "./NavItem";
 
 export const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
   return (
     <Stack
       direction={"row"}
@@ -29,6 +28,7 @@ export const DesktopNav = () => {
           key={navItem.label}
           className="active-menu-item"
           position={"relative"}
+          border={0}
         >
           <Link
             outline={"none"}
@@ -36,10 +36,10 @@ export const DesktopNav = () => {
             href={navItem.href ?? "#"}
             fontSize={"lg"}
             fontWeight="bold"
-            color={"black"}
+            color={color.white}
             _hover={{
               textDecoration: "none",
-              color: linkHoverColor,
+              color: color.orange,
             }}
             _focus={{ border: 0, outline: "none" }}
           >
@@ -48,7 +48,7 @@ export const DesktopNav = () => {
           <Divider
             opacity={1}
             style={{
-              backgroundColor: "#003366",
+              backgroundColor: color.orange,
             }}
             h={1}
             bottom={-2}

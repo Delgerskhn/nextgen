@@ -11,37 +11,45 @@ import {
   Link,
   Icon,
   HStack,
+  SimpleGrid,
 } from "@chakra-ui/react";
+import { useLayoutBreakPointValue } from "@lib/core/data/layout_break_point_value";
+import { color } from "constant";
 import { BsChevronRight } from "react-icons/bs";
 import { Countdown } from "./countdown";
 
 export function Hero() {
+  const containerValue = useLayoutBreakPointValue();
   return (
     <>
       <Flex
         w={"full"}
-        h={"600px"}
-        backgroundImage={
-          "url(https://t4.ftcdn.net/jpg/04/84/11/15/360_F_484111532_W0WOkKeXQzF75XusA7R8e3llIDXqyCFm.jpg)"
-        }
-        backgroundSize={"cover"}
-        backgroundPosition={"center center"}
+        minH={"500px"}
+        bgColor={color.primary}
+        py={10}
+        px={containerValue}
       >
-        <VStack
-          pt="5"
-          w={"full"}
-          justify={"flex-start"}
-          px={useBreakpointValue({ base: 4, md: 8 })}
-          bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
+        <Stack
+          direction={{ base: "column", md: "row" }}
+          justifyContent="space-between"
         >
-          <Stack maxW={"md"} align={"flex-start"} spacing={6}>
-            <Image src="/hero_text.png" />
+          <Stack direction={"column"} alignItems="center">
+            <Stack
+              maxW={"2xl"}
+              alignItems={"center"}
+              direction={"row"}
+              justifyContent="center"
+            >
+              <Image src="/hero_text.png" />
+            </Stack>
+            <Countdown />
           </Stack>
-          <Countdown />
-        </VStack>
+          <Stack pl={{ base: 0, md: "40" }}>
+            <Image src="/meeting.png" w={"100%"} />
+          </Stack>
+        </Stack>
       </Flex>
-
-      <VStack bg="gray.50" p="6" px="12">
+      <VStack bg={color.white} p="12" py={20}>
         <Text
           // fontWeight={"bold"}
           color="gray.900"
@@ -49,6 +57,7 @@ export function Hero() {
           textAlign={"center"}
           lineHeight="8"
           fontWeight={"bold"}
+          mx={containerValue}
         >
           Шинэ сэргэлт (NextGen) залуучуудын төслийн уралдаан нь Монгол Улсын
           иргэдийн аж амьдралд бодитоор тулгамдаж буй хөгжлийн асуудлуудыг

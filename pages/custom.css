@@ -1,18 +1,19 @@
-
 @font-face {
     font-family: 'NotoSans';
-    src : url('../assets/fonts/NotoSans-Bold.ttf');
-    src : url('../assets/fonts/NotoSans-BoldItalic.ttf');
-    src : url('../assets/fonts/NotoSans-Light.ttf');
-    src : url('../assets/fonts/NotoSans-Medium.ttf');
-    src : url('../assets/fonts/NotoSans-Regular.ttf');
+    src: url('../assets/fonts/NotoSans-Bold.ttf');
+    src: url('../assets/fonts/NotoSans-BoldItalic.ttf');
+    src: url('../assets/fonts/NotoSans-Light.ttf');
+    src: url('../assets/fonts/NotoSans-Medium.ttf');
+    src: url('../assets/fonts/NotoSans-Regular.ttf');
     font-style: normal;
 }
+
 @font-face {
     font-family: 'Helvetica';
     src: url("../assets/fonts/Helvetica.ttc");
     font-style: normal;
 }
+
 @font-face {
     font-family: 'Montserrat';
     src: url('../assets/fonts/Montserrat-Bold.ttf');
@@ -30,25 +31,21 @@
     letter-spacing: 1px;
 }
 
-.active-menu-item > hr {
+.active-menu-item>hr {
     width: 0px;
     transition: 1s;
 }
-.active-menu-item:hover > hr { 
+
+.active-menu-item:hover>hr {
     transition: 500ms;
-    width : 100%
+    width: 100%
 }
-.active-menu-item:hover > a {
-    color: #003366;
-}
-.active-tab:focus {
-    color : "#013365" !important;
+
+.active-tab {
+    color: "#013365" !important;
     font-weight: bold;
 }
-
-
-
 .time-line-date {
     font-size: 20px !important;
-    font-weight: bold !important ;
+    font-weight: bold !important;
 }
