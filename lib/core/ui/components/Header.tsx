@@ -58,6 +58,8 @@ export const Header = () => {
           <Button
             bg={color.orange}
             _hover={{}}
+            as="a"
+            href={"/auth/signup"}
             _focus={{}}
             borderRadius={border.button_border_radius}
             textColor={color.white}
