@@ -1,4 +1,4 @@
-import { Stack } from "@chakra-ui/react";
+import { Heading, Stack } from "@chakra-ui/react";
 import {
   AiFillFilter,
   AiOutlineFieldTime,
@@ -12,8 +12,17 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 export const Timeline = () => {
   return (
-    <Stack maxW={"70%"} mx={"auto"} w="full" mt={10}>
+    <Stack maxW={"70%"} mx={"auto"} w="full" py="10">
       <VerticalTimeline>
+        <Heading
+          textAlign={"center"}
+          fontSize="3xl"
+          position="absolute"
+          left={0}
+          right={0}
+        >
+          ХУГАЦАА
+        </Heading>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           // contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}

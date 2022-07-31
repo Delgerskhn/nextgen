@@ -28,7 +28,7 @@ export const Header = () => {
   const router = useRouter();
   const { isLoggedIn, data } = useAuth();
   return (
-    <Box bg={"primeBlue"}>
+    <Box bg="transparent" position={"absolute"} w="full">
       <Flex
         minH={"60px"}
         py={{ base: 5 }}

@@ -28,9 +28,13 @@ export function Hero() {
         bgColor={"primeBlue"}
         py={10}
         px={containerValue}
+        backgroundImage="url('/Header.png')"
+        backgroundPosition={""}
+        backgroundRepeat="cover"
       >
         <Stack
           direction={{ base: "column", md: "row" }}
+          pt={"150px"}
           justifyContent="space-between"
         >
           <Stack direction={"column"} alignItems="center">

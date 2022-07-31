@@ -21,7 +21,7 @@ import {
 
 export const ProjectLeadingSectors = () => {
   return (
-    <Box   w="full" bg={color.white}>
+    <Box w="full" bg={color.white}>
       <VStack w={"full"}>
         <Heading
           w="50%"
@@ -34,7 +34,7 @@ export const ProjectLeadingSectors = () => {
           {"Төслийн тэргүүлэх чиглэл".toUpperCase()}
         </Heading>
         <Tabs size="lg" align="center" minH={408} w="full">
-          <TabList fontWeight={"bold"} color={color.primary}>
+          <TabList fontWeight={"bold"} color={"primeBlue"}>
             <Tab
               _focus={{
                 outline: "none",
@@ -75,7 +75,7 @@ export const ProjectLeadingSectors = () => {
               Төрийн бүтээмжийн сэргэлт
             </Tab>
           </TabList>
-          <TabPanels >
+          <TabPanels>
             <TabPanel>
               <CountryFeatures />
             </TabPanel>
