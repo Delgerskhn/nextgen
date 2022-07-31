@@ -21,6 +21,7 @@ import {
   Divider,
   PinInput,
   PinInputField,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useSignup } from "@lib/auth/data/authHooks";
 import { toaster } from "@ui/index";
@@ -35,6 +36,7 @@ import { SignupInput } from "@lib/auth/data/types";
 import { useCreateAccount } from "@lib/account/data/accountHook";
 import { useCreateProject } from "@lib/project/data/projectHooks";
 import { validatePhoneNumber } from "@lib/user/data/validators";
+import { TermsModal } from "@lib/auth/ui/TermsModal";
 
 export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -48,7 +50,7 @@ export default function SignupPage() {
     handleSubmit,
     getValues,
     setValue,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<SignupInput>();
 
   const onSubmit = handleSubmit((authInput) => {
@@ -77,10 +79,12 @@ export default function SignupPage() {
       },
     });
   });
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
       <Header />
+      <TermsModal isOpen={isOpen} onClose={onClose} onSubmit={onSubmit} />
       <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
         <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
           <Stack align={"center"}>
@@ -147,7 +151,7 @@ export default function SignupPage() {
                   </FormControl>
                 </Box>
               </HStack>
-              <FormControl
+              {/* <FormControl
                 isRequired
                 id="register"
                 isInvalid={!!errors.register}
@@ -212,7 +216,7 @@ export default function SignupPage() {
                 <FormErrorMessage>
                   {errors.phone && errors.phone.message}
                 </FormErrorMessage>
-              </FormControl>
+              </FormControl> */}
               <HStack>
                 <Box flex="1">
                   <FormControl isRequired id="sex" isInvalid={!!errors.sex}>
@@ -305,7 +309,7 @@ export default function SignupPage() {
                   loadingText="Submitting"
                   size="lg"
                   bg={"blue.400"}
-                  onClick={onSubmit}
+                  onClick={onOpen}
                   color={"white"}
                   _hover={{
                     bg: "blue.500",
