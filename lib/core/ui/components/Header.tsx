@@ -25,7 +25,7 @@ export const Header = () => {
   const variant = useLayoutBreakPointValue();
   const router = useRouter();
   return (
-    <Box bg={"primeBlue"}>
+    <Box bg="transparent" position={"absolute"} w="full">
       <Flex
         minH={"60px"}
         py={{ base: 5 }}

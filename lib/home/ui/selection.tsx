@@ -32,7 +32,12 @@ type TransitionImageProps = {
   is_right: boolean;
 };
 const Feature = ({ text, icon, iconBg }: FeatureProps) => {
-  return <ListItem>{text}</ListItem>;
+  return (
+    <ListItem color={"primeOrange"}>
+      {" "}
+      <Text color="black">{text}</Text>
+    </ListItem>
+  );
 };
 
 const TransitionImage = ({ url, is_right }: TransitionImageProps) => {
@@ -81,8 +86,8 @@ export const Selection = () => {
   const router = useRouter();
   return (
     <Container maxW={"5xl"} py={12} experimental_spaceY="16">
-      <Heading textAlign={"center"} size={"xl"}>
-        Сонгон шалгаруулалт
+      <Heading textAlign={"center"} size={"xl"} fontWeight="bold">
+        {"Сонгон шалгаруулалт".toUpperCase()}
       </Heading>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
         <Stack spacing={4}>
@@ -136,14 +141,14 @@ export const Selection = () => {
               color={color.primary}
               bgColor={"transparent"}
               fontWeight={"bold"}
-              borderColor ={color.primary}
+              borderColor={color.primary}
               borderWidth={2}
               rounded={border.button_border_radius}
               width={"fit-content"}
               _focus={{}}
               _hover={{
                 background: color.primary,
-                color : color.white
+                color: color.white,
               }}
               onClick={() => router.push("/guidance")}
             >
@@ -183,7 +188,7 @@ export const Selection = () => {
                 }
                 iconBg={useColorModeValue("green.100", "green.900")}
                 text={
-                  "Ирүүлсэн бүх асуудлыг харъяа аймаг, дүүрэг нь хариуцан авч баталгаажуулах"
+                  "Ирүүлсэн бүх асуудлыг харьяа аймаг, дүүрэг нь хариуцан авч баталгаажуулах"
                 }
               />
               <Feature
@@ -207,14 +212,14 @@ export const Selection = () => {
               bg="transparent"
               color={color.primary}
               fontWeight={"bold"}
-              borderColor ={color.primary}
+              borderColor={color.primary}
               borderWidth={2}
               rounded={border.button_border_radius}
               width={"fit-content"}
               _focus={{}}
               _hover={{
                 background: color.primary,
-                color : color.white
+                color: color.white,
               }}
               onClick={() => router.push("/guidance")}
             >

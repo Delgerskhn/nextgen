@@ -56,19 +56,18 @@ export const ProjectTimeline = () => {
 
   let value = useLayoutBreakPointValue();
   return (
-    <Stack px={value} w="full">
+    <Stack px={value} w="full" backgroundImage={"/level.png"}>
       <VStack>
         <Heading
           size="xl"
           w="50%"
           textAlign={"center"}
           // bg="#013365"
-          // color={"white"}
-          fontFamily={"NotoSans"}
+          color={"white"}
           mb="12"
           mt="24"
         >
-          Үе шатууд
+          {"Үе шатууд".toUpperCase()}
         </Heading>
         <Box width={"full"} overflow={"hidden"} position={"relative"}>
           {/* CSS files for react-slick */}
@@ -204,7 +203,7 @@ const Feature = ({ title, text, icon, ml }: FeatureProps) => {
         <Text fontWeight={600} textAlign="center" pt={10}>
           {title}
         </Text>
-        <Text color={color.primary} textAlign="justify" px={{ base: 2, md: 5 }}>
+        <Text color={"black"} textAlign="justify" px={{ base: 2, md: 5 }}>
           {text}
         </Text>
       </Stack>

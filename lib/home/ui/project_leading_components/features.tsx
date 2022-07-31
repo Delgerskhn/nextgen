@@ -1,4 +1,4 @@
-import { Box, Icon, SimpleGrid } from "@chakra-ui/react";
+import { Box, Icon, SimpleGrid, Image } from "@chakra-ui/react";
 import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
 import { Feature } from "./feature";
 
@@ -7,7 +7,7 @@ export const CountryFeatures = () => {
     <Box p={4} w={"80%"}>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         <Feature
-          icon={<Icon as={FcAssistant} w={10} h={10} />}
+          icon={<Image src="leading_icons/education.png" w={16} h={16} />}
           title={"БОЛОВСРОЛ"}
           texts={[
             "Хувь хүний хөгжил",
@@ -18,7 +18,7 @@ export const CountryFeatures = () => {
           ]}
         />
         <Feature
-          icon={<Icon as={FcDonate} w={10} h={10} />}
+          icon={<Image src="leading_icons/health.png" w={16} h={16} />}
           title={"ЭРҮҮЛ МЭНД"}
           texts={[
             "Эмнэлэг үйлчилгээ",
@@ -30,7 +30,7 @@ export const CountryFeatures = () => {
           ]}
         />
         <Feature
-          icon={<Icon as={FcInTransit} w={10} h={10} />}
+          icon={<Image src="leading_icons/labor.png" w={16} h={16} />}
           title={"Хөдөлмөр эрхлэлт,амьдрах орчин".toUpperCase()}
           texts={[
             "Амьдрах орчныг сайжруулах",
@@ -48,7 +48,7 @@ export const GreenDevelopFeatures = () => {
     <Box p={4}>
       <SimpleGrid columns={{ base: 1 }} spacing={10}>
         <Feature
-          icon={<Icon as={FcAssistant} w={10} h={10} />}
+          icon={<Image src="leading_icons/nature.png" w={16} h={16} />}
           title={"БАЙГАЛЬ ОРЧИН"}
           texts={["Дахин боловсруулалт", "Нөхөн сэргээлт", "Аялал жуулчлал"]}
         />
@@ -62,7 +62,7 @@ export const GovernmentBuilt = () => {
     <Box p={4}>
       <SimpleGrid columns={{ base: 1 }} spacing={10}>
         <Feature
-          icon={<Icon as={FcAssistant} w={10} h={10} />}
+          icon={<Image src="leading_icons/productivity.png" w={16} h={16} />}
           title={"ТӨРИЙН БҮТЭЭМЖ"}
           texts={[
             "Төрийн үйлчилгээ",
