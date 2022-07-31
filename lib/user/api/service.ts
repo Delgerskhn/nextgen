@@ -106,12 +106,6 @@ export const createUser = async ({
     data: {
       email,
       passwordDigest,
-      accounts: {
-        create: {
-          firstName,
-          lastName,
-        },
-      },
       project: {
         create: {
           name: projectName,
