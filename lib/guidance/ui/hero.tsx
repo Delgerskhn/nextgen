@@ -19,7 +19,8 @@ export const Hero = () => {
         bg={"primeBlue"}
         backgroundImage="url('/Header.png')"
         backgroundPosition={""}
-        backgroundRepeat="cover"
+        backgroundSize="60%"
+        backgroundRepeat="no-repeat"
       >
         <VStack
           w={"full"}

@@ -10,6 +10,8 @@ import {
   Flex,
   IconButton,
   useBreakpointValue,
+  Button,
+  Link,
 } from "@chakra-ui/react";
 import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
 import {
@@ -31,8 +33,8 @@ const settings = {
   arrows: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 3,
+  slidesToShow: 2,
+  slidesToScroll: 2,
 };
 const settings_second = {
   dots: true,
@@ -42,16 +44,24 @@ const settings_second = {
   slidesToShow: 1,
   slidesToScroll: 1,
 };
+const settings_third = {
+  dots: true,
+  arrows: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 2,
+  slidesToScroll: 2,
+};
 export const ProjectTimeline = () => {
   const [slider, setSlider] = React.useState<Slider | null>(null);
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
-  const top = useBreakpointValue({ base: "90%", md: "30%" });
-  const side = useBreakpointValue({ base: "30%", md: "40px" });
+  const top = useBreakpointValue({ base: "30%" });
   const settings_break = useBreakpointValue({
     base: settings_second,
-    md: settings,
+    md: settings_third,
+    lg: settings,
   });
 
   let value = useLayoutBreakPointValue();
@@ -130,44 +140,35 @@ export const ProjectTimeline = () => {
           >
             <Feature
               icon={<Icon color="gray.100" as={RiNumber1} w={32} h={32} />}
-              title={"Сонгон шалгаруулалт"}
-              text={`Оролцогчдыг сонгон 
-                  шалгаруулхад харьяа 
-                  аймаг, дүүргийн ЗДТГ 
-                  болон Залуучуудын 
-                  агентлагуудтай 
-                  ажиллах`}
+              title={
+                "ТӨСӨЛ ХЭРХЭН БИЧИХ ВЭ” ОЛОН НИЙТЭД ЗОРИУЛСАН НЭЭЛТТЭЙ ЦАХИМ СУРГАЛТ"
+              }
+              text={`“Төсөл хэрхэн бичих вэ” сэдэвт хоёр өдрийн цахим сургалтыг орон даяар нээлттэй зарлаж бүртгүүлсэн хүн бүрийг хамруулна. Цахим сургалтад www.nextgen.mn хаягаар бүртгүүлэх бөгөөд сургалтад бүрэн хамрагдсан хүмүүст оролцогчийн  сертификатыг олгоно.`}
               ml={0}
             />
             <Feature
               icon={<Icon color="gray.100" as={RiNumber2} w={32} h={32} />}
-              title={"Асуудлыг задлан шинжлэх"}
+              title={"ТӨСӨЛ ХҮЛЭЭН АВАХ БОЛОН СОНГОН ШАЛГАРУУЛАЛТ "}
               text={
-                "Ирүүлсэн асуудалд дүн шинжилгээ хийх. Problem diagnostic. System analysis."
+                "Олон нийтэд зориулсан онлайн сургалтын дараа өөрсдийн орон нутагт тулгамдаж буй асуудлыг бүтээлч, олон нийтэд хүртээмжтэй байдлаар шийдвэрлэх 2-5 хүний бүрэлдэхүүнтэй баг бүрдүүлэн 1 сарын хугацаанд төслөө бичин илгээж, уралдаанд төслийн сонгон шалгаруулалтад оролцоно. Уралдаанд оролцсон бүх төслөөс 21 аймаг, 9 дүүрэг бүрээс шилдэг нэг, нийтдээ 30 төслийг шалгаруулж төсөл бүр 20.000.000 хүртэлх төгрөгийн санхүүжилт авах эрх үүснэ. Төслийн багаас хамгийн багадаа 1 гишүүн 2 өдрийн цахим сургалтад хамрагдсан байна."
               }
             />
             <Feature
               icon={<Icon color="gray.100" as={RiNumber3} w={32} h={32} />}
-              title={"Шийдлийг бататгах"}
-              text={`Шийдлээ баталгаажуулж бүрэн хэмжээний 
-                  төсөл боловсруулж 
-                  хөрөнгө босгоно.`}
+              title={"ШАЛГАРСАН ТӨСЛҮҮДИЙГ ЧАДАВХЖУУЛАХ СУРГАЛТ"}
+              text={`Уралдаанд шалгарсан төслийн багийн гишүүдийг Улаанбаатар хотод 7 хоногийн хугацаатай чадавхжуулах сургалтад хамруулна. Энэхүү сургалтаар “Алсын хараа 2050” урт хугацааны хөгжлийн бодлого болон түүний эхний 10 жилийн дунд хугацааны хөгжлийн бодлого болох “Шинэ сэргэлтийн бодлого”, хөгжлийн асуудлуудад дүн шинжилгээ хийх онол арга зүй болон төсөл боловсруулж хэрэгжүүлэх суурь ойлголт, аргачлалын чиглэлээр оролцогчдын чадавхыг бэхжүүлнэ. Сургалтын үр дүнд оролцогчид төслийн саналаа боловсронгуй болгон хөгжүүлэн, санхүүжилтийг хүлээн аван хэрэгжүүлж эхлэхэд бэлэн болно.`}
             />
             <Feature
               icon={<Icon color="gray.100" as={RiNumber4} w={32} h={32} />}
-              title={"Шийдлийг хэрэгжүүлэх"}
+              title={"ШАЛГАРСАН ТӨСЛҮҮДИЙН ХЭРЭГЖИЛТ "}
               text={
-                "Төслийг хэрэгжүүлж явцыг Web Portal үүсгэн хянаж явцын тайлан тавьна."
+                "Шалгарсан 30 төслийн баг чадавхжуулах сургалтад хамрагдсаны дараагаар төслөө 2 сарын хугацаанд хэрэгжүүлнэ. Төсөл хэрэгжилтийн хугацаанд баг тус бүр сургагч багш болон ментортой  байна. Сургагч багш нь төслийн багтай байнгын холбоотой байх бөгөөд төслийн агуулгын болон зохион байгуулалтын шаардлагатай дэмжлэг туслалцааг үзүүлнэ. Ментор нь багийн төслийн явц байдал, хэрэгжилттэй 2 долоо хоног тутам танилцан, зөвлөж ажиллана."
               }
             />
             <Feature
               icon={<Icon color="gray.100" as={RiNumber5} w={32} h={32} />}
-              title={"Дүгнэлт"}
-              text={`Шилдэг төслийг 
-                  шалгаруулан 
-                  хаалтын арга 
-                  хэмжээ зохион 
-                  байгуулах.`}
+              title={"ТӨСЛИЙН ХААЛТ"}
+              text={`Нийт 30 төслөөс тухайн зорилтот нийгмийн бүлэг, асуудалд хамгийн их эерэг өөрчлөлтийг авчирсан 3 шилдэг төслийг шалгаруулан мөнгөн шагнал олгоно.`}
             />
           </Slider>
         </Box>
@@ -185,7 +186,7 @@ interface FeatureProps {
 
 const Feature = ({ title, text, icon, ml }: FeatureProps) => {
   return (
-    <Stack w={{ base: "full", md: "full" }} p={10} height={600}>
+    <Stack w={{ base: "full", md: "full" }} p={10} minH={600}>
       <Stack
         bg={color.white}
         border={"2px solid "}
@@ -195,7 +196,7 @@ const Feature = ({ title, text, icon, ml }: FeatureProps) => {
         direction="column"
         alignItems={"center"}
         py="14"
-        height={400}
+        h={400}
       >
         <Flex w={16} h={16} align={"center"} justify={"center"} mb={1}>
           {icon}
@@ -204,7 +205,16 @@ const Feature = ({ title, text, icon, ml }: FeatureProps) => {
           {title}
         </Text>
         <Text color={"black"} textAlign="justify" px={{ base: 2, md: 5 }}>
-          {text}
+          {text.slice(0, 150)}...{" "}
+          <Link
+            cursor={"pointer"}
+            color="primeBlue"
+            fontWeight={"bold"}
+            href="/guidance"
+            textDecorationLine={"underline"}
+          >
+            Дэлгэрэнгүй
+          </Link>
         </Text>
       </Stack>
     </Stack>

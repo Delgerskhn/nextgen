@@ -10,6 +10,10 @@ import { ProjectSelection } from "@lib/guidance/ui/project_selection";
 import { Prohibition } from "@lib/guidance/ui/prohibition";
 import { Financing } from "@lib/guidance/ui/financing";
 import { Document } from "@lib/guidance/ui/document";
+import { Target } from "@lib/guidance/ui/target";
+import { DateComp } from "@lib/guidance/ui/date";
+import { Nessacility, Receive, Selection } from "@lib/guidance/ui/nessacilty";
+import { ProjectLevel } from "@lib/guidance/ui/project_level";
 
 const GuidancePage = () => {
   return (
@@ -19,12 +23,18 @@ const GuidancePage = () => {
         <Hero />
         <What />
         <Goal />
+        <Target />
+        <DateComp />
         <ProjectLeading />
+        <ProjectLevel />
         <Prohibition />
         <Document />
-        <ProjectSelection />
+        <Nessacility />
+        <Receive />
+        <Selection />
+        {/* <ProjectSelection /> */}
         <Financing />
-        <Timeline />
+        {/* <Timeline /> */}
       </AppLayout>
     </>
   );
