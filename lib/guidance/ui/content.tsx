@@ -7,60 +7,20 @@ import {
   UnorderedList,
   VStack,
 } from "@chakra-ui/react";
+import { useLayoutBreakPointValue } from "@lib/core/data/layout_break_point_value";
+import { color } from "constant";
 
 export const Content = () => {
+  let value = useLayoutBreakPointValue();
   return (
-    <Stack maxW={"70%"} mx={"auto"} w="full" mt={10} experimental_spaceY={"10"}>
-      <Stack>
-        <Heading>“ШИНЭ СЭРГЭЛТ: NEXTGEN” ТӨСЛИЙН УРАЛДААН ГЭЖ ЮУ ВЭ?</Heading>
-        <Text textAlign={"justify"} lineHeight={8} pt={3}>
-          “Шинэ сэргэлт: NextGen" төслийн уралдаан нь Монгол Улсын иргэдийн аж
-          амьдралд бодитоор тулгамдаж буй хөгжлийн асуудлуудыг залуучуудын
-          оролцоо, бүтээлч санаачилга болон хамтын ажиллагаанд тулгуурлан
-          оновчтой тодорхойлж, шийдлийг хэрэгжүүлэх төслийн уралдаан бөгөөд
-          чадавхжуулах арга хэмжээ юм.{" "}
-        </Text>
-      </Stack>
-      <Stack>
-        <Heading>ЗОРИЛГО</Heading>
-        <Text textAlign={"justify"} lineHeight={8} pt={3}>
-          "Алсын хараа 2050" урт хугацааны хөгжлийн бодлого болон түүний эхний
-          10 жилийн дунд хугацааны хөгжлийн бодлого болох “Шинэ сэргэлтийн
-          бодлого”-ын хүрээнд нийгэмд тулгамдаж буй хөгжлийн асуудлуудыг
-          шийдвэрлэхэд залуучуудын дуу хоолой, үзэл бодол, бүтээлч санаачилга,
-          шийдлийг дэмжиж, чадавхжуулахад оршино.{" "}
-        </Text>
-      </Stack>
-      <Stack w="full">
-        <Heading>ТӨСЛИЙН УРАЛДААНЫ ТЭРГҮҮЛЭХ ЧИГЛЭЛ</Heading>
-        <SimpleGrid columns={{ base: 1, md: 3 }} pt={5}>
-          <Stack align={""} alignItems="center">
-            <Heading size={"md"}>Төрийн бүтээмжийн сэргэлт</Heading>
-            <UnorderedList lineHeight={8}>
-              <ListItem>Төрийн үйлчилгээ </ListItem>
-              <ListItem>Төрийн үйл ажиллагааны ил тод байдал</ListItem>
-              <ListItem>Цахимжилт</ListItem>
-            </UnorderedList>
-          </Stack>
-          <Stack alignItems="center">
-            <Heading size={"md"}>Ногоон хөгжлийн сэргэлт</Heading>
-            <UnorderedList lineHeight={8}>
-              <ListItem>Дахин боловсруулалт</ListItem>
-              <ListItem>Байгалийн нөөцийн хамгаалал, нөхөн сэргээлт</ListItem>
-              <ListItem>Аялал жуулчлал</ListItem>
-            </UnorderedList>
-          </Stack>
-          <Stack alignItems="center">
-            <Heading size={"md"}>Хот, хөдөөгийн сэргэлт</Heading>
-            <UnorderedList lineHeight={8}>
-              <ListItem>Боловсрол</ListItem>
-              <ListItem>Эрүүл мэнд</ListItem>
-              <ListItem>Хөдөлмөр эрхлэлт</ListItem>
-              <ListItem>Амьдрах орчин</ListItem>
-            </UnorderedList>
-          </Stack>
-        </SimpleGrid>
-      </Stack>
+    <Stack
+      mx={value}
+      mt={10}
+      experimental_spaceY={"10"}
+      justifyContent="center"
+      direction={"column"}
+      alignItems="center"
+    >
       <Stack>
         <Heading>ТӨСЛИЙН СОНГОН ШАЛГАРУУЛАЛТ</Heading>
         <Text textAlign={"justify"} lineHeight={8} pt={5}>

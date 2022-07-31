@@ -2,6 +2,7 @@ export const color = {
     primary: '#003366',
     orange: '#FC6C40',
     white: "#FFF",
+    brown : "#FDDA64"
 }
 
 export const heading = {
