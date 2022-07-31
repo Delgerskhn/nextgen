@@ -31,7 +31,6 @@ export const MobileNav = ({ is_open }: Props) => {
         <Box
           key={navItem.label}
           className="active-menu-item"
-          key={navItem.label}
           position={"relative"}
           width={"fit-content"}
         >

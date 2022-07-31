@@ -5,5 +5,10 @@ export type SignupInput = {
   age: number;
   email: string;
   password: string;
-  projectName:string;
+  projectName: string;
+  register: string;
+  registerFirstLetter: string;
+  registerSecondLetter: string;
+  registerNumber: string;
+  phone: string;
 };

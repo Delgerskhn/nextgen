@@ -19,6 +19,9 @@ import {
   FormErrorMessage,
   Select,
   Divider,
+  PinInput,
+  PinInputField,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useSignup } from "@lib/auth/data/authHooks";
 import { toaster } from "@ui/index";
@@ -32,6 +35,8 @@ import { HiEyeOff, HiEye } from "react-icons/hi";
 import { SignupInput } from "@lib/auth/data/types";
 import { useCreateAccount } from "@lib/account/data/accountHook";
 import { useCreateProject } from "@lib/project/data/projectHooks";
+import { validatePhoneNumber } from "@lib/user/data/validators";
+import { TermsModal } from "@lib/auth/ui/TermsModal";
 
 export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -43,7 +48,9 @@ export default function SignupPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    getValues,
+    setValue,
+    formState: { errors, isValid },
   } = useForm<SignupInput>();
 
   const onSubmit = handleSubmit((authInput) => {
@@ -72,9 +79,12 @@ export default function SignupPage() {
       },
     });
   });
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <Header />
+      <TermsModal isOpen={isOpen} onClose={onClose} onSubmit={onSubmit} />
       <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
         <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
           <Stack align={"center"}>
@@ -93,7 +103,7 @@ export default function SignupPage() {
               <Input
                 type="email"
                 {...register("projectName", {
-                  required: "This is required",
+                  required: "Заавал",
                 })}
               />
               <FormErrorMessage>
@@ -114,7 +124,7 @@ export default function SignupPage() {
                     <Input
                       type="text"
                       {...register("firstName", {
-                        required: "This is required",
+                        required: "Заавал",
                       })}
                     />
                     <FormErrorMessage>
@@ -123,12 +133,16 @@ export default function SignupPage() {
                   </FormControl>
                 </Box>
                 <Box>
-                  <FormControl id="lastName" isInvalid={!!errors.lastName}>
+                  <FormControl
+                    isRequired
+                    id="lastName"
+                    isInvalid={!!errors.lastName}
+                  >
                     <FormLabel>Овог</FormLabel>
                     <Input
                       type="text"
                       {...register("lastName", {
-                        required: "This is required",
+                        required: "Заавал",
                       })}
                     />
                     <FormErrorMessage>
@@ -137,40 +151,106 @@ export default function SignupPage() {
                   </FormControl>
                 </Box>
               </HStack>
+              {/* <FormControl
+                isRequired
+                id="register"
+                isInvalid={!!errors.register}
+              >
+                <FormLabel>Регистрийн дугаар</FormLabel>
+                <HStack justify={"space-between"}>
+                  <Select
+                    size="sm"
+                    w="min-content"
+                    minW="3rem"
+                    defaultValue={"а"}
+                    {...register("registerFirstLetter")}
+                  >
+                    {alphabets.split("").map((a) => (
+                      <option key={a}>{a}</option>
+                    ))}
+                  </Select>
+                  <Select
+                    defaultValue={"а"}
+                    size="sm"
+                    w="min-content"
+                    {...register("registerSecondLetter")}
+                    minW="3rem"
+                  >
+                    {alphabets.split("").map((a) => (
+                      <option key={a}>{a}</option>
+                    ))}{" "}
+                  </Select>
+                  <PinInput
+                    size="sm"
+                    onChange={(val) => {
+                      setValue("registerNumber", val);
+                    }}
+                  >
+                    <PinInputField />
+                    <PinInputField />
+                    <PinInputField />
+                    <PinInputField />
+                    <PinInputField />
+                    <PinInputField />
+                    <PinInputField />
+                    <PinInputField />
+                  </PinInput>
+                </HStack>
+                <FormErrorMessage>
+                  {errors.register && errors.register.message}
+                </FormErrorMessage>
+              </FormControl>
+              <FormControl isRequired id="phone" isInvalid={!!errors.phone}>
+                <FormLabel>Утасны дугаар</FormLabel>
+                <Input
+                  type="number"
+                  {...register("phone", {
+                    required: "Заавал",
+                    validate: (val) => {
+                      const valid = validatePhoneNumber(val, "mn");
+                      if (!valid.isValid) return "Утасны дугаар буруу байна.";
+                      return valid.isValid;
+                    },
+                  })}
+                ></Input>
+                <FormErrorMessage>
+                  {errors.phone && errors.phone.message}
+                </FormErrorMessage>
+              </FormControl> */}
               <HStack>
                 <Box flex="1">
-                  <FormControl id="lastName" isInvalid={!!errors.lastName}>
+                  <FormControl isRequired id="sex" isInvalid={!!errors.sex}>
                     <FormLabel>Хүйс</FormLabel>
                     <Select
                       type="text"
                       {...register("sex", {
-                        required: "This is required",
+                        required: "Заавал",
                       })}
                     >
                       <option>Male</option>
                       <option>Female</option>
                     </Select>
                     <FormErrorMessage>
-                      {errors.lastName && errors.lastName.message}
+                      {errors.sex && errors.sex.message}
                     </FormErrorMessage>
                   </FormControl>
                 </Box>
                 <Box flex="1">
-                  <FormControl id="lastName" isInvalid={!!errors.lastName}>
+                  <FormControl isRequired id="age" isInvalid={!!errors.age}>
                     <FormLabel>Нас</FormLabel>
                     <Select
                       type="number"
                       {...register("age", {
-                        required: "This is required",
+                        required: "Заавал",
                         valueAsNumber: true,
                       })}
                     >
                       {new Array(100).fill(0).map((_, i) => (
-                        <option key={i}>{i + 1}</option>
+                        <option key={i}>{i + 14}</option>
                       ))}
                     </Select>
                     <FormErrorMessage>
-                      {errors.lastName && errors.lastName.message}
+                      {errors.age && errors.age.message}
                     </FormErrorMessage>
                   </FormControl>
                 </Box>
@@ -180,7 +260,7 @@ export default function SignupPage() {
                 <Input
                   type="email"
                   {...register("email", {
-                    required: "This is required",
+                    required: "Заавал",
                   })}
                 />
                 <FormErrorMessage>
@@ -199,7 +279,7 @@ export default function SignupPage() {
                     autoComplete="current-password"
                     required
                     {...register("password", {
-                      required: "This is required",
+                      required: "Заавал",
                       minLength: {
                         value: 8,
                         message: "Minimum length should be 8",
@@ -229,7 +309,7 @@ export default function SignupPage() {
                   loadingText="Submitting"
                   size="lg"
                   bg={"blue.400"}
-                  onClick={onSubmit}
+                  onClick={onOpen}
                   color={"white"}
                   _hover={{
                     bg: "blue.500",
@@ -278,3 +358,5 @@ export default function SignupPage() {
     </>
   );
 }
+
+const alphabets = "фцужэнгшүзкъщепдлорхаөбыйячёсмитьвю";

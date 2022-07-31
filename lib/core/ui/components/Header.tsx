@@ -25,7 +25,7 @@ export const Header = () => {
   const variant = useLayoutBreakPointValue();
   const router = useRouter();
   return (
-    <Box bg={color.primary}>
+    <Box bg={"primeBlue"}>
       <Flex
         minH={"60px"}
         py={{ base: 5 }}
@@ -58,11 +58,13 @@ export const Header = () => {
           <Button
             bg={color.orange}
             _hover={{}}
+            as="a"
+            href={"/auth/login"}
             _focus={{}}
             borderRadius={border.button_border_radius}
             textColor={color.white}
           >
-            Бүртгүүлэх
+            Нэвтрэх
           </Button>
         </Stack>
       </Flex>
