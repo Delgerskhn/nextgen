@@ -19,11 +19,14 @@ import { useLayoutBreakPointValue } from "@lib/core/data/layout_break_point_valu
 import { useRouter } from "next/router";
 import { FiMenu } from "react-icons/fi";
 import { border, color } from "constant";
+import { useAuth } from "@lib/auth/ui";
+import { ProfileDropdown } from "./navigation/ProfileDropdown";
 
 export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
   const variant = useLayoutBreakPointValue();
   const router = useRouter();
+  const { isLoggedIn, data } = useAuth();
   return (
     <Box bg="transparent" position={"absolute"} w="full">
       <Flex
@@ -55,17 +58,21 @@ export const Header = () => {
             aria-label={"User auth"}
           />
           <DesktopNav />
-          <Button
-            bg={color.orange}
-            _hover={{}}
-            as="a"
-            href={"/auth/login"}
-            _focus={{}}
-            borderRadius={border.button_border_radius}
-            textColor={color.white}
-          >
-            Нэвтрэх
-          </Button>
+          {isLoggedIn ? (
+            data && <ProfileDropdown user={data} />
+          ) : (
+            <Button
+              bg={color.orange}
+              _hover={{}}
+              as="a"
+              href={"/auth/login"}
+              _focus={{}}
+              borderRadius={border.button_border_radius}
+              textColor={color.white}
+            >
+              Нэвтрэх
+            </Button>
+          )}
         </Stack>
       </Flex>
       <MobileNav is_open={isOpen} />

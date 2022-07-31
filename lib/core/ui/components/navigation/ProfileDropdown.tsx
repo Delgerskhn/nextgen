@@ -48,20 +48,14 @@ export const ProfileDropdown = ({ user }: { user: User }) => {
         <HStack px="3" py="4">
           <UserAvatar name={user?.email!} />
           <Box lineHeight="1">
-            <Text fontWeight="semibold">{user?.role}</Text>
             <Text mt="1" size="xs" color="gray.500">
-              {user?.email}
+              Хэрэглэгч
             </Text>
           </Box>
         </HStack>
         <NextLink href="/account/profile">
           <MenuItem as="a" fontWeight="medium">
             Your Profile
-          </MenuItem>
-        </NextLink>
-        <NextLink href="/support">
-          <MenuItem as="a" fontWeight="medium">
-            Feedback & Support
           </MenuItem>
         </NextLink>
         <MenuItem
