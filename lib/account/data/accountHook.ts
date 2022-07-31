@@ -22,3 +22,7 @@ export const useAccounts = (userId: string | undefined) => {
     { cacheTime: 0, staleTime: 0 }
   );
 };
+
+export const useAccount = () => {
+  return useQuery<Account>(["myAccount"], () => fetcher.get(`account/me`));
+};

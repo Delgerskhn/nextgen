@@ -48,7 +48,7 @@ export const TermsModal = ({ isOpen, onClose, onSubmit }: Props) => {
             mt="6"
             onChange={(e: any) => setChecked(e.target.checked)}
           >
-            Дээрх нөхцлүүдийг зөвшөөр байна.
+            Дээрх нөхцлүүдийг зөвшөөрч байна.
           </Checkbox>
         </ModalBody>
 
