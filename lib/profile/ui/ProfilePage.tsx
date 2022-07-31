@@ -19,6 +19,7 @@ import {
   Flex,
   Heading,
   Box,
+  AlertTitle,
 } from "@ui/index";
 import { useProfile, useUpdateProfile } from "@lib/profile/data/profileHooks";
 import { navItems } from ".";
@@ -28,6 +29,7 @@ import { FileUpload } from "@lib/file/ui";
 import { FileUploader } from "@lib/file/ui/FileUploader";
 import { AccountList } from "@lib/account/ui/AccountList";
 import { ProjectForm } from "@lib/project/ui/ProjectForm";
+import { EditAccountInfo } from "@lib/account/ui/EditAccountInfo";
 type ProfileInput = {
   firstName: string;
   lastName: string;
@@ -57,9 +59,15 @@ export const ProfilePage = () => {
           type: navItem.name === "profile" ? "active" : "",
         }))}
       >
+        <Box h="4" />
         <NavContentLayout>
+          <Heading>
+            Доорх мэдээллийг бүрэн оруулсны дараа мэдээлэл илгээгдэхийг анхаарна
+            уу.
+          </Heading>
           <ProjectForm />
-          <AccountList />
+          <AccountForm />
+          {/* <AccountList /> */}
         </NavContentLayout>
       </NavMenuLayout>
     </AppLayout>
