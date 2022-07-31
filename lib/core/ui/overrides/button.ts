@@ -18,13 +18,14 @@ const variants = {
     },
   },
   outline: {
-    color: "green.500",
+    color: "primeBlue",
     bg: "transparent",
     _hover: {
-      bg: "green.900",
+      bg: "primeBlue",
+      color: "white",
     },
     size: "md",
-    borderColor: "green.500",
+    borderColor: "primeBlue",
   },
   outlinelight: {
     color: "white",

@@ -1,6 +1,8 @@
 export const colors = {
   black: "#171717",
   white: "#F7F7FF",
+  primeBlue: "#00307b",
+
   whiteAlpha: {
     50: "rgba(245, 247, 255, 0.04)",
     100: "rgba(245, 247, 255, 0.06)",

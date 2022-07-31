@@ -25,7 +25,7 @@ export function Hero() {
       <Flex
         w={"full"}
         minH={"500px"}
-        bgColor={color.primary}
+        bgColor={"primeBlue"}
         py={10}
         px={containerValue}
       >
@@ -52,10 +52,10 @@ export function Hero() {
       <VStack bg={color.white} p="12" py={20}>
         <Text
           // fontWeight={"bold"}
-          color="gray.900"
           fontSize="lg"
           textAlign={"center"}
           lineHeight="8"
+          color="primeBlue"
           fontWeight={"bold"}
           mx={containerValue}
         >
@@ -65,12 +65,17 @@ export function Hero() {
           тулгуурлан оновчтой тодорхойлж, шийдлийг хэрэгжүүлэх төслийн уралдаан
           бөгөөд чадавхжуулах арга хэмжээ юм.
         </Text>
-        <Link
+        <Box h="8" />
+        <Button
           fontWeight={"bold"}
+          variant="outline"
           fontSize="lg"
-          color="#003366"
+          rounded="md"
+          px="12"
+          py="4"
+          as="a"
           href="/guidance"
-        >{`Дэлгэрэнгүй >`}</Link>
+        >{`Дэлгэрэнгүй`}</Button>
         {/* <Link color="blue.400" href="#" display="flex" alignItems={"center"}>
           Дэлгэрэнгүй
           <Icon as={BsChevronRight} />
