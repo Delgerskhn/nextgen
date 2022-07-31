@@ -88,13 +88,13 @@ export const EditAccountInfo = ({
     if (pictureKey) onRemove(pictureKey);
     const key = await uploadImg();
     if (key) accInput.pictureKey = key;
-    action.mutate(
-      { ...accInput },
-      {
-        onError: () => toaster.error("Алдаа гарлаа."),
-        onSuccess: () => refetch(),
-      }
-    );
+    // action.mutate(
+    //   { ...accInput },
+    //   {
+    //     onError: () => toaster.error("Алдаа гарлаа."),
+    //     onSuccess: () => refetch(),
+    //   }
+    // );
     onSave();
   });
   const onRemove = (key: string) => {

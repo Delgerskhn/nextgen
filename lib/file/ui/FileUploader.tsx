@@ -53,7 +53,9 @@ export const FileUploader = ({
               inputRef.current = e;
             }}
           />
-          <Button onClick={onSave}>Хадгалах</Button>
+          <Button color="white" onClick={onSave}>
+            Хадгалах
+          </Button>
         </Flex>
       )}
     </>

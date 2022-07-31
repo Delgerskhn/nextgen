@@ -11,8 +11,6 @@ const defaultSelect = {
   id: true,
   email: true,
   emailVerified: true,
-  phoneNumber: true,
-  phoneNumberVerified: true,
   role: true,
   updatedAt: true,
   createdAt: true,
@@ -59,11 +57,6 @@ export const manageExternalUser = async (
     await prisma.account.create({
       data: {
         userId: user.id,
-        type: "external",
-        provider,
-        providerAccountId,
-        accessToken,
-        refreshToken,
         lastName: "",
         firstName: "",
       },
@@ -75,16 +68,6 @@ export const getUserPasswordDigest = async (email: string) => {
   const user = await prisma.user.findUnique({
     where: { email },
   });
-  const passwordDigest = user?.passwordDigest;
-  // @ts-expect-error
-  if (user) delete user.passwordDigest;
-  return { user, passwordDigest };
-};
-export const getUserPasswordDigestByPhone = async (phoneNumber: string) => {
-  const user = await prisma.user.findUnique({
-    where: { phoneNumber },
-  });
-
   const passwordDigest = user?.passwordDigest;
   // @ts-expect-error
   if (user) delete user.passwordDigest;
@@ -107,6 +90,7 @@ export const createUser = async ({
   password,
   firstName,
   lastName,
+  projectName,
 }: SignupInput) => {
   console.log("Password here:", password);
   if (
@@ -122,20 +106,17 @@ export const createUser = async ({
     data: {
       email,
       passwordDigest,
-    },
-    select: defaultSelect,
-  });
-};
-export const createUserWithPhone = async (
-  phoneNumber: string,
-  password: string
-) => {
-  const passwordDigest = await hash(password, saltRounds);
-  return prisma.user.create({
-    data: {
-      phoneNumber,
-      passwordDigest,
-      phoneNumberVerified: getCurrentDate(),
+      accounts: {
+        create: {
+          firstName,
+          lastName,
+        },
+      },
+      project: {
+        create: {
+          name: projectName,
+        },
+      },
     },
     select: defaultSelect,
   });
@@ -152,9 +133,6 @@ export const compareUserPassword = async (userId: string, password: string) => {
 };
 export const checkEmailNotExists = async (email: string) => {
   return (await prisma.user.count({ where: { email } })) === 0;
-};
-export const checkPhoneNotExists = async (phoneNumber: string) => {
-  return (await prisma.user.count({ where: { phoneNumber } })) === 0;
 };
 export const changeEmail = async ({
   userId,

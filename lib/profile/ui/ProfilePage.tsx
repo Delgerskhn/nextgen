@@ -30,6 +30,8 @@ import { FileUploader } from "@lib/file/ui/FileUploader";
 import { AccountList } from "@lib/account/ui/AccountList";
 import { ProjectForm } from "@lib/project/ui/ProjectForm";
 import { EditAccountInfo } from "@lib/account/ui/EditAccountInfo";
+import { AccountForm } from "@lib/account/ui/AccountForm";
+import { useAccount } from "@lib/account/data/accountHook";
 type ProfileInput = {
   firstName: string;
   lastName: string;
@@ -47,6 +49,7 @@ export const ProfilePage = () => {
   const { data: profile, refetch } = useProfile();
   const { data: user } = useAuth();
   const profileMutation = useUpdateProfile();
+  const { data } = useAccount();
 
   return (
     <AppLayout title={t("profile")}>
@@ -62,11 +65,12 @@ export const ProfilePage = () => {
         <Box h="4" />
         <NavContentLayout>
           <Heading>
-            Доорх мэдээллийг бүрэн оруулсны дараа мэдээлэл илгээгдэхийг анхаарна
-            уу.
+            Доорх мэдээллийг бүрэн оруулсны дараа хариу ирэхийг анхаарна уу.
           </Heading>
           <ProjectForm />
-          <AccountForm />
+          {data && (
+            <AccountForm data={{ ...data, email: user ? user?.email : null }} />
+          )}
           {/* <AccountList /> */}
         </NavContentLayout>
       </NavMenuLayout>

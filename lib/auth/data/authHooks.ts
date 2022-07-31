@@ -4,7 +4,7 @@ import { AppError } from "@util/errors";
 
 // We should subset this to only interface we need.
 import { User as PrismaUser } from "@prisma/client";
-export type User = Pick<PrismaUser, "id" | "email" | "phoneNumber" | "role">;
+export type User = Pick<PrismaUser, "id" | "email" | "role">;
 
 type AuthInput = { email: string; password: string };
 type PhoneAuthInput = {
@@ -63,15 +63,12 @@ export const useSignupPhone = () => {
 };
 export const useSignup = () => {
   const handleAuth = useHandleAuth();
-  return useMutation(
-    (data: AuthInput) => fetcher.post("auth/signup", data),
-    {
-      onSuccess: handleAuth,
-      onError: (errordata) => {
-        console.log(errordata + " user signup error");
-      },
-    }
-  );
+  return useMutation((data: AuthInput) => fetcher.post("auth/signup", data), {
+    onSuccess: handleAuth,
+    onError: (errordata) => {
+      console.log(errordata + " user signup error");
+    },
+  });
 };
 export const usePhoneVerification = () => {
   const handleAuth = useHandleAuth();

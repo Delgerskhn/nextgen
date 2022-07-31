@@ -13,19 +13,18 @@ generator client {
 
 // In the future we need to add country or nationality column
 model User {
-  id                  String        @id @default(cuid())
-  email               String?       @unique
-  emailVerified       DateTime?
-  passwordDigest      String?
-  phoneNumber         String?       @unique
-  phoneNumberVerified DateTime?
-  accounts            Account[]
-  role                UserRole      @default(STUDENT)
-  profile             Profile?
-  project             Project?
-  subscription        Subscription?
-  createdAt           DateTime      @default(now())
-  updatedAt           DateTime      @updatedAt
+  id             String    @id @default(cuid())
+  email          String?   @unique
+  emailVerified  DateTime?
+  passwordDigest String?
+
+  accounts     Account[]
+  role         UserRole      @default(STUDENT)
+  profile      Profile?
+  project      Project?
+  subscription Subscription?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
 }
 
 model Project {
@@ -52,28 +51,29 @@ enum Sex {
 }
 
 model Account {
-  id                String   @id @default(cuid())
-  pictureKey        String?
-  lastName          String
-  firstName         String
-  sex               Sex?
-  age               Int?
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refreshToken      String?
-  accessToken       String?
-  tokenType         String?
-  expiresAt         Int?
-  scope             String?
-  idToken           String?
-  sessionState      String?
-  oauthTokenSecret  String?
-  oauthToken        String?
-  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @default(now())
+  id                   String    @id @default(cuid())
+  pictureKey           String?
+  firstName            String
+  lastName             String
+  sex                  Sex?
+  age                  Int?
+  nationality          String?
+  familyName           String?
+  birthDate            DateTime?
+  registerNo           String?
+  phoneNumber          String?   @unique
+  emergencyPhoneNumber String?
+  emergencyPhoneOwner  String?
+  city                 String?
+  district             String?
+  street               String?
+  education            String?
+  profession           String?
+  occupation           String?
+  userId               String
+  user                 User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @default(now())
 }
 
 model Profile {

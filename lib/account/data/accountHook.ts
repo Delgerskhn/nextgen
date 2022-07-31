@@ -1,7 +1,7 @@
 import { Account } from "@prisma/client";
 import { fetcher } from "@util/query";
 import { useMutation, useQuery } from "react-query";
-import { AccountCreateInput, AccountUpdateInput } from "./types";
+import { AccountCreateInput, AccountInput, AccountUpdateInput } from "./types";
 
 export const useCreateAccount = () => {
   return useMutation((data: AccountCreateInput) =>
@@ -10,9 +10,7 @@ export const useCreateAccount = () => {
 };
 
 export const useUpdateAccount = () => {
-  return useMutation((data: AccountUpdateInput) =>
-    fetcher.put("account", data)
-  );
+  return useMutation((data: AccountInput) => fetcher.put("account", data));
 };
 
 export const useAccounts = (userId: string | undefined) => {
@@ -24,5 +22,5 @@ export const useAccounts = (userId: string | undefined) => {
 };
 
 export const useAccount = () => {
-  return useQuery<Account>(["myAccount"], () => fetcher.get(`account/me`));
+  return useQuery<AccountInput>(["myAccount"], () => fetcher.get(`account/me`));
 };

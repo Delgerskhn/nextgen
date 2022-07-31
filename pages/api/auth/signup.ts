@@ -1,5 +1,5 @@
 import { createHandler } from "@api/handler";
-import { createUser, createUserWithPhone } from "@lib/user/api/service";
+import { createUser } from "@lib/user/api/service";
 import { ERROR_MESSAGES } from "@util/errors";
 
 const handler = createHandler();
