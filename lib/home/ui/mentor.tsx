@@ -17,33 +17,28 @@ import { border, color } from "constant";
 export const Mentor = () => {
   let value = useLayoutBreakPointValue();
   return (
-    <Stack px="20%" pt="20" bg="#fff">
+    <Stack px={{ base: "0%", md: "20%" }} pt="20" bg="#fff">
       <Heading textAlign={"center"} size="xl">
         МЕНТОР БОЛОН ХӨТӨЧҮҮД
       </Heading>
       <Stack
-        px={{ base: 0, sm: 10 }}
-        direction={{ base: "column", md: "row" }}
+        px={{ base: 5, sm: 10 }}
+        direction={{ base: "column", lg: "row" }}
         justifyContent={"space-between"}
         w="full"
         py={16}
-        experimental_spaceX={"20"}
+        experimental_spaceX={{ base: "0", lg: "20" }}
       >
         <Box
           experimental_spaceY={5}
           flexDirection="column"
           display={"flex"}
           alignItems={"center"}
-          w={"md"}
+          w={{ base: "full", md: "md" }}
         >
           <Image src={"/meeting.png"} w={300} />
           <Heading color={color.orange}>Mentors</Heading>
-          <Text textAlign={"justify"} fontSize="sm">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book
-          </Text>
+
           <Tooltip label="Тун удахгүй" fontSize={"md"}>
             {/* <Button
             color={color.primary}
@@ -81,8 +76,8 @@ export const Mentor = () => {
           </Tooltip>
         </Box>
         <Box
-          w={"md"}
-          pt={{ base: 20, md: 0 }}
+          w={{ base: "full", md: "md" }}
+          pt={{ base: 20, lg: 0 }}
           experimental_spaceY={5}
           flexDirection="column"
           display={"flex"}
@@ -90,12 +85,7 @@ export const Mentor = () => {
         >
           <Image src={"/meeting.png"} w={300} />
           <Heading color={color.primary}>Хөтөч</Heading>
-          <Text textAlign={"justify"} fontSize="sm">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book
-          </Text>
+
           <Tooltip label="Тун удахгүй" fontSize={"md"}>
             {/* <Button
               disabled

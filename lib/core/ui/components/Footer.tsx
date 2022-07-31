@@ -35,13 +35,12 @@ export const Footer = ({
       mx="auto"
       pt={14}
       bg={color.primary}
-      backgroundImage="url('/3hand.png')"
+      backgroundImage={{ base: "", md: "url('footer_icon/hand.png')" }}
       backgroundRepeat={"no-repeat"}
+      backgroundPosition={{ base: "right bottom" }}
+      backgroundSize={{ base: "50%", md: "25%", xl: "22%" }}
       style={{
-        backgroundSize: "60%",
-        backgroundPosition: "130%",
-        backgroundAttachment: "fixed",
-        backgroundPositionY: "130%",
+        backgroundPositionX: "90%",
       }}
     >
       <Box w="full">
@@ -52,9 +51,9 @@ export const Footer = ({
               justifyContent="space-between"
               columns={{ base: 1, md: 4 }}
             >
-              <Stack direction={"row"}>
-                <Image src="/govern.png" w={65} height="50" />
-                <Image src="/government.png" w={65} height="50" />
+              <Stack direction={"row"} experimental_spaceX={10}>
+                <Image src="footer_icon/children.png" h={70} />
+                <Image src="footer_icon/revival.png" h={70} />
               </Stack>
               <Stack
                 direction={"column"}

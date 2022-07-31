@@ -1,13 +1,21 @@
-import { Box, Heading, ListItem, Stack, UnorderedList } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  ListItem,
+  Stack,
+  UnorderedList,
+  Text,
+} from "@chakra-ui/react";
 
 export const Document = () => {
   return (
     <Stack px={{ base: "2%", lg: "20%" }} py={"20"}>
-      <Box direction="row" display={"flex"} alignItems="center">
+      <Stack direction={{ base: "column", md: "row" }} alignItems="center">
         <Box
           bg={"primeBlue"}
-          px={"20"}
+          px={"10"}
           py={10}
+          maxW={{ base: "full", md: "45%" }}
           display="flex"
           flexDirection={"column"}
           alignItems="center"
@@ -16,13 +24,14 @@ export const Document = () => {
           shadow="dark-lg"
           transition={"all"}
           transitionDuration={"1s"}
+          textAlign="center"
           _hover={{
             transform: "translate(-20px)",
           }}
         >
           <Heading
             color={"primeOrange"}
-            fontSize="4xl"
+            fontSize="3xl"
             borderColor={"primeOrange"}
             borderWidth={10}
             borderLeft={0}
@@ -33,13 +42,23 @@ export const Document = () => {
             ТӨСЛИЙН БАРИМТ БИЧИГТ ТАВИГДАХ ШААРДЛАГА
           </Heading>
         </Box>
-        <UnorderedList textAlign={"left"} lineHeight={8} ml="10">
+        <UnorderedList
+          pt={{ base: "10", md: "0" }}
+          textAlign={"left"}
+          lineHeight={8}
+          pl="10"
+          textColor={"primeOrange"}
+        >
           <ListItem>
-            Өгөгдсөн загварын дагуу бичигдсэн төсөл /pdf формат/
+            <Text color="black">
+              Өгөгдсөн загварын дагуу бичигдсэн төсөл /pdf формат/
+            </Text>
           </ListItem>
-          <ListItem>Төслийн танилцуулга видео /8 минут/</ListItem>
+          <ListItem>
+            <Text color="black">Төслийн танилцуулга видео /8 минут/</Text>
+          </ListItem>
         </UnorderedList>
-      </Box>
+      </Stack>
     </Stack>
   );
 };

@@ -11,18 +11,39 @@ import { border } from "constant";
 export const Prohibition = () => {
   return (
     <Stack px={{ base: "2%", lg: "20%" }} py={"20"}>
-      <Box direction="row" display={"flex"} alignItems="center">
-        <UnorderedList textAlign={"left"} lineHeight={8} mr="10">
+      <Stack
+        direction={{ base: "column-reverse", md: "row" }}
+        alignItems="center"
+      >
+        <UnorderedList
+          pt={{ base: "10", md: "0" }}
+          textAlign={"left"}
+          lineHeight={8}
+          mr="10"
+          textColor={"primeOrange"}
+        >
           <ListItem>
-            Тоног төхөөрөмж, тавилга хэрэгсэл худалдан авалт хийх
+            <Text textColor={"black"}>
+              {" "}
+              Тоног төхөөрөмж, тавилга хэрэгсэл худалдан авалт хийх
+            </Text>
           </ListItem>
-          <ListItem>Хандив, буяны арга хэмжээ </ListItem>
-          <ListItem>Монгол Улсын хууль тогтоомжид нийцээгүй</ListItem>
+          <ListItem>
+            {" "}
+            <Text textColor={"black"}>Хандив, буяны арга хэмжээ </Text>
+          </ListItem>
+          <ListItem>
+            <Text textColor={"black"}>
+              Монгол Улсын хууль тогтоомжид нийцээгүй{" "}
+            </Text>
+          </ListItem>
         </UnorderedList>
         <Box
           bg={"primeOrange"}
-          px={"20"}
+          px={"10"}
+          textAlign="center"
           py={10}
+          maxW={{ base: "full", md: "35%" }}
           display="flex"
           flexDirection={"column"}
           alignItems="center"
@@ -37,7 +58,7 @@ export const Prohibition = () => {
         >
           <Heading
             color={"primeBlue"}
-            fontSize="4xl"
+            fontSize="3xl"
             borderColor={"primeBlue"}
             borderWidth={10}
             borderLeft={0}
@@ -48,7 +69,7 @@ export const Prohibition = () => {
             ХАМРАГДАХ БОЛОМЖГҮЙ ТӨСӨЛ
           </Heading>
         </Box>
-      </Box>
+      </Stack>
     </Stack>
   );
 };

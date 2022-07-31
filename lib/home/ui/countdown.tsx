@@ -21,13 +21,13 @@ const AppStyled = styled.div`
 
 const ContainerStyled = styled.section`
   padding: 1rem;
-  padding-left : 0px;
-  padding-right : 0px;
+  padding-left: 0px;
+  padding-right: 0px;
 
   @media (min-width: 48em) {
     padding: 4rem;
-    padding-left : 0px;
-  padding-right : 0px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 `;
 
@@ -48,7 +48,7 @@ const DateStyled = styled.header`
   & h1 {
     color: var(--color-heading);
     font-family: var(--font-family-heading);
-    font-size: clamp(1rem, 2vw, 99rem);
+    font-size: 27px;
     font-weight: 300;
     letter-spacing: 0.1875em;
     margin: unset;
@@ -88,7 +88,7 @@ const CounterStyled = styled.div`
 `;
 const nextYear = new Date().getFullYear();
 
-const targetDate = new Date(`Aug 1, ${nextYear} 00:00:00`).getTime();
+const targetDate = new Date(`Aug 25, ${nextYear} 00:00:00`).getTime();
 
 const generateTimeDisplay = (): TimeDisplayValuesType => {
   const rightJustNow = new Date().getTime();
@@ -104,7 +104,9 @@ const generateTimeDisplay = (): TimeDisplayValuesType => {
 
 const Counter = ({ displayValue, label }: CounterType) => (
   <CounterStyled>
-    <h2 style={{ color: "white", fontSize: "15px",textAlign : 'center' }}>{label}</h2>
+    <h2 style={{ color: "white", fontSize: "15px", textAlign: "center" }}>
+      {label}
+    </h2>
     <p>{displayValue}</p>
   </CounterStyled>
 );
@@ -123,7 +125,7 @@ export const Countdown = () => {
     <AppStyled>
       <ContainerStyled>
         <DateStyled>
-          <h1 style={{ color: "white" }}>БҮРТГЭЛ ЭХЛЭХЭД</h1>
+          <h1 style={{ color: "white" }}>БҮРТГЭЛ ДУУСАХАД</h1>
         </DateStyled>
         <WrapperStyled>
           <Counter displayValue={timeDisplay.days} label={"Өдөр"} />

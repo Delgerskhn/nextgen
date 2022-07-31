@@ -85,7 +85,7 @@ export const Selection = () => {
   const [is_show, setShow] = useState(false);
   const router = useRouter();
   return (
-    <Container maxW={"5xl"} py={12} experimental_spaceY="16">
+    <Container maxW={"5xl"} py={12} experimental_spaceY="20">
       <Heading textAlign={"center"} size={"xl"} fontWeight="bold">
         {"Сонгон шалгаруулалт".toUpperCase()}
       </Heading>
@@ -104,15 +104,29 @@ export const Selection = () => {
                   />
                 }
                 iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                text={"15-34 насны Mонгол Улсын иргэн"}
+                text={" Mонгол Улсын иргэн байх"}
               />
               <Feature
                 icon={
                   <Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />
                 }
                 iconBg={useColorModeValue("green.100", "green.900")}
+                text={"15-34 настай байх"}
+              />
+              <Feature
+                icon={
+                  <Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />
+                }
+                iconBg={useColorModeValue("purple.100", "purple.900")}
+                text={"Олон нийтийн эрх ашигт нийцсэн байх"}
+              />
+              <Feature
+                icon={
+                  <Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />
+                }
+                iconBg={useColorModeValue("purple.100", "purple.900")}
                 text={
-                  "Өөрийн аймаг, дүүрэгт тулгарсан нэг асуудлыг шийдэлтэй нь танилцуулах"
+                  "Тухайн орон нутаг болон харьяа газартаа хэрэгжих боломжтой байх"
                 }
               />
               <Feature
@@ -120,21 +134,23 @@ export const Selection = () => {
                   <Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />
                 }
                 iconBg={useColorModeValue("purple.100", "purple.900")}
-                text={"3.5 сарын туршид хөтөлбөрт оролцох боломжтой"}
+                text={"Төслийн үйл ажиллагаа ашиг сонирхлын зөрчилгүй байх"}
               />
               <Feature
                 icon={
                   <Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />
                 }
                 iconBg={useColorModeValue("purple.100", "purple.900")}
-                text={"Цахимаар харилцаа холбоо тогтоох боломжтой"}
+                text={"Төслийн хүрэх үр дүн тодорхой, бодитой байх"}
               />
               <Feature
                 icon={
                   <Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />
                 }
                 iconBg={useColorModeValue("purple.100", "purple.900")}
-                text={"5-7 хүнтэй баг болон оролцож болно"}
+                text={
+                  "Төслийг цаашид үргэлжлүүлэх, өргөжүүлэн хэрэгжүүлэх боломжтой байх"
+                }
               />
             </UnorderedList>
             <Button
@@ -165,7 +181,7 @@ export const Selection = () => {
           <TransitionImage url={"/scholarship.png"} is_right={false} />
         </Flex>
         <Stack spacing={4}>
-          <Heading>Үйл явц</Heading>
+          <Heading>ШАЛГАРУУЛАЛТ</Heading>
           <Stack spacing={4}>
             <UnorderedList lineHeight={8}>
               <Feature
@@ -179,7 +195,7 @@ export const Selection = () => {
                 }
                 iconBg={useColorModeValue("yellow.100", "yellow.900")}
                 text={
-                  "21 аймаг, 9 дүүргийн засаг даргатай хамтран хөтөлбөр хариуцах баг бүрдүүлэн ажиллах"
+                  "Монгол Улсын 21 аймаг, 9 дүүрэг тус бүрээс нэг төслийг сонгон шалгаруулна. Уралдаанд оролцогчид багаар ажиллах бөгөөд нэг баг 2-5 хүртэлх хүнтэй байна. "
                 }
               />
               <Feature
@@ -188,7 +204,7 @@ export const Selection = () => {
                 }
                 iconBg={useColorModeValue("green.100", "green.900")}
                 text={
-                  "Ирүүлсэн бүх асуудлыг харьяа аймаг, дүүрэг нь хариуцан авч баталгаажуулах"
+                  "Төрийн, төрийн бус, хувийн хэвшлийн, олон улсын байгууллагын, орон нутгийн удирдлагагын зэрэг төлөөлөөлүүдээс бүрдсэн шүүгчдийн бүрэлдэхүүн зохион байгуулагчдын баталсан журмын дагуу  дараах шалгуураар төслийг үнэлж, сонгон шалгаруулна."
                 }
               />
               <Feature
@@ -197,15 +213,8 @@ export const Selection = () => {
                 }
                 iconBg={useColorModeValue("purple.100", "purple.900")}
                 text={
-                  "Аль болох захын хорооллын, хязгаарлагдмал боломжтой залуучуудыг туршлага харгалзахгүйгээр хамруулах"
+                  "Шалгарсан төслийг 2022.09.28-ны өдөр зарлаж шалгарсан багуудад утас болон имэйлээр мэдэгдэнэ."
                 }
-              />
-              <Feature
-                icon={
-                  <Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />
-                }
-                iconBg={useColorModeValue("purple.100", "purple.900")}
-                text={"Сонгон шалгаруулалтын хугацаа 21 хоног"}
               />
             </UnorderedList>
             <Button

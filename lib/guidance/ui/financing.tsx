@@ -10,6 +10,7 @@ import {
   ListItem,
   Stack,
   Text,
+  UnorderedList,
 } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import { FaCheckCircle, FaMedal } from "react-icons/fa";
@@ -28,7 +29,12 @@ interface PackageTierProps {
   content: string;
   title: string;
 }
-const PackageTier = ({ color, title, content }: PackageTierProps) => {
+const PackageTier = ({
+  color,
+  title,
+  content,
+  sub_title,
+}: PackageTierProps) => {
   return (
     <Stack
       p={3}
@@ -46,7 +52,7 @@ const PackageTier = ({ color, title, content }: PackageTierProps) => {
       <Icon as={FaMedal} fontSize="8xl" color={color} />
       <Stack experimental_spaceY={"5"} alignItems="center" py="5">
         <Heading fontSize={"lg"}>{title}</Heading>
-        <Text textAlign={"center"}>{content}</Text>
+        <Text textAlign={"center"}>{sub_title}</Text>
       </Stack>
     </Stack>
   );
@@ -72,28 +78,57 @@ export const Financing = () => {
             }}
             textAlign={"center"}
           >
-            <Heading size={"xl"}>ШАГНАЛ УРАМШУУЛАЛ</Heading>
-            <Heading fontSize={"9xl"} py={5} color={"deepGreen"}>
+            <Heading size={"xl"}>ТӨСЛИЙН САНХҮҮЖИЛТ БОЛОН ШАГНАЛ</Heading>
+            {/* <Heading fontSize={"9xl"} py={5} color={"deepGreen"}>
               20,000,000₮
-            </Heading>
-          </Stack>
-          <Stack
-            width={{
-              base: "100%",
-              md: "60%",
-            }}
-          >
-            <Text textAlign={"center"}>
+            </Heading> */}
+            <Text textAlign={"center"} pt={3}>
               Төслийн тайлан хурал зохион байгуулж шилдэг төслүүдийг шалгаруулан
               дараах байдлаар урамшуулна
             </Text>
           </Stack>
+          <Stack
+            width={{
+              base: "100%",
+            }}
+            pt={10}
+          >
+            <UnorderedList
+              textColor={"primeOrange"}
+              lineHeight={8}
+              experimental_spaceY={5}
+            >
+              <ListItem>
+                <Text color={"black"}>
+                  Шалгарсан 30 төсөл тус бүрт <b>20,000,000₮</b> хүртэлх
+                  санхүүжилт олгоно. Төсөл хэрэгжүүлэгч нь нэмэлт санхүүжилтийг
+                  бүрдүүлж болно.{" "}
+                </Text>
+              </ListItem>
+              <ListItem>
+                <Text color={"black"}>
+                  Шалгарсан төслийн багийн гишүүдийн Улаанбаатар хотод зохион
+                  байгуулах чадавхжуулах сургалтад хамрагдахтай холбоотой гарах
+                  байр, хоол, унааны зардлыг зохион байгуулагч тал хариуцна.
+                </Text>
+              </ListItem>
+              <ListItem>
+                <Text color={"black"}>
+                  30 төслөөс шалгарсан шилдэг төслүүдийн багийг дараах байдлаар
+                  урамшуулна.{" "}
+                </Text>
+              </ListItem>
+            </UnorderedList>
+          </Stack>
         </Stack>
-        <Stack direction={"row"} justifyContent="space-between">
+        <Stack
+          direction={{ base: "column", md: "row" }}
+          justifyContent={{ base: "center", md: "space-between" }}
+        >
           <PackageTier
             sub_title="Гран при төсөл"
             title="Нэгдүгээр байр"
-            color="primeOrange"
+            color="deepGreen"
             content="Гадаадад магистрын түвшинд суралцах сургалтын тэтгэлэг"
           />
           <Center>
@@ -103,7 +138,7 @@ export const Financing = () => {
           <PackageTier
             title="Хоёрдугаар байр"
             sub_title="1 төсөл"
-            color="brown"
+            color="primeBlue"
             content="Гадаадад богино хугацааны чадавхжуулах сургалтад хамрагдах тэтгэлэг"
           />
           <Center>
@@ -112,7 +147,7 @@ export const Financing = () => {
           <PackageTier
             sub_title="1 төсөл"
             title="Гуравдугаар байр"
-            color="silver"
+            color="primeOrange"
             content="Гадаадад туршлага судлах аяллын тэтгэлэг"
           />
         </Stack>
