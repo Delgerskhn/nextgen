@@ -25,7 +25,7 @@ type PropsType = {
   firstName?: string;
   lastName?: string;
   age?: number | null;
-  sex?: "Эрэгтэй" | "Эмэгтэй" | null;
+  sex?: string | null;
   pictureKey?: string | null;
   id?: string;
   userId?: string;

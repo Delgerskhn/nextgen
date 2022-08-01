@@ -1,7 +1,6 @@
 import { createHandler } from "@api/handler";
 import { ERROR_MESSAGES } from "@util/errors";
 import { carrierLookup, sendVerificationCode } from "@lib/user/api/twilio";
-import { checkPhoneNotExists } from "@lib/user/api/service";
 import { validatePhoneNumber } from "@lib/user/data/validators";
 
 const handler = createHandler();
@@ -29,12 +28,12 @@ handler.post(async (req, res) => {
       );
     });
 
-  if (!(await checkPhoneNotExists(validate.fullPhoneNumber)))
-    return res.sendError(
-      409,
-      ERROR_MESSAGES.CONFLICT,
-      "phone-number-already-registered"
-    );
+  // if (!(await checkPhoneNotExists(validate.fullPhoneNumber)))
+  //   return res.sendError(
+  //     409,
+  //     ERROR_MESSAGES.CONFLICT,
+  //     "phone-number-already-registered"
+  //   );
 
   await sendVerificationCode(validate.fullPhoneNumber)
     .then((message: any) => {

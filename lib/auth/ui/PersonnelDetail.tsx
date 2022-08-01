@@ -60,7 +60,6 @@ export const PersonnelDetail = () => {
     setValue("country", profile ? profile.country : null);
     setValue("language", profile ? profile.language : null);
     setValue("sex", profile ? profile.sex : null);
-    setValue("phoneNumber", currentUser ? currentUser.phoneNumber : null);
     setValue("emailAddress", currentUser ? currentUser.email : null);
   }, [setValue, profile]);
 
@@ -76,7 +75,7 @@ export const PersonnelDetail = () => {
         );
         refetch();
         router.push({
-          pathname: "/"
+          pathname: "/",
         });
       },
     });
