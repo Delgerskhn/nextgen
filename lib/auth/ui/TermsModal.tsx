@@ -30,16 +30,19 @@ export const TermsModal = ({ isOpen, onClose, onSubmit }: Props) => {
         <ModalCloseButton />
         <ModalBody>
           <Text>
-            Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
-            ullamco deserunt aute id consequat veniam incididunt duis in sint
-            irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
-            officia tempor esse quis. Sunt ad dolore quis aute consequat. Magna
-            exercitation reprehenderit magna aute tempor cupidatat consequat
-            elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt
-            cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim
-            laboris do dolor eiusmod. Et mollit incididunt nisi consectetur esse
-            laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt
-            nostrud ad veniam.
+            ● Монгол Улсын иргэн байх <br />
+            ● 15-34 настай байх
+            <br />
+            ● Олон нийтийн эрх ашигт нийцсэн байх
+            <br />
+            ● Тухайн орон нутаг болон харьяа газартаа хэрэгжих боломжтой байх
+            <br />
+            ● Төслийн үйл ажиллагаа ашиг сонирхлын зөрчилгүй байх
+            <br />
+            ● Төслийн хүрэх үр дүн тодорхой, бодитой байх
+            <br />
+            ● Төслийг цаашид үргэлжлүүлэх, өргөжүүлэн хэрэгжүүлэх боломжтой байх
+            <br />
           </Text>
           <Checkbox
             checked={checked}

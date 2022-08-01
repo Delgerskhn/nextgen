@@ -1,10 +1,6 @@
-import {
-  PrismaClient,
-  PriceInterval,
-  PriceType,
-} from "@prisma/client";
+import { PrismaClient, PriceInterval, PriceType } from "@prisma/client";
 import CSVToJSON from "csvtojson";
-import * as bcrypt from "bcryptjs"; 
+import * as bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -12,9 +8,7 @@ async function generatePasswordDigest() {
   return bcrypt.hash("changeme", 10);
 }
 
-
 async function main() {
-  
   const userEmails = [];
   for (let i = 1; i <= 10; i++) {
     userEmails.push(`user${i}@nomadicsoft.net`);
@@ -28,8 +22,6 @@ async function main() {
         email,
         passwordDigest: await generatePasswordDigest(),
         role: "STUDENT",
-        phoneNumber: (88889000 + i++).toString(),
-        phoneNumberVerified: new Date()
       },
     });
   }

@@ -22,5 +22,9 @@ export const useAccounts = (userId: string | undefined) => {
 };
 
 export const useAccount = () => {
-  return useQuery<AccountInput>(["myAccount"], () => fetcher.get(`account/me`));
+  return useQuery<AccountInput>(["myAccount"], async () => {
+    let resp = await fetcher.get(`account/me`);
+    if (resp.birthDate) resp.birthDate = resp.birthDate.split("T")[0];
+    return resp;
+  });
 };

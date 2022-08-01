@@ -106,6 +106,9 @@ export const Footer = ({
                       <Box
                         key={i}
                         bg={color.white}
+                        as="a"
+                        href={el.link}
+                        target="_blank"
                         p={3}
                         alignItems="center"
                         justifyContent={"center"}

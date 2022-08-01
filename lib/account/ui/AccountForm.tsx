@@ -105,8 +105,8 @@ export const AccountForm = ({ data }: { data: AccountInput }) => {
               required: "Заавал",
             })}
           >
-            <option>Male</option>
-            <option>Female</option>
+            <option>Эрэгтэй</option>
+            <option>Эмэгтэй</option>
           </Select>
           <FormErrorMessage>
             {errors.sex && errors.sex.message}
@@ -194,7 +194,7 @@ export const AccountForm = ({ data }: { data: AccountInput }) => {
       <Divider my="4" />
       <SimpleGrid columnGap={24} rowGap={6} columns={2}>
         <FormControl id="city" isRequired isInvalid={!!errors.city}>
-          <FormLabel>Хүйс</FormLabel>
+          <FormLabel>Хот / Аймаг</FormLabel>
           <Select
             type="text"
             {...register("city", {
@@ -210,7 +210,7 @@ export const AccountForm = ({ data }: { data: AccountInput }) => {
           </FormErrorMessage>
         </FormControl>
         <FormControl id="district" isRequired isInvalid={!!errors.district}>
-          <FormLabel>Хүйс</FormLabel>
+          <FormLabel>Дүүрэг / Сум</FormLabel>
           <Select
             type="text"
             {...register("district", {

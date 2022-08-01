@@ -45,17 +45,12 @@ enum UserRole {
   ADMIN
 }
 
-enum Sex {
-  Male
-  Female
-}
-
 model Account {
   id                   String    @id @default(cuid())
   pictureKey           String?
   firstName            String
   lastName             String
-  sex                  Sex?
+  sex                  String?
   age                  Int?
   nationality          String?
   familyName           String?

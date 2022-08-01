@@ -51,7 +51,11 @@ export default function SignupPage() {
     getValues,
     setValue,
     formState: { errors, isValid },
-  } = useForm<SignupInput>();
+  } = useForm<SignupInput>({
+    defaultValues: {
+      projectName: "",
+    },
+  });
 
   const onSubmit = handleSubmit((authInput) => {
     signupMutation.mutate(authInput, {
@@ -94,7 +98,7 @@ export default function SignupPage() {
             <Text fontSize={"lg"} color={"gray.600"}></Text>
           </Stack>
           <Box rounded={"lg"} boxShadow={"lg"} p={8}>
-            <FormControl
+            {/* <FormControl
               id="projectName"
               isRequired
               isInvalid={!!errors.projectName}
@@ -109,10 +113,10 @@ export default function SignupPage() {
               <FormErrorMessage>
                 {errors.projectName && errors.projectName.message}
               </FormErrorMessage>
-            </FormControl>
+            </FormControl> */}
             <Stack spacing={4}>
-              <FormLabel mt="4">Төслийн ахлагчийн мэдээлэл</FormLabel>
-              <Divider />
+              {/* <FormLabel mt="4">Төслийн ахлагчийн мэдээлэл</FormLabel> */}
+              {/* <Divider /> */}
               <HStack>
                 <Box>
                   <FormControl
@@ -227,8 +231,8 @@ export default function SignupPage() {
                         required: "Заавал",
                       })}
                     >
-                      <option>Male</option>
-                      <option>Female</option>
+                      <option>Эрэгтэй</option>
+                      <option>Эмэгтэй</option>
                     </Select>
                     <FormErrorMessage>
                       {errors.sex && errors.sex.message}
@@ -245,8 +249,8 @@ export default function SignupPage() {
                         valueAsNumber: true,
                       })}
                     >
-                      {new Array(100).fill(0).map((_, i) => (
-                        <option key={i}>{i + 14}</option>
+                      {new Array(18).fill(0).map((_, i) => (
+                        <option key={i}>{i + 18}</option>
                       ))}
                     </Select>
                     <FormErrorMessage>
@@ -282,7 +286,7 @@ export default function SignupPage() {
                       required: "Заавал",
                       minLength: {
                         value: 8,
-                        message: "Minimum length should be 8",
+                        message: "Хамгийн багадаа 8 үсэг тоо байна.",
                       },
                     })}
                   />
@@ -332,6 +336,7 @@ export default function SignupPage() {
         <Flex
           flex={1}
           backgroundPosition="center"
+          backgroundSize={"cover"}
           backgroundRepeat={"no-repeat"}
           backgroundImage="url(https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80)"
         >
