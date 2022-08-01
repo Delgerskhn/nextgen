@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:alpine as builder
 ENV PORT 3000
 WORKDIR /app/node/react
 COPY package*.json ./
