@@ -105,8 +105,8 @@ export const AccountForm = ({ data }: { data: AccountInput }) => {
               required: "Заавал",
             })}
           >
-            <option>Male</option>
-            <option>Female</option>
+            <option>Эрэгтэй</option>
+            <option>Эмэгтэй</option>
           </Select>
           <FormErrorMessage>
             {errors.sex && errors.sex.message}
