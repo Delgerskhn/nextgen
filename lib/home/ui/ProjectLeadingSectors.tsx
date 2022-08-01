@@ -9,6 +9,8 @@ import {
   VStack,
   SimpleGrid,
   Icon,
+  css,
+  Text,
 } from "@chakra-ui/react";
 import { colors } from "@ui/foundations/colors";
 import { color } from "constant";
@@ -21,8 +23,8 @@ import {
 
 export const ProjectLeadingSectors = () => {
   return (
-    <Box w="full" bg={color.white}>
-      <VStack w={"full"}>
+    <Box w="full" bg={color.white} my="10">
+      <VStack w="full">
         <Heading
           w="50%"
           textAlign={"center"}
@@ -34,15 +36,27 @@ export const ProjectLeadingSectors = () => {
           {"Төслийн тэргүүлэх чиглэл".toUpperCase()}
         </Heading>
         <Tabs size="lg" align="center" minH={408} w="full">
-          <TabList fontWeight={"bold"} color={"primeBlue"}>
+          <TabList
+            fontWeight={"bold"}
+            color={"primeBlue"}
+            justifyContent="space-between"
+            w="full"
+            px={10}
+            overflowX={"scroll"}
+            overflowY="hidden"
+            border={0}
+          >
             <Tab
               _focus={{
                 outline: "none",
               }}
+              borderBottom="5px solid black"
               _selected={{
                 color: "#003366",
                 borderColor: "#003366",
               }}
+              borderColor="gray.100"
+              mb="4"
               className="active-tab"
             >
               Хот хөдөөгийн сэргэлт
@@ -55,12 +69,45 @@ export const ProjectLeadingSectors = () => {
               _active={{
                 borderColor: "#013365",
               }}
+              borderColor="gray.100"
               _selected={{
                 color: "#003366",
                 borderColor: "#003366",
               }}
+              borderBottom="5px solid black"
+              mb="4"
             >
               Ногоон хөгжлийн сэргэлт
+            </Tab>
+            <Tab
+              _focus={{
+                outline: "none",
+              }}
+              borderColor="gray.100"
+              className="active-tab"
+              _selected={{
+                color: "#003366",
+                borderColor: "#003366",
+              }}
+              borderBottom="5px solid black"
+              mb="4"
+            >
+              Төрийн бүтээмжийн сэргэлт
+            </Tab>
+            <Tab
+              _focus={{
+                outline: "none",
+              }}
+              borderColor="gray.100"
+              className="active-tab"
+              _selected={{
+                color: "#003366",
+                borderColor: "#003366",
+              }}
+              borderBottom="5px solid black"
+              mb="4"
+            >
+              БООМТЫН СЭРГЭЛТ
             </Tab>
             <Tab
               _focus={{
@@ -71,8 +118,26 @@ export const ProjectLeadingSectors = () => {
                 color: "#003366",
                 borderColor: "#003366",
               }}
+              borderBottom="5px solid black"
+              mb="4"
+              borderColor="gray.100"
             >
-              Төрийн бүтээмжийн сэргэлт
+              ЭРЧИМ ХҮЧНИЙ СЭРГЭЛТ
+            </Tab>
+            <Tab
+              _focus={{
+                outline: "none",
+              }}
+              borderBottom="5px solid black"
+              mb="4"
+              className="active-tab"
+              _selected={{
+                color: "#003366",
+                borderColor: "#003366",
+              }}
+              borderColor="gray.100"
+            >
+              АЖ ҮЙЛЛВЭРЖИЛТИЙН СЭРГЭЛТ
             </Tab>
           </TabList>
           <TabPanels>
@@ -84,6 +149,46 @@ export const ProjectLeadingSectors = () => {
             </TabPanel>
             <TabPanel>
               <GovernmentBuilt />
+            </TabPanel>
+            <TabPanel>
+              <Text
+                p={"10"}
+                textColor="primeOrange"
+                rounded="lg"
+                fontSize="4xl"
+              >
+                Тун удахгүй
+              </Text>
+            </TabPanel>
+            <TabPanel>
+              <Text
+                p={"10"}
+                textColor="primeOrange"
+                rounded="lg"
+                fontSize="4xl"
+              >
+                Тун удахгүй
+              </Text>
+            </TabPanel>
+            <TabPanel>
+              <Text
+                p={"10"}
+                textColor="primeOrange"
+                rounded="lg"
+                fontSize="4xl"
+              >
+                Тун удахгүй
+              </Text>
+            </TabPanel>
+            <TabPanel>
+              <Text
+                p={"10"}
+                textColor="primeOrange"
+                rounded="lg"
+                fontSize="4xl"
+              >
+                Тун удахгүй
+              </Text>
             </TabPanel>
           </TabPanels>
         </Tabs>

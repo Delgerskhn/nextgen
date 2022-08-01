@@ -57,6 +57,7 @@ const TransitionImage = ({ url, is_right }: TransitionImageProps) => {
       />
       <Image
         position={"absolute"}
+        top={-10}
         // rounded={"md"}
         alt={"feature image"}
         src={url}
@@ -85,14 +86,25 @@ export const Selection = () => {
   const [is_show, setShow] = useState(false);
   const router = useRouter();
   return (
-    <Container maxW={"5xl"} py={12} experimental_spaceY="20">
+    <Container
+      maxW={"5xl"}
+      px={{ base: "10", md: "0" }}
+      py={12}
+      experimental_spaceY="20"
+    >
       <Heading textAlign={"center"} size={"xl"} fontWeight="bold">
         {"Сонгон шалгаруулалт".toUpperCase()}
       </Heading>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
         <Stack spacing={4}>
-          <Heading>Тавигдах шаардлага</Heading>
-          <Stack spacing={4}>
+          <Heading textAlign={{ base: "center", md: "left" }}>
+            Тавигдах шаардлага
+          </Heading>
+          <Image
+            src="images/shaardlaga.png"
+            display={{ base: "block", md: "none" }}
+          />
+          <Stack spacing={4} px={{ base: "5", sm: "10", md: 0 }}>
             <UnorderedList lineHeight={8}>
               <Feature
                 icon={
@@ -172,17 +184,31 @@ export const Selection = () => {
             </Button>
           </Stack>
         </Stack>
-        <Flex position={"relative"} direction="row">
-          <TransitionImage url={"/meeting.png"} is_right={true} />
+        <Flex
+          position={"relative"}
+          display={{ base: "none", md: "block" }}
+          direction="row"
+        >
+          <TransitionImage url={"images/shaardlaga.png"} is_right={true} />
         </Flex>
       </SimpleGrid>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-        <Flex position={"relative"} direction="row">
-          <TransitionImage url={"/scholarship.png"} is_right={false} />
+        <Flex
+          position={"relative"}
+          display={{ base: "none", md: "block" }}
+          direction="row"
+        >
+          <TransitionImage url={"images/process.png"} is_right={false} />
         </Flex>
         <Stack spacing={4}>
-          <Heading>ШАЛГАРУУЛАЛТ</Heading>
-          <Stack spacing={4}>
+          <Heading textAlign={{ base: "center", md: "left" }}>
+            ШАЛГАРУУЛАЛТ
+          </Heading>
+          <Image
+            src="images/process.png"
+            display={{ base: "block", md: "none" }}
+          />
+          <Stack spacing={4} px={{ base: "5", sm: "10", md: 0 }}>
             <UnorderedList lineHeight={8}>
               <Feature
                 icon={

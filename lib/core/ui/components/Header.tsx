@@ -59,7 +59,7 @@ export const Header = () => {
             </Link>
           </Flex>
         )}
-        <Stack direction={"row"} spacing={10} justify="space-between" w="full">
+        <Stack direction={"row"} spacing={10} justify="flex-end" w="full">
           <IconButton
             size={"sm"}
             as={FiMenu}

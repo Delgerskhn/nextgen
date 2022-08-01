@@ -5,6 +5,7 @@ import { ProjectLeadingSectors } from "@lib/home/ui/ProjectLeadingSectors";
 import { ProjectTimeline } from "@lib/home/ui/ProjectTimeline";
 import { Selection } from "@lib/home/ui/selection";
 import { Mentor } from "@lib/home/ui/mentor";
+import { Leading } from "@lib/home/ui/leading";
 const HomePage = () => {
   const { isLoggedIn, user, error } = useCurrentUser();
   const logoutMutation = useLogout();
@@ -15,6 +16,7 @@ const HomePage = () => {
         <Flex direction="column">
           <Hero />
           <Selection />
+          {/* <Leading /> */}
           <ProjectLeadingSectors />
           <ProjectTimeline />
           <Mentor />

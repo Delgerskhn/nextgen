@@ -29,6 +29,7 @@
     font-family: 'NotoSans' !important;
     word-spacing: 5px;
     letter-spacing: 1px;
+    overflow-y:initial;
 }
 
 .active-menu-item>hr {
@@ -49,3 +50,25 @@
     font-size: 20px !important;
     font-weight: bold !important;
 }
+
+.scroll-css {
+}
+::-webkit-scrollbar {
+    padding: 1px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #00307b;
+    border-radius: 10px;
+    cursor: pointer;
+}
+::-webkit-scrollbar-button{
+    height: 1px;
+    margin-top: 2px;
+
+}
+
+::-webkit-scrollbar-track-piece{
+    height: 1px;
+    margin-top: 2px;
+}
+

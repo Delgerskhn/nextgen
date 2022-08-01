@@ -36,7 +36,7 @@ export const Mentor = () => {
           alignItems={"center"}
           w={{ base: "full", md: "md" }}
         >
-          <Image src={"/meeting.png"} w={300} />
+          <Image src={"images/Mentors.png"} w={300} />
           <Heading color={color.orange}>Mentors</Heading>
           <Text h="32">
             Ментор нь багийн төслийн явц байдал, хэрэгжилттэй 2 долоо хоног
@@ -86,7 +86,7 @@ export const Mentor = () => {
           display={"flex"}
           alignItems={"center"}
         >
-          <Image src={"/meeting.png"} w={300} />
+          <Image src={"images/Hutuch.png"} w={300} />
           <Heading color={color.primary}>Сургагч багш</Heading>
           <Text h="32">
             Сургагч багш нь төслийн багтай байнгын холбоотой байх бөгөөд төслийн

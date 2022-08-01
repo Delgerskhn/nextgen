@@ -4,12 +4,12 @@ WORKDIR /app/node/react
 COPY package*.json ./
 COPY . .
 RUN npm install
+RUN npx prisma generate
+RUN npm run prisma:migrate:dev
 RUN npm run build
 
 # production 
 FROM nginx:stable-alpine
-RUN rm /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/node/react/.next /usr/share/nginx/html
-COPY nginx.conf /etc/nginx
-EXPOSE 80
+COPY --from=builder /app/node/react/.next /app/node/react
+EXPOSE 3000
 CMD ["npm","start"]

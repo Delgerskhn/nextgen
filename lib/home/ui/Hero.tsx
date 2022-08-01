@@ -32,14 +32,10 @@ export function Hero() {
         backgroundPosition={""}
         backgroundRepeat="cover"
       >
-        <Stack
-          direction={{ base: "column", md: "row" }}
-          pt={"150px"}
-          justifyContent="space-between"
-        >
+        <Stack direction={{ base: "column", md: "row" }} pt={"120px"} w="full">
           <Stack direction={"column"} alignItems="center">
             <Stack
-              maxW={"2xl"}
+              maxW={"8xl"}
               alignItems={"center"}
               direction={"row"}
               justifyContent="center"
@@ -48,8 +44,8 @@ export function Hero() {
             </Stack>
             <Countdown />
           </Stack>
-          <Stack pl={{ base: 0, md: "40" }}>
-            <Image src="/meeting.png" w={"100%"} />
+          <Stack pl={{ base: 0, md: "30" }} pt={{ base: "10", md: 0 }}>
+            <Image src="images/home-hero.png" w={"full"} />
           </Stack>
         </Stack>
       </Flex>

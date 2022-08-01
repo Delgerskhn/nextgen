@@ -1,5 +1,5 @@
 import { prisma } from "@api/prisma";
-import { Account } from "@prisma/client";
+import { Account} from "@prisma/client";
 import { AccountInput } from "../data/types";
 
 export const createAccount = (data: Account) => {
@@ -29,7 +29,7 @@ export const updateAccount = (data: AccountInput) => {
     },
     data: {
       ...data,
-      birthDate: data.birthDate ? new Date(data.birthDate) : null,
+      birthDate: data.birthDate  ? new Date(data.birthDate) : null,
     },
   });
 };
