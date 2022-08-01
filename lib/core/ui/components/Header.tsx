@@ -49,11 +49,11 @@ export const Header = () => {
             bg="transparent"
             display={{ base: "block", lg: "none" }}
             cursor={"pointer"}
-            color="black"
+            color="primeOrange"
             variant={"unstyled"}
             onClick={onToggle}
             _hover={{
-              color: "#003366",
+              color: "#fff",
             }}
             aria-label={"User auth"}
           />

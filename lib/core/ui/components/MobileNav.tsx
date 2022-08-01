@@ -10,6 +10,7 @@ import {
   Box,
   Divider,
 } from "@chakra-ui/react";
+import { color } from "constant";
 import { BsChevronDown } from "react-icons/bs";
 import { NAV_ITEMS, NavItem } from "./NavItem";
 
@@ -17,15 +18,16 @@ type Props = {
   is_open: boolean;
 };
 export const MobileNav = ({ is_open }: Props) => {
-  const linkHoverColor = useColorModeValue("gray.800", "white");
   return (
     <Stack
-      bg={useColorModeValue("white", "gray.800")}
-      p={4}
-      display={{ base: is_open ? "block" : "none", lg: "none" }}
+      bg={"primeOrange"}
+      p={is_open ? 4 : 0}
+      h={{ base: is_open ? "250" : "0px" }}
+      display={{ base: "block", md: "none" }}
       transition=".3s"
       overflow={"hidden"}
       spacing="7"
+      px={{ base: "5%", md: "10%" }}
     >
       {NAV_ITEMS.map((navItem) => (
         <Box
@@ -33,6 +35,7 @@ export const MobileNav = ({ is_open }: Props) => {
           className="active-menu-item"
           position={"relative"}
           width={"fit-content"}
+          border={0}
         >
           <Link
             outline={"none"}
@@ -40,10 +43,10 @@ export const MobileNav = ({ is_open }: Props) => {
             href={navItem.href ?? "#"}
             fontSize={"lg"}
             fontWeight="bold"
-            color={"black"}
+            color={"#fff"}
             _hover={{
               textDecoration: "none",
-              color: linkHoverColor,
+              color: color.primary,
             }}
             _focus={{ border: 0, outline: "none" }}
           >
@@ -51,68 +54,16 @@ export const MobileNav = ({ is_open }: Props) => {
           </Link>
           <Divider
             opacity={1}
-            style={{
-              backgroundColor: "#003366",
-            }}
+            bg="primeBlue"
+            // style={{
+            //   backgroundColor: "#",
+            // }}
             h={1}
             bottom={-2}
             position="absolute"
           />
         </Box>
       ))}
-    </Stack>
-  );
-};
-
-const MobileNavItem = ({ label, children, href }: NavItem) => {
-  const { isOpen, onToggle } = useDisclosure();
-
-  return (
-    <Stack spacing={4} onClick={children && onToggle}>
-      <Flex
-        py={2}
-        as={Link}
-        href={href ?? "#"}
-        justify={"space-between"}
-        align={"center"}
-        _hover={{
-          textDecoration: "none",
-        }}
-      >
-        <Text
-          fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}
-        >
-          {label}
-        </Text>
-        {children && (
-          <Icon
-            as={BsChevronDown}
-            transition={"all .25s ease-in-out"}
-            transform={isOpen ? "rotate(180deg)" : ""}
-            w={6}
-            h={6}
-          />
-        )}
-      </Flex>
-
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
-        <Stack
-          mt={2}
-          pl={4}
-          borderLeft={1}
-          borderStyle={"solid"}
-          borderColor={useColorModeValue("gray.200", "gray.700")}
-          align={"start"}
-        >
-          {children &&
-            children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
-                {child.label}
-              </Link>
-            ))}
-        </Stack>
-      </Collapse>
     </Stack>
   );
 };
