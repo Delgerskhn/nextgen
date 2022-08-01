@@ -27,8 +27,24 @@ export const Header = () => {
   const variant = useLayoutBreakPointValue();
   const router = useRouter();
   const { isLoggedIn, data } = useAuth();
+  const routes = ["/", "/guidance", "/mentor", "/projects"];
+  const isTransparentHeader = () => {
+    return routes.findIndex((r) => r == router.pathname) != -1;
+  };
   return (
-    <Box bg="transparent" position={"absolute"} w="full">
+    <Box
+      bg={
+        routes.findIndex((r) => r == router.pathname) != -1
+          ? "transparent"
+          : "primeBlue"
+      }
+      position={
+        routes.findIndex((r) => r == router.pathname) != -1
+          ? "absolute"
+          : "relative"
+      }
+      w="full"
+    >
       <Flex
         minH={"60px"}
         py={{ base: 5 }}
