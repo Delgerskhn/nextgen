@@ -3,6 +3,7 @@ ENV PORT 3000
 WORKDIR /app/node/react
 COPY package*.json ./
 COPY . .
+RUN npm install
 RUN npm run build
 
 # production 
