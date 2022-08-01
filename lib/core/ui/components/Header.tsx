@@ -28,9 +28,8 @@ export const Header = () => {
   const router = useRouter();
   const { isLoggedIn, data } = useAuth();
   const routes = ["/", "/guidance", "/mentor", "/projects"];
-  const isTransparentHeader = () => {
-    return routes.findIndex((r) => r == router.pathname) != -1;
-  };
+  const isMobile = useBreakpointValue({ base: true, lg: false });
+
   return (
     <Box
       bg={
@@ -53,12 +52,14 @@ export const Header = () => {
         justifyContent={"space-between"}
         alignItems="flex-end"
       >
-        <Flex alignItems={"center"}>
-          <Link href="/">
-            <Image src="/logo.png" w="24" />
-          </Link>
-        </Flex>
-        <Stack direction={"row"} spacing={10}>
+        {!isMobile && (
+          <Flex alignItems={"center"}>
+            <Link href="/">
+              <Image src="/logo.png" w="24" />
+            </Link>
+          </Flex>
+        )}
+        <Stack direction={"row"} spacing={10} justify="space-between" w="full">
           <IconButton
             size={"sm"}
             as={FiMenu}
