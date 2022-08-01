@@ -48,7 +48,7 @@ export default function LoginPage() {
         //onst nextPath: string = router.query.redirectTo
         // ? router.query.redirectTo.toString()
         // : defaultPaths[user.role];
-        router.push("/");
+        router.push("/account/profile");
       },
     });
   });

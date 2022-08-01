@@ -51,7 +51,11 @@ export default function SignupPage() {
     getValues,
     setValue,
     formState: { errors, isValid },
-  } = useForm<SignupInput>();
+  } = useForm<SignupInput>({
+    defaultValues: {
+      projectName: "",
+    },
+  });
 
   const onSubmit = handleSubmit((authInput) => {
     signupMutation.mutate(authInput, {
@@ -94,7 +98,7 @@ export default function SignupPage() {
             <Text fontSize={"lg"} color={"gray.600"}></Text>
           </Stack>
           <Box rounded={"lg"} boxShadow={"lg"} p={8}>
-            <FormControl
+            {/* <FormControl
               id="projectName"
               isRequired
               isInvalid={!!errors.projectName}
@@ -109,9 +113,9 @@ export default function SignupPage() {
               <FormErrorMessage>
                 {errors.projectName && errors.projectName.message}
               </FormErrorMessage>
-            </FormControl>
+            </FormControl> */}
             <Stack spacing={4}>
-              <FormLabel mt="4">Төслийн ахлагчийн мэдээлэл</FormLabel>
+              {/* <FormLabel mt="4">Төслийн ахлагчийн мэдээлэл</FormLabel> */}
               <Divider />
               <HStack>
                 <Box>
@@ -245,8 +249,8 @@ export default function SignupPage() {
                         valueAsNumber: true,
                       })}
                     >
-                      {new Array(100).fill(0).map((_, i) => (
-                        <option key={i}>{i + 14}</option>
+                      {new Array(18).fill(0).map((_, i) => (
+                        <option key={i}>{i + 18}</option>
                       ))}
                     </Select>
                     <FormErrorMessage>
@@ -282,7 +286,7 @@ export default function SignupPage() {
                       required: "Заавал",
                       minLength: {
                         value: 8,
-                        message: "Minimum length should be 8",
+                        message: "Хамгийн багадаа 8 үсэг тоо байна.",
                       },
                     })}
                   />
