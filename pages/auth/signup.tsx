@@ -116,6 +116,7 @@ export default function SignupPage() {
             </FormControl> */}
             <Stack spacing={4}>
               {/* <FormLabel mt="4">Төслийн ахлагчийн мэдээлэл</FormLabel> */}
+              {/* <Divider /> */}
               <HStack>
                 <Box>
                   <FormControl

@@ -84,7 +84,7 @@ export const ProjectLeading = () => {
           <Stack alignItems="center">
             {/* <Icon as={FcAssistant} w={10} h={10} /> */}
             <Heading color="primeBlue" size={"md"}>
-              АЖ ҮЙЛЛВЭРЖИЛТИЙН СЭРГЭЛТ{" "}
+              АЖ ҮЙЛДВЭРЖИЛТИЙН СЭРГЭЛТ{" "}
             </Heading>
           </Stack>
         </SimpleGrid>
