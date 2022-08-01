@@ -19,7 +19,7 @@ export const Mentor = () => {
   return (
     <Stack px={{ base: "0%", md: "20%" }} pt="20" bg="#fff">
       <Heading textAlign={"center"} size="xl">
-        МЕНТОР БОЛОН ХӨТӨЧҮҮД
+        МЕНТОР БОЛОН СУРГАГЧ БАГШ
       </Heading>
       <Stack
         px={{ base: 5, sm: 10 }}
@@ -38,7 +38,10 @@ export const Mentor = () => {
         >
           <Image src={"/meeting.png"} w={300} />
           <Heading color={color.orange}>Mentors</Heading>
-
+          <Text h="32">
+            Ментор нь багийн төслийн явц байдал, хэрэгжилттэй 2 долоо хоног
+            тутам танилцан, зөвлөж ажиллана.
+          </Text>
           <Tooltip label="Тун удахгүй" fontSize={"md"}>
             {/* <Button
             color={color.primary}
@@ -84,8 +87,12 @@ export const Mentor = () => {
           alignItems={"center"}
         >
           <Image src={"/meeting.png"} w={300} />
-          <Heading color={color.primary}>Хөтөч</Heading>
-
+          <Heading color={color.primary}>Сургагч багш</Heading>
+          <Text h="32">
+            Сургагч багш нь төслийн багтай байнгын холбоотой байх бөгөөд төслийн
+            агуулгын болон зохион байгуулалтын шаардлагатай дэмжлэг туслалцааг
+            үзүүлнэ.
+          </Text>
           <Tooltip label="Тун удахгүй" fontSize={"md"}>
             {/* <Button
               disabled
