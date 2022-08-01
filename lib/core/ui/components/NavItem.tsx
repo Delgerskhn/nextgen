@@ -72,6 +72,7 @@ interface ContactItem {
 }
 interface SocialItem {
   icon: IconType;
+  link: string;
   bg: string;
 }
 export const FOOTER: FooterSection = {
@@ -83,7 +84,7 @@ export const FOOTER: FooterSection = {
     },
     {
       label: "Имэйл",
-      value: "nextgen@gmail.com",
+      value: "shinesergelt@gmail.com",
       icon: FaMailBulk,
     },
     {
@@ -95,24 +96,26 @@ export const FOOTER: FooterSection = {
   SOCIAL: [
     {
       icon: FaFacebook,
+      link: "https://www.facebook.com/Next-Gen-101522729329345",
       bg: "#003366",
     },
     {
       icon: FaInstagram,
       bg: "linkedin.900",
+      link: "https://www.instagram.com/next.gen.2022/",
     },
-    {
-      icon: FaTwitter,
-      bg: "twitter.900",
-    },
-    {
-      icon: FaLinkedin,
-      bg: "linkedin.900",
-    },
-    {
-      icon: FaYoutube,
-      bg: "red",
-    },
+    // {
+    //   icon: FaTwitter,
+    //   bg: "twitter.900",
+    // },
+    // {
+    //   icon: FaLinkedin,
+    //   bg: "linkedin.900",
+    // },
+    // {
+    //   icon: FaYoutube,
+    //   bg: "red",
+    // },
   ],
 };
 interface MentorItem {
