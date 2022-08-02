@@ -79,11 +79,6 @@ interface SocialItem {
 export const FOOTER: FooterSection = {
   CONTACT: [
     {
-      label: "Утас",
-      value: "XXXXXXX",
-      icon: FaPhone,
-    },
-    {
       label: "Имэйл",
       value: "shinesergelt@gmail.com",
       icon: FaMailBulk,
