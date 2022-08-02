@@ -42,41 +42,6 @@ export const Mentor = () => {
             Ментор нь багийн төслийн явц байдал, хэрэгжилттэй 2 долоо хоног
             тутам танилцан, зөвлөж ажиллана.
           </Text>
-          <Tooltip label="Тун удахгүй" fontSize={"md"}>
-            {/* <Button
-            color={color.primary}
-            bgColor={"transparent"}
-            fontWeight={"bold"}
-            borderColor={color.primary}
-            borderWidth={2}
-            rounded={border.button_border_radius}
-            width={"xs"}
-            _focus={{}}
-            _hover={{
-              background: color.primary,
-              color: color.white,
-            }}
-            // onClick={() => router.push("/guidance")}
-          >
-              Дэлгэрэнгүй
-          </Button> */}
-            <Stack>
-              <Text
-                color={color.primary}
-                bgColor={"transparent"}
-                cursor="no-drop"
-                fontWeight={"bold"}
-                borderColor={color.primary}
-                borderWidth={2}
-                rounded={border.button_border_radius}
-                width={"xs"}
-                py={1.5}
-                textAlign="center"
-              >
-                Дэлгэрэнгүй
-              </Text>
-            </Stack>
-          </Tooltip>
         </Box>
         <Box
           w={{ base: "full", md: "md" }}
@@ -93,42 +58,6 @@ export const Mentor = () => {
             агуулгын болон зохион байгуулалтын шаардлагатай дэмжлэг туслалцааг
             үзүүлнэ.
           </Text>
-          <Tooltip label="Тун удахгүй" fontSize={"md"}>
-            {/* <Button
-              disabled
-              color={color.primary}
-              bgColor={"transparent"}
-              fontWeight={"bold"}
-              borderColor={color.primary}
-              borderWidth={2}
-              rounded={border.button_border_radius}
-              width={"xs"}
-              _focus={{}}
-              // _hover={{
-              //   background: color.primary,
-              //   color: color.white,
-              // }}
-              // onClick={() => router.push("/guidance")}
-            >
-              Дэлгэрэнгүй
-            </Button> */}
-            <Stack>
-              <Text
-                color={color.primary}
-                bgColor={"transparent"}
-                cursor="no-drop"
-                fontWeight={"bold"}
-                borderColor={color.primary}
-                borderWidth={2}
-                rounded={border.button_border_radius}
-                width={"xs"}
-                py={1.5}
-                textAlign="center"
-              >
-                Дэлгэрэнгүй
-              </Text>
-            </Stack>
-          </Tooltip>
         </Box>
       </Stack>
     </Stack>

@@ -107,7 +107,7 @@ export const ProjectLeadingSectors = () => {
               borderBottom="5px solid black"
               mb="4"
             >
-              БООМТЫН СЭРГЭЛТ
+              Боомтын сэргэлт
             </Tab>
             <Tab
               _focus={{
@@ -122,7 +122,7 @@ export const ProjectLeadingSectors = () => {
               mb="4"
               borderColor="gray.100"
             >
-              ЭРЧИМ ХҮЧНИЙ СЭРГЭЛТ
+              Эрчим хүчний сэргэлт
             </Tab>
             <Tab
               _focus={{
@@ -137,7 +137,7 @@ export const ProjectLeadingSectors = () => {
               }}
               borderColor="gray.100"
             >
-              АЖ ҮЙЛЛВЭРЖИЛТИЙН СЭРГЭЛТ
+              Аж үйлдвэржилтийн сэргэлт
             </Tab>
           </TabList>
           <TabPanels>
