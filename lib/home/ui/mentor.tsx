@@ -19,7 +19,7 @@ export const Mentor = () => {
   return (
     <Stack px={{ base: "0%", md: "20%" }} pt="20" bg="#fff">
       <Heading textAlign={"center"} size="xl">
-        МЕНТОР БОЛОН СУРГАГЧ БАГШ
+        МЕНТОР БОЛОН СУРГАГЧ БАГШ НАР
       </Heading>
       <Stack
         px={{ base: 5, sm: 10 }}
@@ -37,7 +37,7 @@ export const Mentor = () => {
           w={{ base: "full", md: "md" }}
         >
           <Image src={"images/Mentors.png"} w={300} />
-          <Heading color={color.orange}>Mentors</Heading>
+          <Heading color={color.orange}>Ментор</Heading>
           <Text h="32">
             Ментор нь багийн төслийн явц байдал, хэрэгжилттэй 2 долоо хоног
             тутам танилцан, зөвлөж ажиллана.

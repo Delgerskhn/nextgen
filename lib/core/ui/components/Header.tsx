@@ -27,7 +27,7 @@ export const Header = () => {
   const variant = useLayoutBreakPointValue();
   const router = useRouter();
   const { isLoggedIn, data } = useAuth();
-  const routes = ["/", "/guidance", "/mentor", "/projects"];
+  const routes = ["/", "/guidance"];
   const isMobile = useBreakpointValue({ base: true, lg: false });
 
   return (

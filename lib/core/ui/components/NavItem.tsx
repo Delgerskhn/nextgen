@@ -40,7 +40,8 @@ export const NAV_ITEMS: Array<NavItem> = [
     href: "/guidance",
   },
   {
-    label: "Ментор болон хөтөчүүд",
+    label: "Ментор болон сургагч багш нар",
+    href: "/mentor",
     // children: [
     //   // {
     //   //   label: "Job Board",
@@ -55,8 +56,8 @@ export const NAV_ITEMS: Array<NavItem> = [
     // ],
   },
   {
-    label: "Төслүүд",
-    // href: "/goal",
+    label: "Төсөл",
+    href: "/project",
   },
 ];
 
