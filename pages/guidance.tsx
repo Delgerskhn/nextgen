@@ -14,6 +14,7 @@ import { Target } from "@lib/guidance/ui/target";
 import { DateComp } from "@lib/guidance/ui/date";
 import { Nessacility, Receive, Selection } from "@lib/guidance/ui/nessacilty";
 import { ProjectLevel } from "@lib/guidance/ui/project_level";
+import { ProjectLevelTimeline } from "@lib/guidance/ui/timeline_project_level";
 
 const GuidancePage = () => {
   return (
@@ -26,15 +27,14 @@ const GuidancePage = () => {
         <Target />
         <DateComp />
         <ProjectLeading />
+        <ProjectLevelTimeline />
         <ProjectLevel />
         <Prohibition />
         <Document />
         <Nessacility />
         <Receive />
         <Selection />
-        {/* <ProjectSelection /> */}
         <Financing />
-        {/* <Timeline /> */}
       </AppLayout>
     </>
   );

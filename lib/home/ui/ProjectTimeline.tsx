@@ -33,8 +33,8 @@ const settings = {
   arrows: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 2,
-  slidesToScroll: 2,
+  slidesToShow: 3,
+  slidesToScroll: 3,
 };
 const settings_second = {
   dots: true,
@@ -70,7 +70,7 @@ export const ProjectTimeline = () => {
       <VStack>
         <Heading
           size="xl"
-          w="50%"
+          w={{ base: "full" }}
           textAlign={"center"}
           // bg="#013365"
           color={"white"}
@@ -208,7 +208,12 @@ interface FeatureProps {
 
 const Feature = ({ title, text, icon, ml }: FeatureProps) => {
   return (
-    <Stack w={{ base: "full", md: "full" }} p={10} minH={600}>
+    <Stack
+      w={{ base: "full", md: "full" }}
+      p={{ base: 0, md: 10 }}
+      px={{ base: 10 }}
+      pb="40"
+    >
       <Stack
         bg={color.white}
         border={"2px solid "}
@@ -218,7 +223,7 @@ const Feature = ({ title, text, icon, ml }: FeatureProps) => {
         direction="column"
         alignItems={"center"}
         py="14"
-        h={400}
+        h={{ base: "500", md: "500" }}
       >
         <Flex w={16} h={16} align={"center"} justify={"center"} mb={1}>
           {icon}
@@ -232,21 +237,23 @@ const Feature = ({ title, text, icon, ml }: FeatureProps) => {
             md: "md",
             lg: "lg",
           }}
+          pt={"5"}
           color={"black"}
-          textAlign="justify"
+          textAlign="center"
           px={{ base: 2, md: 5 }}
         >
           {text}
-          <Link
-            cursor={"pointer"}
-            color="primeBlue"
-            fontWeight={"bold"}
-            href="/guidance"
-            textDecorationLine={"underline"}
-          >
-            Дэлгэрэнгүй
-          </Link>
         </Text>
+        <Link
+          cursor={"pointer"}
+          color="primeBlue"
+          fontWeight={"bold"}
+          href="/guidance"
+          textDecorationLine={"underline"}
+          pt={"5"}
+        >
+          Дэлгэрэнгүй
+        </Link>
       </Stack>
     </Stack>
   );

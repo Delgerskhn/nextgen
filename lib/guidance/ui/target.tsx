@@ -27,7 +27,12 @@ export const Target = () => {
         py="5"
         style={{ marginTop: 0, marginBottom: 10 }}
       >
-        <SimpleGrid columns={{ base: 1, md: 3 }} pt={5} spacingX={"10"}>
+        <SimpleGrid
+          spacingY={{ base: "10", md: "0" }}
+          columns={{ base: 1, md: 3 }}
+          pt={5}
+          spacingX={"10"}
+        >
           <Stack
             align={""}
             alignItems="center"

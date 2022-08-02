@@ -18,8 +18,8 @@ export const Hero = () => {
         minH={"500px"}
         bg={"primeBlue"}
         backgroundImage="url('/Header.png')"
-        backgroundPosition={""}
-        backgroundSize="60%"
+        // backgroundPosition={"center"}
+        backgroundSize={"cover"}
         backgroundRepeat="no-repeat"
       >
         <VStack

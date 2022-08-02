@@ -9,7 +9,7 @@ import {
 export const ProjectLevel = () => {
   return (
     <Stack py="20" px={{ base: "5%", md: "20%" }} bg="#FFF">
-      <Heading size={"xl"} textAlign="center">
+      <Heading size={"xl"} textAlign="center" id="head">
         ТӨСЛИЙН ҮЕ ШАТ
       </Heading>
       <UnorderedList
@@ -48,7 +48,7 @@ export const ProjectLevel = () => {
             багадаа 1 гишүүн 2 өдрийн цахим сургалтад хамрагдсан байна.
           </Text>
         </ListItem>
-        <ListItem>
+        <ListItem id="#third">
           <Text color={"black"} textAlign="justify">
             <b>ШАЛГАРСАН ТӨСЛҮҮДИЙГ ЧАДАВХЖУУЛАХ СУРГАЛТ</b>
             <br />
@@ -63,7 +63,7 @@ export const ProjectLevel = () => {
             санхүүжилтийг хүлээн аван хэрэгжүүлж эхлэхэд бэлэн болно.
           </Text>
         </ListItem>
-        <ListItem>
+        <ListItem id="#fourth">
           <Text color={"black"} textAlign="justify">
             <b>ШАЛГАРСАН ТӨСЛҮҮДИЙН ХЭРЭГЖИЛТ</b>
             <br />
@@ -76,7 +76,7 @@ export const ProjectLevel = () => {
             хоног тутам танилцан, зөвлөж ажиллана.
           </Text>
         </ListItem>
-        <ListItem>
+        <ListItem id="#fifth">
           <Text color={"black"} textAlign="justify">
             <b>ТӨСЛИЙН ХААЛТ</b>
             <br />

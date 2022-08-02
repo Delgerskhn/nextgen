@@ -22,6 +22,12 @@ export const Nessacility = () => {
           textColor={"primeOrange"}
         >
           <ListItem>
+            <Text color={"black"}>Монгол Улсын иргэн байх</Text>
+          </ListItem>
+          <ListItem>
+            <Text color={"black"}>15-34 настай байх</Text>
+          </ListItem>
+          <ListItem>
             <Text color={"black"}>Олон нийтийн эрх ашигт нийцсэн байх</Text>
           </ListItem>
           <ListItem>

@@ -5,10 +5,11 @@ import { border, color } from "constant";
 export const Goal = () => {
   return (
     <Stack px={{ base: "2%", lg: "20%" }} py={"20"}>
-      <Box direction="row" display={"flex"}>
+      <Stack direction={{ base: "column", md: "row" }}>
         <Box
           bg={color.orange}
           px={"20"}
+          py={{ base: "10", md: "0" }}
           display="flex"
           flexDirection={"column"}
           alignItems="center"
@@ -34,14 +35,19 @@ export const Goal = () => {
             Зорилго
           </Heading>
         </Box>
-        <Text textAlign={"justify"} lineHeight={8} ml="10">
+        <Text
+          pt={{ base: "10", md: "0" }}
+          textAlign={"justify"}
+          lineHeight={8}
+          pl={{ base: "0", md: "10" }}
+        >
           “Алсын хараа 2050” урт хугацааны хөгжлийн бодлого болон түүний эхний
           10 жилийн дунд хугацааны хөгжлийн бодлого болох “Шинэ сэргэлтийн
           бодлого”-ын хүрээнд нийгэмд тулгамдаж буй хөгжлийн асуудлуудыг
           шийдвэрлэхэд залуучуудын дуу хоолой, үзэл бодол, бүтээлч санаачилга,
           шийдлийг дэмжиж, чадавхжуулахад оршино.{" "}
         </Text>
-      </Box>
+      </Stack>
     </Stack>
   );
 };

@@ -57,6 +57,11 @@ export const Document = () => {
           <ListItem>
             <Text color="black">Төслийн танилцуулга видео /8 минут/</Text>
           </ListItem>
+          <ListItem>
+            <Text color="black">
+              Төслийн багийн гишүүдийн танилцуулга видео (5 минут хүртэлх)
+            </Text>
+          </ListItem>
         </UnorderedList>
       </Stack>
     </Stack>

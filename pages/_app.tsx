@@ -7,15 +7,8 @@ import { ChakraProvider, theme, ProgressBar } from "@ui/index";
 import { AuthProvider } from "@lib/auth/ui";
 import { queryClient } from "@util/query";
 import { initAnalytics, logPageView, logEvent } from "@util/analytics";
-// import "../assets/fonts/Helvetica.ttc";
 import "./custom.css";
-// import "@fontsource/inter";
-// import "@fontsource/inter/500.css";
-// import "@fontsource/inter/600.css";
-// import "@fontsource/inter/700.css";
-// import "@fontsource/inter/800.css";
-// import "@fontsource/inter/900.css";
-// import "@fontsource/playfair-display";
+import "./timeline.css";
 
 const progress = new ProgressBar();
 
