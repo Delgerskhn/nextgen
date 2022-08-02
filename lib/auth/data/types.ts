@@ -1,3 +1,5 @@
+import { AccountInput } from "@lib/account/data/types";
+
 export type SignupInput = {
   lastName: string;
   firstName: string;
@@ -11,4 +13,8 @@ export type SignupInput = {
   registerSecondLetter: string;
   registerNumber: string;
   phone: string;
+};
+
+export type SignupFormInput = AccountInput & {
+  password: string;
 };

@@ -31,7 +31,7 @@ import { AccountList } from "@lib/account/ui/AccountList";
 import { ProjectForm } from "@lib/project/ui/ProjectForm";
 import { EditAccountInfo } from "@lib/account/ui/EditAccountInfo";
 import { AccountForm } from "@lib/account/ui/AccountForm";
-import { useAccount } from "@lib/account/data/accountHook";
+import { useAccount, useUpdateAccount } from "@lib/account/data/accountHook";
 type ProfileInput = {
   firstName: string;
   lastName: string;
@@ -50,6 +50,7 @@ export const ProfilePage = () => {
   const { data: user } = useAuth();
   const profileMutation = useUpdateProfile();
   const { data } = useAccount();
+  const updateAccount = useUpdateAccount();
 
   return (
     <AppLayout title={t("profile")}>
@@ -69,7 +70,15 @@ export const ProfilePage = () => {
           </Heading>
           <ProjectForm />
           {data && (
-            <AccountForm data={{ ...data, email: user ? user?.email : null }} />
+            <AccountForm
+              onSubmit={(input) =>
+                updateAccount.mutate(input, {
+                  onError: () => toaster.error("Алдаа гарлаа."),
+                  onSuccess: () => toaster.success("Амжилттай хадгаллаа."),
+                })
+              }
+              data={{ ...data, email: user ? user?.email : null }}
+            />
           )}
           {/* <AccountList /> */}
         </NavContentLayout>

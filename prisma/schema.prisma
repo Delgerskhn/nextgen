@@ -9,7 +9,6 @@ datasource db {
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["filterJson"]
-  binaryTargets   = ["debian-openssl-3.0.x"]
 }
 
 // In the future we need to add country or nationality column
@@ -57,7 +56,7 @@ model Account {
   familyName           String?
   birthDate            DateTime?
   registerNo           String?
-  phoneNumber          String?   @unique
+  phoneNumber          String?
   emergencyPhoneNumber String?
   emergencyPhoneOwner  String?
   city                 String?

@@ -1,3 +1,4 @@
+import { SignupFormInput } from "@lib/auth/data/types";
 import { removeFromS3, uploadToS3 } from "@lib/file/data/uploadHooks";
 import { Account } from "@prisma/client";
 import {
@@ -7,14 +8,18 @@ import {
   FormErrorMessage,
   FormLabel,
   Heading,
+  IconButton,
   Input,
+  InputGroup,
+  InputRightElement,
   Select,
   SimpleGrid,
   toaster,
   VStack,
 } from "@ui/index";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
+import { HiEyeOff, HiEye } from "react-icons/hi";
 import {
   useUpdateAccount,
   useCreateAccount,
@@ -22,13 +27,15 @@ import {
 } from "../data/accountHook";
 import { AccountInput } from "../data/types";
 
-export const AccountForm = ({
+export const SignupForm = ({
   data,
   onSubmit,
 }: {
-  data?: AccountInput;
-  onSubmit: (a: AccountInput) => void;
+  data?: SignupFormInput;
+  onSubmit: (a: SignupFormInput) => void;
 }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const onRemove = (key: string) => {
     removeFromS3(key)
       .then((key) => {})
@@ -41,7 +48,7 @@ export const AccountForm = ({
     getValues,
     setValue,
     formState: { errors },
-  } = useForm<AccountInput>({
+  } = useForm<SignupFormInput>({
     defaultValues: { ...data },
   });
   const city = watch("city");
@@ -148,6 +155,35 @@ export const AccountForm = ({
             {errors.email && errors.email.message}
           </FormErrorMessage>
         </FormControl>
+        <FormControl id="password" isRequired isInvalid={!!errors.password}>
+          <FormLabel>Нууц үг</FormLabel>
+          <InputGroup>
+            <Input
+              type={showPassword ? "text" : "password"}
+              autoComplete="current-password"
+              required
+              {...register("password", {
+                required: "Заавал",
+                minLength: {
+                  value: 8,
+                  message: "Хамгийн багадаа 8 үсэг тоо байна.",
+                },
+              })}
+            />
+            <InputRightElement>
+              <IconButton
+                bg="transparent !important"
+                variant="ghost"
+                aria-label={showPassword ? "Mask password" : "Reveal password"}
+                icon={showPassword ? <HiEyeOff /> : <HiEye />}
+                onClick={() => setShowPassword((showPassword) => !showPassword)}
+              />
+            </InputRightElement>
+          </InputGroup>
+          <FormErrorMessage>
+            {errors.password && errors.password.message}
+          </FormErrorMessage>
+        </FormControl>
         <FormControl isRequired isInvalid={!!errors.phoneNumber}>
           <FormLabel>Гар утас</FormLabel>
           <Input
@@ -160,8 +196,7 @@ export const AccountForm = ({
             {errors.phoneNumber && errors.phoneNumber.message}
           </FormErrorMessage>
         </FormControl>
-      </SimpleGrid>
-      <SimpleGrid columnGap={24} rowGap={6} columns={2}>
+
         <FormControl isRequired isInvalid={!!errors.emergencyPhoneNumber}>
           <FormLabel>Яаралтай үед холбоо барих дугаар</FormLabel>
           <Input
@@ -283,7 +318,7 @@ export const AccountForm = ({
       </VStack>
 
       <Button mt="4" color="white" type="submit">
-        Хадгалах
+        Бүртгүүлэх
       </Button>
     </form>
   );

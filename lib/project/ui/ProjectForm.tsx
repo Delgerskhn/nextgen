@@ -56,7 +56,7 @@ export const ProjectForm = () => {
   return (
     <>
       <chakra.form>
-        <Heading size="md">Төслийн мэдээллээ оруулна уу.</Heading>
+        <Heading size="md">Төслийн мэдээлэл (Тун удахгүй..)</Heading>
         <Divider my="4" />
         <FormControl>
           <FormLabel>Багийн танилцуулга видео</FormLabel>

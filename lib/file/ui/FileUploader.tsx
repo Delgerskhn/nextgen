@@ -49,6 +49,7 @@ export const FileUploader = ({
             type="file"
             multiple={false}
             accept={accept}
+            disabled
             ref={(e: any) => {
               inputRef.current = e;
             }}

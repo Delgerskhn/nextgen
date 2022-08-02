@@ -85,13 +85,7 @@ export const getUserById = async (id: string) => {
     select: defaultSelect,
   });
 };
-export const createUser = async ({
-  email,
-  password,
-  firstName,
-  lastName,
-  projectName,
-}: SignupInput) => {
+export const createUser = async ({ email, password }: SignupInput) => {
   console.log("Password here:", password);
   if (
     (await prisma.user.count({
@@ -106,11 +100,6 @@ export const createUser = async ({
     data: {
       email,
       passwordDigest,
-      project: {
-        create: {
-          name: projectName,
-        },
-      },
     },
     select: defaultSelect,
   });

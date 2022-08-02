@@ -2,7 +2,24 @@ import { Account } from "@prisma/client";
 
 export type AccountCreateInput = Pick<
   Account,
-  "firstName" | "lastName" | "userId" | "age" | "sex" | "pictureKey"
+  | "firstName"
+  | "lastName"
+  | "age"
+  | "sex"
+  | "userId"
+  | "birthDate"
+  | "city"
+  | "district"
+  | "education"
+  | "emergencyPhoneNumber"
+  | "emergencyPhoneOwner"
+  | "familyName"
+  | "nationality"
+  | "occupation"
+  | "phoneNumber"
+  | "profession"
+  | "registerNo"
+  | "street"
 >;
 export type AccountUpdateInput = Pick<
   Account,

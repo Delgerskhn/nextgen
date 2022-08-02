@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 type Props = {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: () => void;
+  onSubmit: Function;
 };
 export const TermsModal = ({ isOpen, onClose, onSubmit }: Props) => {
   const [checked, setChecked] = useState(false);
