@@ -23,6 +23,7 @@ export const Target = () => {
       my={"10"}
       bg="#fff"
       backgroundImage={"url(images/target.png)"}
+      backgroundSize="cover"
     >
       <Heading size="xl" py={10} mb={0} color="#fff">
         ЗОРИЛТ
