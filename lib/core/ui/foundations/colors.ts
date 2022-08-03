@@ -5,6 +5,8 @@ export const colors = {
   lightGreen : "#00FF99",
   deepGreen : "#137E54",
   primeOrange : "#FC6C40",
+  primeYellow : "#FAF43E",
+  primeBrown : "#FDDA64",
 
   whiteAlpha: {
     50: "rgba(245, 247, 255, 0.04)",
