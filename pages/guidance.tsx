@@ -27,7 +27,7 @@ const GuidancePage = () => {
         <Target />
         <DateComp />
         <ProjectLeading />
-        {/* <ProjectLevelTimeline /> */}
+        <ProjectLevelTimeline />
         <ProjectLevel />
         <Prohibition />
         <Document />
