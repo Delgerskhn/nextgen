@@ -45,20 +45,20 @@ export const Header = () => {
       w="full"
     >
       <Flex
-        minH={"60px"}
+        minH={"130px"}
         py={{ base: 5 }}
         px={variant}
         align={"center"}
         justifyContent={"space-between"}
         alignItems="flex-end"
       >
-        {!isMobile && (
+        {/* {!isMobile && (
           <Flex alignItems={"center"}>
             <Link href="/">
               <Image src="/logo.png" w="24" />
             </Link>
           </Flex>
-        )}
+        )} */}
         <Stack direction={"row"} spacing={10} justify="flex-end" w="full">
           <IconButton
             size={"sm"}
