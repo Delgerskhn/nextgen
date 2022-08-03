@@ -6,6 +6,7 @@ import {
   Text,
   useBreakpointValue,
   Heading,
+  Container,
 } from "@chakra-ui/react";
 import { Countdown } from "@lib/home/ui/countdown";
 import { color } from "constant";
