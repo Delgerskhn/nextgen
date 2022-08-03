@@ -1,3 +1,4 @@
+import { Heading } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import React from "react";
 
@@ -125,7 +126,10 @@ export const Countdown = () => {
     <AppStyled>
       <ContainerStyled>
         <DateStyled>
-          <h1 style={{ color: "white" }}>БҮРТГЭЛ ДУУСАХАД</h1>
+          <Heading size="sm" style={{ color: "white" }}>
+            "ТӨСӨЛ ХЭРХЭН БИЧИХ ВЭ" ОЛОН НИЙТЭД ЗОРИУЛСАН НЭЭЛТТЭЙ ЦАХИМ
+            СУРГАЛТЫН БҮРТГЭЛ ДУУСАХАД
+          </Heading>
         </DateStyled>
         <WrapperStyled>
           <Counter displayValue={timeDisplay.days} label={"Өдөр"} />

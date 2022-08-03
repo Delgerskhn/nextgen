@@ -6,6 +6,7 @@ import {
   Text,
   useBreakpointValue,
   Heading,
+  Container,
 } from "@chakra-ui/react";
 import { Countdown } from "@lib/home/ui/countdown";
 import { color } from "constant";
@@ -31,7 +32,9 @@ export const Hero = () => {
           <Heading size={"3xl"} color="white" fontFamily="NotoSans">
             Удирдамж
           </Heading>
-          <Countdown />
+          <Container size="sm">
+            <Countdown />
+          </Container>
         </VStack>
       </Flex>
     </>

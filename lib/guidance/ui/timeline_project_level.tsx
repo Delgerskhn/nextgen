@@ -32,8 +32,8 @@ export const ProjectLevelTimeline = () => {
             <div className="card-content-even">
               <div style={{ width: "500px" }}>
                 <Heading className="title">
-                  “ШИНЭ СЭРГЭЛТ: NEXTGEN” УРАЛДААНЫ ХҮРЭЭНД ТӨСӨЛ ХҮЛЭЭН АВАХ
-                  БОЛОН СОНГОН ШАЛГАРУУЛАЛТ
+                  “ШИНЭ СЭРГЭЛТ: NEXTGEN 2022” УРАЛДААНЫ ХҮРЭЭНД ТӨСӨЛ ХҮЛЭЭН
+                  АВАХ БОЛОН СОНГОН ШАЛГАРУУЛАЛТ
                 </Heading>
                 <Text>
                   Олон нийтэд зориулсан онлайн сургалтын дараа өөрсдийн орон
