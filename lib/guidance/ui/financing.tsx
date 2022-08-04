@@ -76,21 +76,6 @@ export const Financing = () => {
             width={{
               base: "100%",
             }}
-            textAlign={"center"}
-          >
-            <Heading size={"xl"}>ТӨСЛИЙН САНХҮҮЖИЛТ БОЛОН ШАГНАЛ</Heading>
-            {/* <Heading fontSize={"9xl"} py={5} color={"deepGreen"}>
-              20,000,000₮
-            </Heading> */}
-            <Text textAlign={"center"} pt={3}>
-              Төслийн тайлан хурал зохион байгуулж шилдэг төслүүдийг шалгаруулан
-              дараах байдлаар урамшуулна
-            </Text>
-          </Stack>
-          <Stack
-            width={{
-              base: "100%",
-            }}
             pt={10}
           >
             <UnorderedList
