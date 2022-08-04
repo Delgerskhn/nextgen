@@ -15,11 +15,42 @@ export const Prohibition = () => {
         direction={{ base: "column-reverse", md: "row" }}
         alignItems="center"
       >
+        <Box
+          bg={"primeBlue"}
+          px={"10"}
+          textAlign="center"
+          py={10}
+          maxW={{ base: "full", md: "35%" }}
+          display="flex"
+          flexDirection={"column"}
+          alignItems="center"
+          justifyContent={"center"}
+          rounded={"8px"}
+          shadow="dark-lg"
+          transition={"all"}
+          transitionDuration={"1s"}
+          _hover={{
+            transform: "translate(-20px)",
+          }}
+        >
+          <Heading
+            color={"primeOrange"}
+            fontSize="3xl"
+            borderColor={"primeOrange"}
+            borderWidth={10}
+            borderLeft={0}
+            borderRight={0}
+            borderStyle="dashed"
+            py={2}
+          >
+            ХАМРАГДАХ БОЛОМЖГҮЙ ТӨСӨЛ
+          </Heading>
+        </Box>
         <UnorderedList
           pt={{ base: "10", md: "0" }}
           textAlign={"left"}
           lineHeight={8}
-          mr="10"
+          pl="10"
           textColor={"primeOrange"}
         >
           <ListItem>
@@ -38,37 +69,6 @@ export const Prohibition = () => {
             </Text>
           </ListItem>
         </UnorderedList>
-        <Box
-          bg={"primeOrange"}
-          px={"10"}
-          textAlign="center"
-          py={10}
-          maxW={{ base: "full", md: "35%" }}
-          display="flex"
-          flexDirection={"column"}
-          alignItems="center"
-          justifyContent={"center"}
-          rounded={"8px"}
-          shadow="dark-lg"
-          transition={"all"}
-          transitionDuration={"1s"}
-          _hover={{
-            transform: "translate(-20px)",
-          }}
-        >
-          <Heading
-            color={"primeBlue"}
-            fontSize="3xl"
-            borderColor={"primeBlue"}
-            borderWidth={10}
-            borderLeft={0}
-            borderRight={0}
-            borderStyle="dashed"
-            py={2}
-          >
-            ХАМРАГДАХ БОЛОМЖГҮЙ ТӨСӨЛ
-          </Heading>
-        </Box>
       </Stack>
     </Stack>
   );

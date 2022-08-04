@@ -32,9 +32,6 @@ export const Hero = () => {
           <Heading size={"3xl"} color="white" fontFamily="NotoSans">
             Удирдамж
           </Heading>
-          <Container size="sm">
-            <Countdown />
-          </Container>
         </VStack>
       </Flex>
     </>

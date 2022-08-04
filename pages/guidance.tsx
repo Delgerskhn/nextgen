@@ -22,13 +22,11 @@ const GuidancePage = () => {
       <SEO />
       <AppLayout>
         <Hero />
-        <What />
         <Goal />
         <Target />
         <DateComp />
         <ProjectLeading />
         <ProjectLevelTimeline />
-        <ProjectLevel />
         <Prohibition />
         <Document />
         <Nessacility />

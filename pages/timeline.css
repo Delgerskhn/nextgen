@@ -6,34 +6,33 @@
   
   
   
-  /* Timeline Container */
-  .timeline {
-    background: var(--primary-color);
-    margin: 20px auto;
-    padding: 20px;
-  }
   
   /* Card container */
   .card {
     position: relative;
-    min-width: 900px;
     z-index: 10;
     padding: 30px;
     z-index: 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
   .card-content-odd {
     display: flex;
     justify-content: flex-start;
     z-index: 1050;
+    border-radius: 10px !important;
   }
+  
   .card-content-even {
     display: flex;
     justify-content: flex-end;
     z-index: 1050;
+    border-radius: 10px !important;
   }
+  
 
     .card-content-even div , .card-content-odd  div {
-    padding: 20px;
+    /* margin: 20px; */
     background-color: white;
     border-radius: 10px;
   }
@@ -45,15 +44,31 @@
   .card:nth-child(even) {
     /* padding: 30px 30px 30px 0; */
   }
-  /* Global ::before */
   .card::before {
     content: "";
     position: absolute;
     width: 50%;
-    border: solid orangered;
+    /* border: solid orangered; */
     margin-left: 20%;
     margin-right: 20%;
     z-index: -1;
+    margin-top: -0.5px;
+  }
+  /* Global ::before */
+  .card-one::before {
+    border-color:  #00307b;
+  }
+  .card-second::before {
+    border-color:  #137E54;
+  }
+  .card-third::before {
+    border-color: #FC6C40;
+  }
+  .card-fourth::before {
+    border-color: #FAF43E;
+  }
+  .card-fifth::before {
+    border-color: #FDDA64;
   }
   
   /* Setting the border of top, bottom, left */
@@ -71,6 +86,7 @@
     top: 0;
     bottom: 0;
     border-width: 5px 5px 5px 0;
+
     border-radius: 0 50px 50px 0;
   }
   
@@ -98,14 +114,11 @@
     flex-direction: column;
     color: gray;
     border-radius: 10px;
-    padding: 10px;
+    margin: 10px;
   }
   
   /* Title of the card */
-  .title {
-    color: orangered;
-    position: relative;
-  }
+
   
   /* Timeline dot  */
   /* .title::before {
@@ -130,4 +143,12 @@
   /* setting dot to the right if the card is odd */
   .card:nth-child(even) > .info > .title::before {
     right: -45px;
+  }
+
+
+  @media only screen and (max-width:670px) {
+    .card::before {
+      margin-left: 15%;
+      margin-right: 15%;
+    }
   }
