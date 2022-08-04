@@ -23,7 +23,7 @@ export const MobileNav = ({ is_open }: Props) => {
       bg={"primeOrange"}
       p={is_open ? 4 : 0}
       h={{ base: is_open ? "250" : "0px" }}
-      display={{ base: "block", md: "none" }}
+      display={{ base: "block", lg: "none" }}
       transition=".3s"
       overflow={"hidden"}
       spacing="7"

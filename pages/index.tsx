@@ -15,9 +15,8 @@ const HomePage = () => {
       <AppLayout>
         <Flex direction="column">
           <Hero />
-          <Selection />
-          {/* <Leading /> */}
           <ProjectLeadingSectors />
+          <Selection />
           <ProjectTimeline />
           <Mentor />
         </Flex>

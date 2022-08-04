@@ -126,7 +126,7 @@ export const Countdown = () => {
     <AppStyled>
       <ContainerStyled>
         <DateStyled>
-          <Heading size="sm" style={{ color: "white" }}>
+          <Heading size="lg" style={{ color: "white" }} textAlign="center">
             "ТӨСӨЛ ХЭРХЭН БИЧИХ ВЭ" ОЛОН НИЙТЭД ЗОРИУЛСАН НЭЭЛТТЭЙ ЦАХИМ
             СУРГАЛТЫН БҮРТГЭЛ ДУУСАХАД
           </Heading>

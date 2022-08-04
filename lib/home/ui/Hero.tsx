@@ -34,14 +34,14 @@ export function Hero() {
       >
         <Stack direction={{ base: "column", md: "row" }} pt={"120px"} w="full">
           <Stack direction={"column"} alignItems="center">
-            <Stack
+            {/* <Stack
               maxW={"8xl"}
               alignItems={"center"}
               direction={"row"}
               justifyContent="center"
             >
               <Image src="/hero_text.png" />
-            </Stack>
+            </Stack> */}
             <Countdown />
           </Stack>
           <Stack pl={{ base: 0, md: "30" }} pt={{ base: "10", md: 0 }}>

@@ -85,8 +85,8 @@ export const FOOTER: FooterSection = {
     },
     {
       label: "Хаяг",
-      value: "Улаанбаатар Сүхбаатар дүүрэг 3-8 тоот",
-      icon: FaAddressCard,
+      value: "80106367",
+      icon: FaPhone,
     },
   ],
   SOCIAL: [
