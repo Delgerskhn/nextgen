@@ -91,7 +91,7 @@ export const Header = () => {
               borderRadius={border.button_border_radius}
               textColor={color.white}
             >
-              Нэвтрэх
+              Бүртгүүлэх
             </Button>
           )}
         </Stack>

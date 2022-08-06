@@ -37,7 +37,16 @@ export const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Удирдамж",
-    href: "/guidance",
+    children: [
+      {
+        label: "Удирдамж татах",
+        href: "#",
+      },
+      {
+        label: "Удирдамж үзэх",
+        href: "/guidance",
+      },
+    ],
   },
   {
     label: "Ментор болон сургагч багш нар",
@@ -54,6 +63,29 @@ export const NAV_ITEMS: Array<NavItem> = [
     //   //   href: "#",
     //   // },
     // ],
+  },
+  {
+    label: "Төсөл",
+    href: "/project",
+  },
+];
+
+export const MOBILE_NAV_ITEMS: Array<NavItem> = [
+  {
+    label: "Нүүр",
+    href: "/",
+  },
+  {
+    label: "Удирдамж татах",
+    href: "#",
+  },
+  {
+    label: "Удирдамж үзэх",
+    href: "/guidance",
+  },
+  {
+    label: "Ментор болон сургагч багш нар",
+    href: "/mentor",
   },
   {
     label: "Төсөл",

@@ -115,6 +115,9 @@ export default function LoginPage() {
               </Button>
             </Stack>
             <Stack pt={6}>
+              <Text align="center" fontSize={"sm"} color="gray.400">
+                Та бүртгэл үүсгэсний дараа оролцогчийн анкет илгээх боломжтой
+              </Text>
               <Text align={"center"}>
                 Бүртгэл байхгүй?{" "}
                 <Link href="/auth/signup" color={"blue.400"}>
