@@ -159,7 +159,7 @@ export const Receive = () => {
 
 export const Selection = () => {
   return (
-    <Stack px={{ base: "2%", lg: "20%" }} py={"20"}>
+    <Stack px={{ base: "1%", md: "5%", lg: "20%" }} py={"20"}>
       <Stack
         direction={{ base: "column-reverse", md: "row" }}
         alignItems="center"
@@ -191,7 +191,7 @@ export const Selection = () => {
         </UnorderedList>
         <Box
           bg={"primeOrange"}
-          px={"10"}
+          px={{ base: "5", md: "10" }}
           py={10}
           display="flex"
           flexDirection={"column"}

@@ -15,14 +15,18 @@ export const DateComp = () => {
       >
         <Heading
           textColor={"deepGreen"}
-          fontSize={{ base: "3xl", md: "4xl", lg: "6xl" }}
+          fontSize={{ base: "xl", md: "4xl", lg: "6xl" }}
         >
           2022.08.01
         </Heading>
-        <Icon fontSize={"5xl"} color="primeBlue" as={BiRightArrow} />
+        <Icon
+          fontSize={{ base: "3xl", md: "5xl" }}
+          color="primeBlue"
+          as={BiRightArrow}
+        />
         <Heading
           textColor={"primeOrange"}
-          fontSize={{ base: "3xl", md: "4xl", lg: "6xl" }}
+          fontSize={{ base: "xl", md: "4xl", lg: "6xl" }}
         >
           {" "}
           2022.12.30
