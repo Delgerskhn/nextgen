@@ -49,9 +49,10 @@ export const SignupForm = ({
     setValue,
     formState: { errors },
   } = useForm<SignupFormInput>({
-    defaultValues: { ...data },
+    defaultValues: {},
   });
   const city = watch("city");
+  const district = watch("district");
 
   return (
     <form onSubmit={handleSubmit((input) => onSubmit(input))}>
@@ -252,7 +253,7 @@ export const SignupForm = ({
               required: "Заавал",
             })}
           >
-            {getDistricts(city)?.map((c) => (
+            {getDistricts(city ?? cities()[0])?.map((c) => (
               <option key={c}>{c}</option>
             ))}
           </Select>
@@ -528,7 +529,7 @@ const districts: { [x: string]: string[] } = {
     "Яруу",
   ],
   "Орхон аймаг": ["(Эрдэнэт)", "Баян-Өндөр", "Жаргалант"],
-  "Өвөрхангай аймаг ": [
+  "Өвөрхангай аймаг": [
     "(Арвайхээр)",
     "Баруунбаян-Улаан",
     "Бат-Өлзий",

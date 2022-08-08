@@ -40,7 +40,7 @@ export const NAV_ITEMS: Array<NavItem> = [
     children: [
       {
         label: "Удирдамж татах",
-        href: "/шинэ-сэргэлт-удирдамж.pdf",
+        href: "/guidance.pdf",
       },
       {
         label: "Удирдамж үзэх",
@@ -77,7 +77,7 @@ export const MOBILE_NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Удирдамж татах",
-    href: "/шинэ-сэргэлт-удирдамж.pdf",
+    href: "/guidance.pdf",
   },
   {
     label: "Удирдамж үзэх",
