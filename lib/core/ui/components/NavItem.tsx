@@ -16,24 +16,13 @@ export interface NavItem {
   subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
+  is_closed?: boolean;
 }
 
 export const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Нүүр",
     href: "/",
-    // children: [
-    //   // {
-    //   //   label: "Explore Design Work",
-    //   //   subLabel: "Trending Design to inspire you",
-    //   //   href: "#",
-    //   // },
-    //   // {
-    //   //   label: "New & Noteworthy",
-    //   //   subLabel: "Up-and-coming Designers",
-    //   //   href: "#",
-    //   // },
-    // ],
   },
   {
     label: "Удирдамж",
@@ -50,7 +39,8 @@ export const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Ментор болон сургагч багш нар",
-    href: "/mentor",
+    href: "#",
+    is_closed: true,
     // children: [
     //   // {
     //   //   label: "Job Board",
@@ -66,7 +56,8 @@ export const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Төсөл",
-    href: "/project",
+    href: "#",
+    is_closed: true,
   },
 ];
 
@@ -85,11 +76,13 @@ export const MOBILE_NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Ментор болон сургагч багш нар",
-    href: "/mentor",
+    href: "#",
+    is_closed: true,
   },
   {
     label: "Төсөл",
-    href: "/project",
+    href: "#",
+    is_closed: true,
   },
 ];
 

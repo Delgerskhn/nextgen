@@ -2,7 +2,7 @@ stages:
   - run
 run_docker:
   only:
-    - master
+    - main
   stage: run
   script:
     - sudo docker build -t nextgen .

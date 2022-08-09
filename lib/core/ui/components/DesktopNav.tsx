@@ -10,6 +10,7 @@ import {
   Flex,
   Icon,
   Divider,
+  Badge,
 } from "@chakra-ui/react";
 import { color } from "constant";
 import { BsChevronRight } from "react-icons/bs";
