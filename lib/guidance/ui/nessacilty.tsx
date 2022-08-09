@@ -159,7 +159,7 @@ export const Receive = () => {
 
 export const Selection = () => {
   return (
-    <Stack px={{ base: "1%", md: "5%", lg: "20%" }} py={"20"}>
+    <Stack px={{ base: "0", lg: "20%" }} py={"20"}>
       <Stack
         direction={{ base: "column-reverse", md: "row" }}
         alignItems="center"
@@ -191,7 +191,38 @@ export const Selection = () => {
         </UnorderedList>
         <Box
           bg={"primeOrange"}
-          px={{ base: "5", md: "10" }}
+          px={"10"}
+          py={10}
+          maxW={{ base: "full", md: "40%" }}
+          display="flex"
+          flexDirection={"column"}
+          alignItems="center"
+          justifyContent={"center"}
+          rounded={"8px"}
+          shadow="dark-lg"
+          transition={"all"}
+          transitionDuration={"1s"}
+          _hover={{
+            transform: "translate(-20px)",
+          }}
+          textAlign="center"
+        >
+          <Heading
+            color={"primeBlue"}
+            fontSize="3xl"
+            borderColor={"primeBlue"}
+            borderWidth={10}
+            borderLeft={0}
+            borderRight={0}
+            borderStyle="dashed"
+            py={2}
+          >
+            ТӨСЛИЙН ШАЛГАРУУЛАЛТ
+          </Heading>
+        </Box>
+        {/* <Box
+          bg={"primeOrange"}
+          px={{ base: "20", md: "10" }}
           py={10}
           display="flex"
           flexDirection={"column"}
@@ -208,7 +239,7 @@ export const Selection = () => {
         >
           <Heading
             color={"primeBlue"}
-            fontSize="4xl"
+            fontSize={{ base: "4xl" }}
             borderColor={"primeBlue"}
             borderWidth={10}
             borderLeft={0}
@@ -218,7 +249,7 @@ export const Selection = () => {
           >
             ТӨСЛИЙН ШАЛГАРУУЛАЛТ
           </Heading>
-        </Box>
+        </Box> */}
       </Stack>
     </Stack>
   );

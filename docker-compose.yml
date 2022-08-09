@@ -4,7 +4,7 @@ services:
     container_name: nextgen_dev_postgres_container
     image: postgres:latest
     volumes:
-      - /var/lib/postgresql
+      - b57ca164262844f52b47734e07b7701311fff7f7977dfed0c1d108382354a98d:/var/lib/postgresql/data
     ports:
       - 5888:5432
     environment:
