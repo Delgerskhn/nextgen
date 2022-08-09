@@ -56,7 +56,7 @@ export const SignupForm = ({
 
   return (
     <form onSubmit={handleSubmit((input) => onSubmit(input))}>
-      <SimpleGrid columnGap={24} rowGap={6} columns={2}>
+      <SimpleGrid columnGap={24} rowGap={6} columns={{ base: 1, md: 2 }}>
         <FormControl isRequired isInvalid={!!errors.nationality}>
           <FormLabel>Иргэншил</FormLabel>
           <Input
@@ -228,7 +228,7 @@ export const SignupForm = ({
         Оршин суугаа хаяг
       </Heading>
       <Divider my="4" />
-      <SimpleGrid columnGap={24} rowGap={6} columns={2}>
+      <SimpleGrid columnGap={24} rowGap={6} columns={{ base: 1, md: 2 }}>
         <FormControl id="city" isRequired isInvalid={!!errors.city}>
           <FormLabel>Хот / Аймаг</FormLabel>
           <Select

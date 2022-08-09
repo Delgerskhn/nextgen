@@ -22,9 +22,10 @@ import {
   PinInput,
   PinInputField,
   useDisclosure,
+  VStack,
 } from "@chakra-ui/react";
 import { useSignup } from "@lib/auth/data/authHooks";
-import { toaster } from "@ui/index";
+import { AppLayout, toaster } from "@ui/index";
 import { Header } from "@ui/components/Header";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
@@ -113,13 +114,32 @@ export default function SignupPage() {
   return (
     <>
       <Header />
+      <Flex
+        w={"100%"}
+        minH={"300px"}
+        bg={"primeBlue"}
+        backgroundImage="url('/Header.png')"
+        // backgroundPosition={"center"}
+        backgroundSize={"cover"}
+        backgroundRepeat="no-repeat"
+      >
+        <VStack
+          w={"full"}
+          justify={"center"}
+          // px={useBreakpointValue({ base: 4, md: 8 })}
+        >
+          <Heading size={"3xl"} color="white" fontFamily="NotoSans">
+            Бүртгүүлэх
+          </Heading>
+        </VStack>
+      </Flex>
       <TermsModal isOpen={isOpen} onClose={onClose} onSubmit={onSubmit} />
       <Stack
-        py="5"
+        py="20"
         w="full"
         justify={"center"}
-        minH={"100vh"}
         direction={{ base: "column", md: "row" }}
+        px={{ base: "5", sm: "20", md: "0" }}
       >
         <SignupForm onSubmit={onSubmit} />
       </Stack>

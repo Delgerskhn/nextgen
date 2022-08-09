@@ -45,7 +45,7 @@ export const AccountForm = ({
     defaultValues: { ...data },
   });
   const city = watch("city");
-
+  console.log(data);
   return (
     <form onSubmit={handleSubmit((input) => onSubmit(input))}>
       <SimpleGrid columnGap={24} rowGap={6} columns={2}>
@@ -200,6 +200,7 @@ export const AccountForm = ({
             {...register("city", {
               required: "Заавал",
             })}
+            // defaultValue={data?.city as string}
           >
             {cities().map((c) => (
               <option key={c}>{c}</option>
@@ -296,6 +297,17 @@ const getDistricts = (city: string | null) => {
 const cities = () => Object.keys(districts);
 
 const districts: { [x: string]: string[] } = {
+  Улаанбаатар: [
+    "Багануур",
+    "Багахангай",
+    "Баянгол",
+    "Баянзүрх",
+    "Налайх",
+    "Сонгинохайрхан",
+    "Сүхбаатар",
+    "Хан-Уул",
+    "Чингэлтэй",
+  ],
   "Архангай аймаг": [
     "(Цэцэрлэг)",
     "Батцэнгэл",
