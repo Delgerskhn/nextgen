@@ -86,7 +86,7 @@ export const Header = () => {
               bg={color.orange}
               _hover={{}}
               as="a"
-              href={"/auth/signup"}
+              href={"/auth/login"}
               _focus={{}}
               borderRadius={border.button_border_radius}
               textColor={color.white}
