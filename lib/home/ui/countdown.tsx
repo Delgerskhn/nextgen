@@ -19,15 +19,14 @@ const AppStyled = styled.div`
   background-image: linear-gradient(15deg, #1a1a1a, var(--color-bg));
   color: var(--color-text);
   display: flex;
+  align-items: "center";
 `;
 
 const ContainerStyled = styled.section`
-  padding: 1rem;
   padding-left: 0px;
   padding-right: 0px;
 
   @media (min-width: 48em) {
-    padding: 2rem;
     padding-left: 0px;
     padding-right: 0px;
   }

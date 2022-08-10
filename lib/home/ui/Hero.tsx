@@ -33,7 +33,11 @@ export function Hero() {
         backgroundRepeat="cover"
       >
         <Stack direction={{ base: "column", md: "row" }} pt={"100px"} w="full">
-          <Stack direction={"column"} alignItems="flex-start">
+          <Stack
+            direction={"column"}
+            justifyContent="center"
+            experimental_spaceY={6}
+          >
             <Countdown />
             <Button
               bg={color.orange}
@@ -43,6 +47,7 @@ export function Hero() {
               _focus={{}}
               borderRadius={"8px"}
               textColor={color.white}
+              w={"fit-content"}
             >
               Бүртгүүлэх
             </Button>

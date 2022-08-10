@@ -69,8 +69,8 @@ export const DesktopNav = () => {
               >
                 {navItem.children.map((el, i) => {
                   return (
-                    <Stack>
-                      <DesktopSubNav key={i} {...el} />
+                    <Stack key={i}>
+                      <DesktopSubNav {...el} />
                     </Stack>
                   );
                 })}
