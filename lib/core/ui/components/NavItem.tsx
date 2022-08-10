@@ -37,28 +37,28 @@ export const NAV_ITEMS: Array<NavItem> = [
       },
     ],
   },
-  {
-    label: "Ментор болон сургагч багш нар",
-    href: "#",
-    is_closed: true,
-    // children: [
-    //   // {
-    //   //   label: "Job Board",
-    //   //   subLabel: "Find your dream design job",
-    //   //   href: "#",
-    //   // },
-    //   // {
-    //   //   label: "Freelance Projects",
-    //   //   subLabel: "An exclusive list for contract work",
-    //   //   href: "#",
-    //   // },
-    // ],
-  },
-  {
-    label: "Төсөл",
-    href: "#",
-    is_closed: true,
-  },
+  // {
+  //   label: "Ментор болон сургагч багш нар",
+  //   href: "#",
+  //   is_closed: true,
+  //   // children: [
+  //   //   // {
+  //   //   //   label: "Job Board",
+  //   //   //   subLabel: "Find your dream design job",
+  //   //   //   href: "#",
+  //   //   // },
+  //   //   // {
+  //   //   //   label: "Freelance Projects",
+  //   //   //   subLabel: "An exclusive list for contract work",
+  //   //   //   href: "#",
+  //   //   // },
+  //   // ],
+  // },
+  // {
+  //   label: "Төсөл",
+  //   href: "#",
+  //   is_closed: true,
+  // },
 ];
 
 export const MOBILE_NAV_ITEMS: Array<NavItem> = [
@@ -74,16 +74,16 @@ export const MOBILE_NAV_ITEMS: Array<NavItem> = [
     label: "Удирдамж үзэх",
     href: "/guidance",
   },
-  {
-    label: "Ментор болон сургагч багш нар",
-    href: "#",
-    is_closed: true,
-  },
-  {
-    label: "Төсөл",
-    href: "#",
-    is_closed: true,
-  },
+  // {
+  //   label: "Ментор болон сургагч багш нар",
+  //   href: "#",
+  //   is_closed: true,
+  // },
+  // {
+  //   label: "Төсөл",
+  //   href: "#",
+  //   is_closed: true,
+  // },
 ];
 
 interface FooterSection {

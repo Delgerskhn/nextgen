@@ -1,5 +1,6 @@
-import { Heading } from "@chakra-ui/react";
+import { Button, Heading } from "@chakra-ui/react";
 import styled from "@emotion/styled";
+import { color } from "constant";
 import React from "react";
 
 export interface TimeDisplayValuesType {
@@ -26,7 +27,7 @@ const ContainerStyled = styled.section`
   padding-right: 0px;
 
   @media (min-width: 48em) {
-    padding: 4rem;
+    padding: 2rem;
     padding-left: 0px;
     padding-right: 0px;
   }

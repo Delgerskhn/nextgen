@@ -53,7 +53,7 @@ export const Header = () => {
       >
         {!isMobile && (
           <Flex alignItems={"center"}>
-            <Link href="/">
+            <Link href="/" _focus={{}}>
               <Image src="/logo.png" w="24" />
             </Link>
           </Flex>
@@ -86,7 +86,7 @@ export const Header = () => {
               bg={color.orange}
               _hover={{}}
               as="a"
-              href={"/auth/login"}
+              href={"/auth/signup"}
               _focus={{}}
               borderRadius={border.button_border_radius}
               textColor={color.white}

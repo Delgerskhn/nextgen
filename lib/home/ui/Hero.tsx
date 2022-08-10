@@ -32,17 +32,20 @@ export function Hero() {
         backgroundPosition={""}
         backgroundRepeat="cover"
       >
-        <Stack direction={{ base: "column", md: "row" }} pt={"120px"} w="full">
-          <Stack direction={"column"} alignItems="center">
-            {/* <Stack
-              maxW={"8xl"}
-              alignItems={"center"}
-              direction={"row"}
-              justifyContent="center"
-            >
-              <Image src="/hero_text.png" />
-            </Stack> */}
+        <Stack direction={{ base: "column", md: "row" }} pt={"100px"} w="full">
+          <Stack direction={"column"} alignItems="flex-start">
             <Countdown />
+            <Button
+              bg={color.orange}
+              _hover={{}}
+              as="a"
+              href={"/auth/signup"}
+              _focus={{}}
+              borderRadius={"8px"}
+              textColor={color.white}
+            >
+              Бүртгүүлэх
+            </Button>
           </Stack>
           <Stack pl={{ base: 0, md: "30" }} pt={{ base: "10", md: 0 }}>
             <Image src="images/home-hero.png" w={"full"} />
@@ -51,7 +54,6 @@ export function Hero() {
       </Flex>
       <VStack bg={color.white} p="12" py={20}>
         <Text
-          // fontWeight={"bold"}
           fontSize="lg"
           textAlign={"center"}
           lineHeight="8"
