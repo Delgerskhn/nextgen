@@ -68,13 +68,13 @@ export const ProfilePage = () => {
           <Heading>
             Доорх мэдээллийг бүрэн оруулсны дараа хариу ирэхийг анхаарна уу.
           </Heading>
-          <ProjectForm />
+          {/* <ProjectForm /> */}
           {data && (
             <AccountForm
               onSubmit={(input) =>
                 updateAccount.mutate(input, {
                   onError: () => toaster.error("Алдаа гарлаа."),
-                  onSuccess: () => toaster.success("Амжилттай хадгаллаа."),
+                  onSuccess: () => toaster.success("Амжилттай шинэчиллээ."),
                 })
               }
               data={{ ...data, email: user ? user?.email : null }}

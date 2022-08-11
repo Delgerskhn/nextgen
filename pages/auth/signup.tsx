@@ -101,10 +101,11 @@ export default function SignupPage() {
             name: "",
             userId: user.id,
           });
+          toaster.success("Амжилттай бүртгэгдлээ.");
           //onst nextPath: string = router.query.redirectTo
           // ? router.query.redirectTo.toString()
           // : defaultPaths[user.role];
-          router.push("/account/profile");
+          router.push("/auth/login");
         },
       }
     );

@@ -6,11 +6,7 @@ const handler = createHandler();
 
 handler.post(async (req: any, res) => {
   const user = await createUser(req.body);
-  req.login(user, (err: any) => {
-    if (err) return res.sendError(401, ERROR_MESSAGES.UNAUTHORIZED);
-    req.session.userId = user.id;
-    return res.sendSuccess(user);
-  });
+  res.sendSuccess(user);
 });
 
 export default handler;

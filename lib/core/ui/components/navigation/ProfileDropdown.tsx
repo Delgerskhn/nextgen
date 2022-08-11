@@ -55,7 +55,7 @@ export const ProfileDropdown = ({ user }: { user: User }) => {
         </HStack>
         <NextLink href="/account/profile">
           <MenuItem as="a" fontWeight="medium">
-            Your Profile
+            Профайл
           </MenuItem>
         </NextLink>
         <MenuItem
@@ -63,7 +63,7 @@ export const ProfileDropdown = ({ user }: { user: User }) => {
           color={useColorModeValue("red.500", "red.300")}
           onClick={() => logoutMutation.mutate()}
         >
-          Sign out
+          Гарах
         </MenuItem>
       </MenuList>
     </Menu>
