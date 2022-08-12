@@ -18,9 +18,9 @@ export const sendEmail = async (receiver: string) => {
         .sendMail({
           from: "shinesergelt@gmail.com",
           to: receiver,
-          subject: "LSDkfjsdlkfj lskdjf lksdfj test test mail",
-          text: "slkdjflskdfj lskdfj lskdj",
-          html: "lskdfjslkdfjlsdkfjkl",
+          subject: "Шинэ сэргэлт бүртгэл амжилттай хийгдлээ.",
+          text: "Шинэ сэргэлт бүртгэл амжилттай хийгдлээ.",
+          html: `<img src='${process.env.NEXT_PUBLIC_APP_URL}/296892819_380299347581567_4581239012672648899_n.jpg'/>`,
         })
         .then((info) => {
           resolve(true);
