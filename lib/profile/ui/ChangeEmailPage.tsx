@@ -63,14 +63,6 @@ export const ChangeEmailPage = () => {
           actions={
             <>
               <Button
-                variant={"outline"}
-                onClick={() => {
-                  router.push("/account/credentials");
-                }}
-              >
-                {t("email-cancel")}
-              </Button>
-              <Button
                 variant={"control"}
                 disabled={!!errors.email || !!errors.password}
                 isLoading={changeEmailMutation.isLoading}

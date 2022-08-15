@@ -7,6 +7,8 @@ module.exports = {
     "rgx:^/auth": ["auth"],
     "/account/profile": ["account"],
     "/account/credentials": ["account"],
+    "/account/credentials/email": ["account"],
+    "/account/credentials/password": ["account"],
   },
   interpolation: {
     prefix: "${",

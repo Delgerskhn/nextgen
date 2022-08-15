@@ -1,5 +1,7 @@
 import { SignupFormInput } from "@lib/auth/data/types";
+import { PasswordField } from "@lib/auth/ui";
 import { removeFromS3, uploadToS3 } from "@lib/file/data/uploadHooks";
+import { validatePassword } from "@lib/user/data/validators";
 import { Account } from "@prisma/client";
 import {
   Button,
@@ -157,14 +159,20 @@ export const SignupForm = ({
           </FormErrorMessage>
         </FormControl>
         <FormControl id="password" isRequired isInvalid={!!errors.password}>
-          <FormLabel>Нууц үг</FormLabel>
           <InputGroup>
-            <Input
-              type={showPassword ? "text" : "password"}
+            <PasswordField
+              label="Нууц үг"
+              forgotPasswordLabel=""
+              error={errors.password}
               autoComplete="current-password"
               required
               {...register("password", {
                 required: "Заавал",
+                validate: (v) => {
+                  if (!validatePassword(v))
+                    return "Латинаар нэг том үсэг нэг тоо оруулна уу.";
+                  return true;
+                },
                 minLength: {
                   value: 8,
                   message: "Хамгийн багадаа 8 үсэг тоо байна.",

@@ -12,12 +12,17 @@ import {
   useColorMode,
   useColorModeValue,
   useBreakpointValue,
+  VStack,
 } from "@ui/index";
 import useTranslation from "next-translate/useTranslation";
 import { useMobileMenuState } from "./navigation/useMobileMenuState";
 import { FiArrowLeft } from "react-icons/fi";
 import { useLogout } from "@lib/auth/data/authHooks";
-
+import {
+  AiFillCaretDown,
+  AiFillCaretLeft,
+  AiFillCaretRight,
+} from "react-icons/ai";
 const NavTitle = ({
   title,
   backLink,
@@ -138,9 +143,11 @@ const NavItem = ({
         <LinkBox
           href={link}
           box={true}
+          display="flex"
+          alignItems="center"
           fontSize="lg"
           lineHeight={6}
-          borderLeftWidth="2px"
+          borderLeftWidth="5px"
           borderColor={colors.br}
           ml={bullet ? 1 : 6}
           {...rest}
@@ -175,6 +182,9 @@ const NavItem = ({
           >
             {name}
           </Box>
+          {type == "active" && isMobile && !isMenuOpen && (
+            <Icon ml="4" as={AiFillCaretLeft} />
+          )}
           {isMobile && bullet && type === "active" ? (
             <Progress
               value={total ? (bullet * 100) / total : 0}

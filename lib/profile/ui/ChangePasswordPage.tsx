@@ -17,6 +17,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useChangePassword } from "@lib/profile/data/profileHooks";
 import { useRouter } from "next/router";
 import { navItems } from ".";
+import { validatePassword } from "@lib/user/data/validators";
 
 export const ChangePasswordPage = () => {
   const { t } = useTranslation("account");
@@ -25,6 +26,7 @@ export const ChangePasswordPage = () => {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm<{
     passwordCurrent: string;
@@ -75,14 +77,6 @@ export const ChangePasswordPage = () => {
           actions={
             <>
               <Button
-                variant={"outline"}
-                onClick={() => {
-                  router.push("/account/credentials");
-                }}
-              >
-                {t("password-cancel")}
-              </Button>
-              <Button
                 variant={"control"}
                 disabled={
                   !!errors.passwordCurrent ||
@@ -100,22 +94,18 @@ export const ChangePasswordPage = () => {
           <chakra.form onSubmit={onSubmit}>
             <Stack spacing="6">
               <FormControl>
-                <FormLabel>{t("password-current")}</FormLabel>
-                <Input
-                  type="password"
-                  autoComplete="off"
-                  value="****************"
-                  readOnly
-                />
-              </FormControl>
-              <FormControl>
                 <PasswordField
-                  id="password-reenter"
-                  label={t("password-reenter")}
+                  id="password-current"
+                  label={t("password-current")}
                   forgotPasswordLabel=""
                   error={errors.passwordCurrent}
                   {...register("passwordCurrent", {
                     required: "This is required",
+
+                    minLength: {
+                      value: 8,
+                      message: "Minimum length should be 8",
+                    },
                   })}
                 />
               </FormControl>
@@ -127,6 +117,11 @@ export const ChangePasswordPage = () => {
                   error={errors.passwordNew}
                   {...register("passwordNew", {
                     required: "This is required",
+                    validate: (v) => {
+                      if (!validatePassword(v))
+                        return "Латинаар нэг том үсэг нэг тоо оруулна уу.";
+                      return true;
+                    },
                     minLength: {
                       value: 8,
                       message: "Minimum length should be 8",
@@ -142,6 +137,11 @@ export const ChangePasswordPage = () => {
                   error={errors.passwordConfirmation}
                   {...register("passwordConfirmation", {
                     required: "This is required",
+                    validate: (v) => {
+                      const pass = getValues("passwordNew");
+                      if (v != pass) return "Нууц үгээ зөв давтаж оруулна уу.";
+                      return true;
+                    },
                     minLength: {
                       value: 8,
                       message: "Minimum length should be 8",

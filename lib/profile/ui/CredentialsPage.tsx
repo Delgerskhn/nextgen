@@ -14,6 +14,7 @@ import {
   InputRightElement,
   IconButton,
   chakra,
+  Box,
 } from "@ui/index";
 import { useCurrentUser } from "@lib/auth/data/authHooks";
 import { useRouter } from "next/router";
@@ -36,10 +37,11 @@ export const CredentialsPage = () => {
           type: navItem.name === "credentials" ? "active" : "",
         }))}
       >
+        <Box h="4" />
         <NavContentLayout>
           <chakra.form>
             <Stack spacing="6">
-              <Text size="sm">{t("credentials-hint")}</Text>
+              {/* <Text size="sm">{t("credentials-hint")}</Text> */}
               <FormControl>
                 <FormLabel>{t("email-current")}</FormLabel>
                 <InputGroup>
@@ -56,9 +58,9 @@ export const CredentialsPage = () => {
                   </InputRightElement>
                   <Input
                     type="text"
+                    disabled
                     autoComplete="off"
                     value={currentUser?.email!}
-                    readOnly
                   />
                 </InputGroup>
               </FormControl>
@@ -78,9 +80,9 @@ export const CredentialsPage = () => {
                   </InputRightElement>
                   <Input
                     type="password"
+                    disabled
                     autoComplete="off"
                     value="****************"
-                    readOnly
                   />
                 </InputGroup>
               </FormControl>
