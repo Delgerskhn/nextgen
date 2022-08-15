@@ -52,8 +52,8 @@ export const Footer = ({
               columns={{ base: 1, md: 4 }}
             >
               <Stack direction={"row"} experimental_spaceX={10}>
-                <Image src="footer_icon/children.png" h={70} />
-                <Image src="footer_icon/revival.png" h={70} />
+                <Image src="/footer_icon/children.png" h={70} />
+                <Image src="/footer_icon/revival.png" h={70} />
               </Stack>
               <Stack
                 direction={"column"}
