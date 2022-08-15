@@ -1,72 +1,76 @@
 @font-face {
-    font-family: 'NotoSans';
-    src: url('../assets/fonts/NotoSans-Bold.ttf');
-    src: url('../assets/fonts/NotoSans-BoldItalic.ttf');
-    src: url('../assets/fonts/NotoSans-Light.ttf');
-    src: url('../assets/fonts/NotoSans-Medium.ttf');
-    src: url('../assets/fonts/NotoSans-Regular.ttf');
-    font-style: normal;
+  font-family: "NotoSans";
+  src: url("../assets/fonts/NotoSans-Bold.ttf");
+  src: url("../assets/fonts/NotoSans-BoldItalic.ttf");
+  src: url("../assets/fonts/NotoSans-Light.ttf");
+  src: url("../assets/fonts/NotoSans-Medium.ttf");
+  src: url("../assets/fonts/NotoSans-Regular.ttf");
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Helvetica';
-    src: url("../assets/fonts/Helvetica.ttc");
-    font-style: normal;
+  font-family: "Helvetica";
+  src: url("../assets/fonts/Helvetica.ttc");
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Montserrat';
-    src: url('../assets/fonts/Montserrat-Bold.ttf');
-    src: url('../assets/fonts/Montserrat-ExtraBoldItalic.ttf');
-    src: url('../assets/fonts/Montserrat-Medium.ttf');
-    src: url('../assets/fonts/Montserrat-Regular.ttf');
-    src: url('../assets/fonts/Montserrat-SemiBold.ttf');
-    font-style: normal;
-    font-display: swap;
+  font-family: "Montserrat";
+  src: url("../assets/fonts/Montserrat-Bold.ttf");
+  src: url("../assets/fonts/Montserrat-ExtraBoldItalic.ttf");
+  src: url("../assets/fonts/Montserrat-Medium.ttf");
+  src: url("../assets/fonts/Montserrat-Regular.ttf");
+  src: url("../assets/fonts/Montserrat-SemiBold.ttf");
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 * {
-    font-family: 'NotoSans' !important;
-    word-spacing: 5px;
-    letter-spacing: 1px;
-    overflow-y:initial;
+  font-family: "NotoSans" !important;
+  word-spacing: 5px;
+  letter-spacing: 1px;
+  overflow-y: initial;
 }
 
-.active-menu-item>hr {
-    width: 0px;
-    transition: 1s;
+.active-menu-item > hr {
+  width: 0px;
+  transition: 1s;
 }
 
-.active-menu-item:hover>hr {
-    transition: 500ms;
-    width: 100%
+.active-menu-item:hover > hr {
+  transition: 500ms;
+  width: 100%;
 }
 
 .active-tab {
-    color: "#013365" !important;
-    font-weight: bold;
+  color: "#013365" !important;
+  font-weight: bold;
 }
 .time-line-date {
-    font-size: 20px !important;
-    font-weight: bold !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
 }
 
 ::-webkit-scrollbar {
-    padding: 1px;
+  padding: 1px;
 }
-::-webkit-scrollbar-thumb{
-    background-color: #00307b;
-    border-radius: 10px;
-    cursor: pointer;
+::-webkit-scrollbar-thumb {
+  background-color: #00307b;
+  border-radius: 10px;
+  cursor: pointer;
 }
-::-webkit-scrollbar-button{
-    height: 1px;
-    margin-top: 2px;
-
-}
-
-::-webkit-scrollbar-track-piece{
-    height: 1px;
-    margin-top: 2px;
+::-webkit-scrollbar-button {
+  height: 1px;
+  margin-top: 2px;
 }
 
+::-webkit-scrollbar-track-piece {
+  height: 1px;
+  margin-top: 2px;
+}
