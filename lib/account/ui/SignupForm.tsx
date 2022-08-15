@@ -58,6 +58,64 @@ export const SignupForm = ({
 
   return (
     <form onSubmit={handleSubmit((input) => onSubmit(input))}>
+      <Heading mt="6" size={"md"}>
+        Нэвтрэх мэдээлэл
+      </Heading>
+      <Divider my="4" />
+      <SimpleGrid columnGap={24} rowGap={6} columns={{ base: 1, md: 2 }}>
+        <FormControl isRequired isInvalid={!!errors.email}>
+          <FormLabel>И-мэйл хаяг</FormLabel>
+          <Input
+            type="email"
+            {...register("email", {
+              required: "Заавал",
+            })}
+          />
+          <FormErrorMessage>
+            {errors.email && errors.email.message}
+          </FormErrorMessage>
+        </FormControl>
+        <FormControl id="password" isRequired isInvalid={!!errors.password}>
+          <InputGroup>
+            <PasswordField
+              label="Нууц үг"
+              forgotPasswordLabel=""
+              error={errors.password}
+              autoComplete="current-password"
+              required
+              {...register("password", {
+                required: "Заавал",
+                validate: (v) => {
+                  if (!validatePassword(v))
+                    return "Латинаар нэг том үсэг нэг тоо оруулна уу.";
+                  return true;
+                },
+                minLength: {
+                  value: 8,
+                  message: "Хамгийн багадаа 8 үсэг тоо байна.",
+                },
+              })}
+            />
+            <InputRightElement>
+              <IconButton
+                bg="transparent !important"
+                variant="ghost"
+                aria-label={showPassword ? "Mask password" : "Reveal password"}
+                icon={showPassword ? <HiEyeOff /> : <HiEye />}
+                onClick={() => setShowPassword((showPassword) => !showPassword)}
+              />
+            </InputRightElement>
+          </InputGroup>
+          <FormErrorMessage>
+            {errors.password && errors.password.message}
+          </FormErrorMessage>
+        </FormControl>
+      </SimpleGrid>
+
+      <Heading mt="6" size={"md"}>
+        Ерөнхий мэдээлэл
+      </Heading>
+      <Divider my="4" />
       <SimpleGrid columnGap={24} rowGap={6} columns={{ base: 1, md: 2 }}>
         <FormControl isRequired isInvalid={!!errors.nationality}>
           <FormLabel>Иргэншил</FormLabel>
@@ -146,53 +204,7 @@ export const SignupForm = ({
             {errors.registerNo && errors.registerNo.message}
           </FormErrorMessage>
         </FormControl>
-        <FormControl isRequired isInvalid={!!errors.email}>
-          <FormLabel>И-мэйл хаяг</FormLabel>
-          <Input
-            type="email"
-            {...register("email", {
-              required: "Заавал",
-            })}
-          />
-          <FormErrorMessage>
-            {errors.email && errors.email.message}
-          </FormErrorMessage>
-        </FormControl>
-        <FormControl id="password" isRequired isInvalid={!!errors.password}>
-          <InputGroup>
-            <PasswordField
-              label="Нууц үг"
-              forgotPasswordLabel=""
-              error={errors.password}
-              autoComplete="current-password"
-              required
-              {...register("password", {
-                required: "Заавал",
-                validate: (v) => {
-                  if (!validatePassword(v))
-                    return "Латинаар нэг том үсэг нэг тоо оруулна уу.";
-                  return true;
-                },
-                minLength: {
-                  value: 8,
-                  message: "Хамгийн багадаа 8 үсэг тоо байна.",
-                },
-              })}
-            />
-            <InputRightElement>
-              <IconButton
-                bg="transparent !important"
-                variant="ghost"
-                aria-label={showPassword ? "Mask password" : "Reveal password"}
-                icon={showPassword ? <HiEyeOff /> : <HiEye />}
-                onClick={() => setShowPassword((showPassword) => !showPassword)}
-              />
-            </InputRightElement>
-          </InputGroup>
-          <FormErrorMessage>
-            {errors.password && errors.password.message}
-          </FormErrorMessage>
-        </FormControl>
+
         <FormControl isRequired isInvalid={!!errors.phoneNumber}>
           <FormLabel>Гар утас</FormLabel>
           <Input
