@@ -12,6 +12,8 @@ import {
   Heading,
   IconButton,
   Input,
+  Text,
+  Link,
   InputGroup,
   InputRightElement,
   Select,
@@ -58,6 +60,12 @@ export const SignupForm = ({
 
   return (
     <form onSubmit={handleSubmit((input) => onSubmit(input))}>
+      <Text align={"center"}>
+        Бүртгэлтэй юу?{" "}
+        <Link href="/auth/login" color={"blue.400"}>
+          Нэвтрэх
+        </Link>
+      </Text>
       <Heading mt="6" size={"md"}>
         Нэвтрэх мэдээлэл
       </Heading>
@@ -341,6 +349,13 @@ export const SignupForm = ({
       <Button mt="4" color="white" type="submit">
         Бүртгүүлэх
       </Button>
+
+      <Text align={"center"}>
+        Бүртгэлтэй юу?{" "}
+        <Link href="/auth/login" color={"blue.400"}>
+          Нэвтрэх
+        </Link>
+      </Text>
     </form>
   );
 };

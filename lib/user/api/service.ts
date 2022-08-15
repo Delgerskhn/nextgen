@@ -138,6 +138,7 @@ export const changePassword = async ({
   password: string;
 }) => {
   const passwordDigest = await hash(password, saltRounds);
+  console.log("changingPassword", userId, password);
   await prisma.user.update({
     where: { id: userId },
     data: { passwordDigest },

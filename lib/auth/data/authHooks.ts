@@ -4,6 +4,8 @@ import { AppError } from "@util/errors";
 
 // We should subset this to only interface we need.
 import { User as PrismaUser } from "@prisma/client";
+import useTranslation from "next-translate/useTranslation";
+import { toaster } from "@ui/index";
 export type User = Pick<PrismaUser, "id" | "email" | "role">;
 
 type AuthInput = { email: string; password: string };
@@ -93,4 +95,19 @@ export const useLogout = () => {
   return useMutation(() => fetcher.delete("auth/logout"), {
     onSuccess: handleAuth,
   });
+};
+
+export const useResetPass = () => {
+  const { t: ta } = useTranslation("auth");
+  return useMutation(
+    (data: { email: string }) => fetcher.post("auth/resetpass", data),
+    {
+      onError: (err: any) => {
+        toaster.error(ta(err.translationKey));
+      },
+      onSuccess: () => {
+        toaster.success("Та и-мэйл хаягаа шалгана уу.");
+      },
+    }
+  );
 };

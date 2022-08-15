@@ -11,6 +11,29 @@ myOAuth2Client.setCredentials({
   refresh_token: process.env.MAIL_SERVICE_ACC_REFRESH_TOKEN,
 });
 
+export const sendResetPasswordLink = async (
+  receiverEmail: string,
+  newPassword: string
+) => {
+  return new Promise((resolve, reject) => {
+    transporter().then((trans) =>
+      trans
+        .sendMail({
+          from: "Шинэ сэргэлт",
+          to: receiverEmail,
+          subject: "Шинэ сэргэлт | Нууц үг сэргээх.",
+          text: `Та ${receiverEmail} имэйл хаяг, ${newPassword} нууц үгийг ашиглан энд дарж нэвтрэнэ үү.`,
+          html: `<p>Та ${receiverEmail} имэйл хаяг, ${newPassword} нууц үгийг ашиглан <a href="${process.env.NEXT_PUBLIC_APP_URL}/auth/login">энд дарж</a> нэвтрэнэ үү.</p>`,
+        })
+        .then((info) => {
+          resolve(true);
+          trans.close();
+        })
+        .catch(reject)
+    );
+  });
+};
+
 export const sendEmail = async (receiver: string) => {
   return new Promise((resolve, reject) => {
     transporter().then((trans) =>

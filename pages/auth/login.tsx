@@ -24,6 +24,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { HiEyeOff, HiEye } from "react-icons/hi";
+import { ForgotPassModal } from "@lib/auth/ui/ForgotPassModal";
 type FormValues = {
   email: string;
   password: string;
@@ -38,6 +39,7 @@ export default function LoginPage() {
   const loginMutation = useLogin();
   const router = useRouter();
   const { isOpen, onToggle } = useDisclosure();
+  const modalDisclosure = useDisclosure();
 
   const onSubmit = handleSubmit((authInput) => {
     loginMutation.mutate(authInput, {
@@ -108,7 +110,14 @@ export default function LoginPage() {
                 justify={"space-between"}
               >
                 <Checkbox>Сануулах</Checkbox>
-                <Link color={"blue.500"}>Нууц үгээ мартсан?</Link>
+                <Link onClick={modalDisclosure.onOpen} color={"blue.500"}>
+                  Нууц үгээ мартсан?
+                </Link>
+                <ForgotPassModal
+                  isOpen={modalDisclosure.isOpen}
+                  onClose={modalDisclosure.onClose}
+                  onOpen={modalDisclosure.onOpen}
+                />
               </Stack>
               <Button onClick={onSubmit} colorScheme={"blue"} variant={"solid"}>
                 Нэвтрэх
