@@ -66,7 +66,6 @@ export const useSignupPhone = () => {
 export const useSignup = () => {
   const handleAuth = useHandleAuth();
   return useMutation((data: AuthInput) => fetcher.post("auth/signup", data), {
-    onSuccess: handleAuth,
     onError: (errordata) => {
       console.log(errordata + " user signup error");
     },

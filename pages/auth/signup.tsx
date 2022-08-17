@@ -142,7 +142,7 @@ export default function SignupPage() {
         direction={{ base: "column", md: "row" }}
         px={{ base: "5", sm: "20", md: "0" }}
       >
-        <SignupForm onSubmit={onSubmit} />
+        <SignupForm isLoading={signupMutation.isLoading} onSubmit={onSubmit} />
       </Stack>
     </>
   );

@@ -34,8 +34,10 @@ import { AccountInput } from "../data/types";
 export const SignupForm = ({
   data,
   onSubmit,
+  isLoading,
 }: {
   data?: SignupFormInput;
+  isLoading: boolean;
   onSubmit: (a: SignupFormInput) => void;
 }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -346,7 +348,7 @@ export const SignupForm = ({
         </FormControl>
       </VStack>
 
-      <Button mt="4" color="white" type="submit">
+      <Button mt="4" isLoading={isLoading} color="white" type="submit">
         Бүртгүүлэх
       </Button>
 

@@ -119,7 +119,12 @@ export default function LoginPage() {
                   onOpen={modalDisclosure.onOpen}
                 />
               </Stack>
-              <Button onClick={onSubmit} colorScheme={"blue"} variant={"solid"}>
+              <Button
+                isLoading={loginMutation.isLoading}
+                onClick={onSubmit}
+                colorScheme={"blue"}
+                variant={"solid"}
+              >
                 Нэвтрэх
               </Button>
             </Stack>
