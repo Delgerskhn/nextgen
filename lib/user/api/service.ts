@@ -18,8 +18,11 @@ const defaultSelect = {
   profile: true,
 };
 
-export const getUsers = async () => {
-  return prisma.user.findMany();
+export const getUsers = async (page: number = 0) => {
+  return prisma.user.findMany({
+    skip: 10 * page,
+    take: 10,
+  });
 };
 
 export const getUser = async (email: string) => {

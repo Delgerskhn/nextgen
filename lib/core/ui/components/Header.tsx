@@ -18,9 +18,29 @@ import { AiOutlineUser } from "react-icons/ai";
 import { useLayoutBreakPointValue } from "@lib/core/data/layout_break_point_value";
 import { useRouter } from "next/router";
 import { FiMenu } from "react-icons/fi";
+import { MdSpaceDashboard } from "react-icons/md";
 import { border, color } from "constant";
-import { useAuth } from "@lib/auth/ui";
+import { useAuth, withRequireLogin } from "@lib/auth/ui";
 import { ProfileDropdown } from "./navigation/ProfileDropdown";
+import { AuthorizedContent } from "@lib/auth/ui/RequireCredential";
+
+const DashboardBtn = () => {
+  return (
+    <AuthorizedContent role="ADMIN">
+      <Link href="/admin">
+        <IconButton
+          bg="transparent"
+          _hover={{
+            bg: "gray.200",
+          }}
+          color="white"
+          as={MdSpaceDashboard}
+          aria-label=""
+        ></IconButton>
+      </Link>
+    </AuthorizedContent>
+  );
+};
 
 export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -80,7 +100,12 @@ export const Header = () => {
           />
           <DesktopNav />
           {isLoggedIn ? (
-            data && <ProfileDropdown user={data} />
+            data && (
+              <>
+                <ProfileDropdown user={data} />
+                <DashboardBtn />
+              </>
+            )
           ) : (
             <Button
               bg={color.orange}

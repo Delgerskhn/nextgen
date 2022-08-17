@@ -6,9 +6,10 @@ import { ERROR_MESSAGES } from "@util/errors";
 const handler = createHandler();
 
 handler
-  .get(async (_req, res) => {
+  .get(async (req, res) => {
+    const page = req.query.page ? parseInt(req.query.page as string) : 0;
     try {
-      const users = await getUsers();
+      const users = await getUsers(page);
       res.sendSuccess(users);
     } catch (error) {
       res.sendError(500, ERROR_MESSAGES.INTERNAL_SERVER_ERROR);

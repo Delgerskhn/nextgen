@@ -31,7 +31,6 @@ export const RequireLogin = ({
   if (status !== "success" || !isLoggedIn) return null;
   //user is logged in and check is onboarding info completed !email
 
-  
   // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{children}</>;
 };

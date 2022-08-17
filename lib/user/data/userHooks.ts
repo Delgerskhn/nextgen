@@ -6,8 +6,8 @@ import { User as PrismaUser } from "@prisma/client";
 export type User = Pick<PrismaUser, "id" | "email" | "role">;
 
 // Get list of all users
-export const useUsers = () => {
-  return useQuery("users", () => fetcher.get("users"), {
+export const useUsers = (page: number) => {
+  return useQuery(["users", { page }], () => fetcher.get("users", { page }), {
     initialData: [],
   });
 };

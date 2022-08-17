@@ -34,7 +34,7 @@ export const UsersTableActions = () => {
             />
           </InputGroup>
         </FormControl>
-        <Select
+        {/* <Select
           w={{ base: "300px", md: "unset" }}
           rounded="base"
           size="sm"
@@ -44,9 +44,9 @@ export const UsersTableActions = () => {
           <option>Students</option>
           <option>Teachers</option>
           <option>Admins</option>
-        </Select>
+        </Select> */}
       </HStack>
-      <ButtonGroup size="sm" variant="outline">
+      {/* <ButtonGroup size="sm" variant="outline">
         <Button iconSpacing="1" leftIcon={<RiAddFill fontSize="1.25em" />}>
           New member
         </Button>
@@ -56,7 +56,7 @@ export const UsersTableActions = () => {
         >
           Export CSV
         </Button>
-      </ButtonGroup>
+      </ButtonGroup> */}
     </Stack>
   );
 };

@@ -14,6 +14,8 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { User, useLogout } from "@lib/auth/data/authHooks";
+import { withRequireLogin } from "@lib/auth/ui";
+import { AuthorizedContent } from "@lib/auth/ui/RequireCredential";
 
 const UserAvatar = ({ picture, name }: { picture?: string; name?: string }) => (
   <Avatar size="sm" src={picture} name={name} />
