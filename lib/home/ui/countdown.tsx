@@ -89,7 +89,7 @@ const CounterStyled = styled.div`
 `;
 const nextYear = new Date().getFullYear();
 
-const targetDate = new Date(`Aug 26, ${nextYear} 23:59:00`).getTime();
+const targetDate = new Date(`Aug 25, ${nextYear} 23:59:00`).getTime();
 
 const generateTimeDisplay = (): TimeDisplayValuesType => {
   const rightJustNow = new Date().getTime();
