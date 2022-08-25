@@ -112,13 +112,18 @@ const Counter = ({ displayValue, label }: CounterType) => (
 );
 
 export const ProjectCountdown = () => {
-  const [timeDisplay, setTimeDisplay] =
-    React.useState<TimeDisplayValuesType>(generateTimeDisplay);
+  const [timeDisplay, setTimeDisplay] = React.useState<TimeDisplayValuesType>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+  // React.useState<TimeDisplayValuesType>(generateTimeDisplay);
 
   const updateCounters = () => setTimeDisplay(generateTimeDisplay);
 
   React.useEffect(() => {
-    setInterval(() => setTimeDisplay(generateTimeDisplay), 1000);
+    // setInterval(() => setTimeDisplay(generateTimeDisplay), 1000);
   }, []);
 
   return (
