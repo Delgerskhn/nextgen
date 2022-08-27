@@ -1,3 +1,4 @@
+import { useDebouncedState, useDebouncedValue } from "@mantine/hooks";
 import {
   Button,
   ButtonGroup,
@@ -7,13 +8,22 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  InputRightElement,
   Select,
   Stack,
 } from "@ui/index";
+import { useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { RiAddFill, RiArrowRightUpLine } from "react-icons/ri";
+import { useUsers } from "../data/userHooks";
 
-export const UsersTableActions = () => {
+export const UsersTableActions = ({ page }: { page: number }) => {
+  const [value, setValue] = useState("");
+  const [debounced] = useDebouncedValue(value, 200);
+  useEffect(() => {
+    if (debounced.length > 3) refetch();
+  }, [debounced]);
+  const { refetch } = useUsers(page, value);
   return (
     <Stack
       spacing="4"
@@ -23,14 +33,15 @@ export const UsersTableActions = () => {
       <HStack>
         <FormControl minW={{ md: "320px" }} id="search">
           <InputGroup size="sm">
-            <FormLabel srOnly>Filter by name or email</FormLabel>
-            <InputLeftElement pointerEvents="none" color="gray.400">
+            <InputRightElement mr="3" pointerEvents="none" color="gray.400">
               <BsSearch />
-            </InputLeftElement>
+            </InputRightElement>
             <Input
+              value={value}
+              onChange={(e) => setValue(e.currentTarget.value)}
               rounded="base"
               type="search"
-              placeholder="Filter by name or email..."
+              placeholder="Нэр эсвэл и-мэйл хайх..."
             />
           </InputGroup>
         </FormControl>

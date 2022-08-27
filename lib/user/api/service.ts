@@ -4,6 +4,7 @@ import { String } from "aws-sdk/clients/cloudtrail";
 import { getCurrentDate } from "@api/currentDate";
 import { SignupInput } from "@lib/auth/data/types";
 import { AppError, ERROR_MESSAGES } from "@util/errors";
+import { UserListResponse, UserModel } from "../data/types";
 
 const saltRounds = 10;
 
@@ -18,11 +19,61 @@ const defaultSelect = {
   profile: true,
 };
 
-export const getUsers = async (page: number = 0) => {
-  return prisma.user.findMany({
+export const getUsers = async (
+  page: number = 0,
+  q?: string
+): Promise<UserListResponse> => {
+  const condition = {
+    OR: [
+      {
+        email: {
+          contains: q,
+        },
+      },
+      {
+        accounts: {
+          some: {
+            OR: [
+              {
+                firstName: {
+                  contains: q,
+                },
+              },
+              {
+                lastName: {
+                  contains: q,
+                },
+              },
+            ],
+          },
+        },
+      },
+    ],
+  };
+  const users = await prisma.user.findMany({
     skip: 10 * page,
     take: 10,
+    where: condition,
+    include: {
+      accounts: true,
+      _count: true,
+    },
   });
+  const total = await prisma.user.count({ where: condition });
+  const totalPage = Math.floor(total / 10);
+  const list: UserModel[] = [];
+  users.forEach((u) => {
+    var acc = u.accounts[0] ?? {};
+    list.push({
+      ...u,
+      ...acc,
+    });
+  });
+  return {
+    users: list,
+    total,
+    totalPage,
+  };
 };
 
 export const getUser = async (email: string) => {

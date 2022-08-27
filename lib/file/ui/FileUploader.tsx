@@ -1,5 +1,5 @@
 import { Flex, IconButton, Icon, Input, Text, Button } from "@chakra-ui/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 import { BiTrash } from "react-icons/bi";
 
@@ -17,8 +17,12 @@ export const FileUploader = ({
   onDelete,
 }: PropsType) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
-
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    if (defaultFileKey) setIsLoading(false);
+  }, [defaultFileKey]);
   function onSave() {
+    setIsLoading(true);
     if (inputRef?.current?.files && inputRef?.current?.files[0])
       onUpload(inputRef.current?.files[0]);
   }
@@ -49,12 +53,11 @@ export const FileUploader = ({
             type="file"
             multiple={false}
             accept={accept}
-            disabled
             ref={(e: any) => {
               inputRef.current = e;
             }}
           />
-          <Button color="white" onClick={onSave}>
+          <Button color="white" isLoading={isLoading} onClick={onSave}>
             Хадгалах
           </Button>
         </Flex>

@@ -8,8 +8,9 @@ const handler = createHandler();
 handler
   .get(async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page as string) : 0;
+    const q = typeof req.query.q == "string" ? req.query.q : undefined;
     try {
-      const users = await getUsers(page);
+      const users = await getUsers(page, q);
       res.sendSuccess(users);
     } catch (error) {
       res.sendError(500, ERROR_MESSAGES.INTERNAL_SERVER_ERROR);

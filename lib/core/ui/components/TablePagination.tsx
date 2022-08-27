@@ -1,34 +1,50 @@
-import { Button, ButtonGroup, Flex, Text, useColorModeValue } from "@ui/index";
+import { useUsers } from "@lib/user/data/userHooks";
+import {
+  Button,
+  ButtonGroup,
+  Flex,
+  HStack,
+  Text,
+  useColorModeValue,
+} from "@ui/index";
 import { fetcher } from "@util/query";
 import { useState } from "react";
 import { useQuery } from "react-query";
 
 type Props = {
   dataName: string;
-  data: any[];
   onChange: (p: number) => void;
   page: number;
 };
 
 export const TablePagination = ({ dataName, onChange, page }: Props) => {
-  const { data } = useQuery<{ total: number }>("summary", () =>
-    fetcher.get("/users/summary")
-  );
+  const { data } = useUsers(page);
 
   return (
     <Flex align="center" justify="space-between">
-      <Text color={useColorModeValue("gray.600", "gray.400")} size="sm">
-        {data?.total} {dataName}
-      </Text>
+      <HStack>
+        <Text color={useColorModeValue("gray.600", "gray.400")} size="sm">
+          {data?.total} {dataName}
+        </Text>
+        <Text>
+          хуудас {page}/{data?.totalPage}
+        </Text>
+      </HStack>
       <ButtonGroup variant="outline" size="sm">
         <Button
           onClick={() => page > 0 && onChange(page - 1)}
           as="a"
+          disabled={!(page > 0)}
           rel="prev"
         >
           Previous
         </Button>
-        <Button onClick={() => onChange(page + 1)} as="a" rel="next">
+        <Button
+          disabled={!(data?.totalPage! > page)}
+          onClick={() => data?.totalPage! > page && onChange(page + 1)}
+          as="a"
+          rel="next"
+        >
           Next
         </Button>
       </ButtonGroup>

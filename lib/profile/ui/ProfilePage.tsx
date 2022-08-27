@@ -68,7 +68,7 @@ export const ProfilePage = () => {
           <Heading>
             Доорх мэдээллийг бүрэн оруулсны дараа хариу ирэхийг анхаарна уу.
           </Heading>
-          {/* <ProjectForm /> */}
+          <ProjectForm />
           {data && (
             <AccountForm
               onSubmit={(input) =>

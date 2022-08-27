@@ -30,6 +30,7 @@
     "@emotion/styled": "^11.6.0",
     "@fontsource/inter": "^4.5.1",
     "@fontsource/playfair-display": "^4.5.1",
+    "@mantine/hooks": "^5.2.3",
     "@prisma/client": "^3.3.0",
     "@quixo3/prisma-session-store": "^3.1.2",
     "@stripe/stripe-js": "^1.19.1",
