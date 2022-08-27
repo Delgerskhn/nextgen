@@ -1,5 +1,6 @@
 import { compare, hash } from "bcryptjs";
 import { prisma } from "@api/prisma";
+import { Prisma } from "@prisma/client";
 import { String } from "aws-sdk/clients/cloudtrail";
 import { getCurrentDate } from "@api/currentDate";
 import { SignupInput } from "@lib/auth/data/types";
@@ -23,11 +24,12 @@ export const getUsers = async (
   page: number = 0,
   q?: string
 ): Promise<UserListResponse> => {
-  const condition = {
+  const condition: Prisma.UserWhereInput = {
     OR: [
       {
         email: {
           contains: q,
+          mode: "insensitive",
         },
       },
       {
@@ -37,11 +39,13 @@ export const getUsers = async (
               {
                 firstName: {
                   contains: q,
+                  mode: "insensitive",
                 },
               },
               {
                 lastName: {
                   contains: q,
+                  mode: "insensitive",
                 },
               },
             ],
