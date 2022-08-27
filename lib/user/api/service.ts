@@ -71,6 +71,7 @@ export const getUsers = async (
     list.push({
       ...u,
       ...acc,
+      id: u.id,
     });
   });
   return {

@@ -9,6 +9,7 @@ import {
   useColorModeValue,
 } from "@ui/index";
 import { ReactNode } from "react";
+import { ChangePassModal } from "./ChangePassword";
 
 type Column = {
   Cell?: (data: any) => JSX.Element;
@@ -50,9 +51,7 @@ export const TableContent = ({ data, columns }: Props) => {
               );
             })}
             <Td textAlign="right">
-              <Button variant="link" colorScheme="blue">
-                Edit
-              </Button>
+              <ChangePassModal userId={row.id} />
             </Td>
           </Tr>
         ))}

@@ -71,3 +71,9 @@ export const useChangePassword = () => {
     fetcher.put(`profile/password`, data)
   );
 };
+
+export const useChangeUserPassword = () => {
+  return useMutation((data: { password: string; id: string }) =>
+    fetcher.put("admin/changePassword", data)
+  );
+};

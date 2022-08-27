@@ -37,7 +37,7 @@ export const TablePagination = ({ dataName, onChange, page }: Props) => {
           disabled={!(page > 0)}
           rel="prev"
         >
-          Previous
+          Өмнөх
         </Button>
         <Button
           disabled={!(data?.totalPage! > page)}
@@ -45,7 +45,7 @@ export const TablePagination = ({ dataName, onChange, page }: Props) => {
           as="a"
           rel="next"
         >
-          Next
+          Дараагийн
         </Button>
       </ButtonGroup>
     </Flex>

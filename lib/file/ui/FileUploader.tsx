@@ -1,30 +1,40 @@
 import { Flex, IconButton, Icon, Input, Text, Button } from "@chakra-ui/react";
+import { toaster } from "@ui/index";
 import { useEffect, useRef, useState } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 import { BiTrash } from "react-icons/bi";
+import { useValidateResourceSize } from "../data/validation";
 
 type PropsType = {
   onUpload: (f: File) => void;
   onDelete: (key: string) => void;
   accept?: string;
+  maxSize: number;
   defaultFileKey?: string;
 };
 
 export const FileUploader = ({
   defaultFileKey,
   onUpload,
+  maxSize,
   accept,
   onDelete,
 }: PropsType) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const validate = useValidateResourceSize(maxSize);
   useEffect(() => {
     if (defaultFileKey) setIsLoading(false);
   }, [defaultFileKey]);
   function onSave() {
-    setIsLoading(true);
-    if (inputRef?.current?.files && inputRef?.current?.files[0])
+    if (inputRef?.current?.files && inputRef?.current?.files[0]) {
+      if (validate(inputRef.current?.files[0]) == false)
+        return toaster.error(
+          `Файлын хэмжээ ${Math.floor(maxSize / 1000000)} mb байх ёстой.`
+        );
+      setIsLoading(true);
       onUpload(inputRef.current?.files[0]);
+    }
   }
   return (
     <>

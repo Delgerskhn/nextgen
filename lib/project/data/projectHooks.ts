@@ -1,6 +1,7 @@
 import { Project } from "@prisma/client";
 import { fetcher } from "@util/query";
 import { useMutation, useQuery } from "react-query";
+import { ProjectResponse } from "./types";
 
 export type ProjectUpdateInput = {
   id?: string;
@@ -25,5 +26,11 @@ export const useCreateProject = () => {
 export const useProject = (userId: string | undefined) => {
   return useQuery<Project | null>(["project", userId], () =>
     userId ? fetcher.get(`project/${userId}`) : null
+  );
+};
+
+export const useProjects = (page?: number, q?: string) => {
+  return useQuery<ProjectResponse>(["projects", { page }], () =>
+    fetcher.get("/project", { page, q })
   );
 };

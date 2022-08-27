@@ -1,6 +1,7 @@
 import { Account, User } from "@prisma/client";
 
 export type UserModel = {
+  id: string | null;
   email: string | null;
   firstName: string;
   lastName: string;
