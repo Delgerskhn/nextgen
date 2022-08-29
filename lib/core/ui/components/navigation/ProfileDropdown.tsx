@@ -57,7 +57,7 @@ export const ProfileDropdown = ({ user }: { user: User }) => {
         </HStack>
         <NextLink href="/account/profile">
           <MenuItem as="a" fontWeight="medium">
-            Профайл
+            Төслийн материал илгээх
           </MenuItem>
         </NextLink>
         <MenuItem
