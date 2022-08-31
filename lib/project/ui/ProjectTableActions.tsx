@@ -41,7 +41,7 @@ export const ProjectTableActions = ({ page }: { page: number }) => {
               onChange={(e) => setValue(e.currentTarget.value)}
               rounded="base"
               type="search"
-              placeholder="Нэр эсвэл и-мэйл хайх..."
+              placeholder="Нэр, и-мэйл, төсөл хайх..."
             />
           </InputGroup>
         </FormControl>

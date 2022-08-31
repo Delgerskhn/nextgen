@@ -24,6 +24,22 @@ export const getProjects = async (
             },
           },
           {
+            project: {
+              name: {
+                contains: q,
+                mode: "insensitive",
+              },
+            },
+          },
+          {
+            project: {
+              teamName: {
+                contains: q,
+                mode: "insensitive",
+              },
+            },
+          },
+          {
             accounts: {
               some: {
                 OR: [
@@ -89,6 +105,11 @@ export const getProjects = async (
       teamIntroFile: p.project?.teamIntroFile,
       projectDocFile: p.project?.projectDocFile,
       projectIntroFile: p.project?.projectIntroFile,
+      name: p.project?.name,
+      teamName: p.project?.teamName,
+      city: p.project?.city,
+      district: p.project?.district,
+      type: p.project?.type,
     });
   });
 

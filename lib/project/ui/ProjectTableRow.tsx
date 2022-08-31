@@ -19,6 +19,11 @@ export const ProjectTableRow = ({ project }: { project: ProjectModel }) => {
   return (
     <>
       <Tr cursor={"pointer"} onClick={onToggle}>
+        <Td>{project.name}</Td>
+        <Td>{project.type}</Td>
+        <Td>{project.city}</Td>
+        <Td>{project.district}</Td>
+        <Td>{project.teamName}</Td>
         <Td>{`${project?.lastName && project?.lastName[0]}. ${
           project.firstName
         }`}</Td>

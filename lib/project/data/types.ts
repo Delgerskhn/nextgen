@@ -1,6 +1,11 @@
-import { Account } from "@prisma/client";
+import { Account, Project } from "@prisma/client";
 
 export type ProjectModel = {
+  type?: string | null;
+  name?: string | null;
+  teamName?: string | null;
+  city?: string | null;
+  district?: string | null;
   email?: string | null;
   firstName?: string | null;
   lastName?: string | null;

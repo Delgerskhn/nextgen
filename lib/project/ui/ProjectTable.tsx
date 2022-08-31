@@ -29,6 +29,11 @@ export const ProjectTable = () => {
         <Table variant="simple">
           <Thead>
             <Tr>
+              <Th>Төслийн нэр</Th>
+              <Th>Төслийн төрөл</Th>
+              <Th>Аймаг</Th>
+              <Th>Сум</Th>
+              <Th>Багийн нэр</Th>
               <Th>Төсөл оруулсан</Th>
               <Th>Имэйл</Th>
               <Th>Холбогдох дугаар</Th>
