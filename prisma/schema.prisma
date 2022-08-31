@@ -34,9 +34,13 @@ model Project {
   userId           String  @unique
   point            Float   @default(0)
   place            Int?
+  teamName         String?
+  city             String?
+  district         String?
   teamIntroFile    String?
   projectIntroFile String?
   projectDocFile   String?
+  type             String?
 }
 
 enum UserRole {

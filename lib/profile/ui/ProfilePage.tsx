@@ -20,6 +20,8 @@ import {
   Heading,
   Box,
   AlertTitle,
+  HStack,
+  Divider,
 } from "@ui/index";
 import { useProfile, useUpdateProfile } from "@lib/profile/data/profileHooks";
 import { navItems } from ".";
@@ -32,6 +34,7 @@ import { ProjectForm } from "@lib/project/ui/ProjectForm";
 import { EditAccountInfo } from "@lib/account/ui/EditAccountInfo";
 import { AccountForm } from "@lib/account/ui/AccountForm";
 import { useAccount, useUpdateAccount } from "@lib/account/data/accountHook";
+import { ProjectInfoForm } from "@lib/project/ui/ProjectInfoForm";
 type ProfileInput = {
   firstName: string;
   lastName: string;
@@ -68,17 +71,47 @@ export const ProfilePage = () => {
           <Heading>
             Доорх мэдээллийг бүрэн оруулсны дараа хариу ирэхийг анхаарна уу.
           </Heading>
+          <ProjectInfoForm />
+          <>
+            <Heading size="sm">
+              Доорх файлуудыг татан авч загварын дагуу төслөө бичиж оруулахыг
+              анхаарна уу
+            </Heading>
+            <Divider my="4" />
+            <HStack>
+              <Button
+                as="a"
+                color="white"
+                target={"_blank"}
+                href="/nextgen-project-guide.pdf"
+              >
+                Төслийн маягт татах
+              </Button>
+              <Button
+                color="white"
+                as="a"
+                target={"_blank"}
+                href="/nextgen-budget.xlsx"
+              >
+                Төсвийн загвар татах
+              </Button>
+            </HStack>
+          </>
           <ProjectForm />
           {data && (
-            <AccountForm
-              onSubmit={(input) =>
-                updateAccount.mutate(input, {
-                  onError: () => toaster.error("Алдаа гарлаа."),
-                  onSuccess: () => toaster.success("Амжилттай шинэчиллээ."),
-                })
-              }
-              data={{ ...data, email: user ? user?.email : null }}
-            />
+            <>
+              <Heading size="md">Хэрэглэгчийн бүртгэлийн мэдээлэл</Heading>
+              <Divider my="4" />
+              <AccountForm
+                onSubmit={(input) =>
+                  updateAccount.mutate(input, {
+                    onError: () => toaster.error("Алдаа гарлаа."),
+                    onSuccess: () => toaster.success("Амжилттай шинэчиллээ."),
+                  })
+                }
+                data={{ ...data, email: user ? user?.email : null }}
+              />
+            </>
           )}
           {/* <AccountList /> */}
         </NavContentLayout>

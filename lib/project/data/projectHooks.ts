@@ -7,6 +7,10 @@ export type ProjectUpdateInput = {
   id?: string;
   name?: string;
   userId?: string;
+  teamName?: string | null;
+  city?: string | null;
+  type?: string | null;
+  district?: string | null;
   teamIntroFile?: string;
   projectIntroFile?: string;
   projectDocFile?: string;
