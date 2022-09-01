@@ -129,8 +129,8 @@ export const Countdown = () => {
       <ContainerStyled>
         <DateStyled>
           <Heading size="lg" style={{ color: "white" }} textAlign="center">
-            "ТӨСӨЛ ХЭРХЭН БИЧИХ ВЭ" ОЛОН НИЙТЭД ЗОРИУЛСАН НЭЭЛТТЭЙ ЦАХИМ
-            СУРГАЛТЫН БҮРТГЭЛ ДУУСАХАД
+            “Шинэ сэргэлт: NextGen” төслийн уралдааны төсөл хүлээн авах хугацаа
+            дуусахад
           </Heading>
         </DateStyled>
         <WrapperStyled>
