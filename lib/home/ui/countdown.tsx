@@ -89,7 +89,7 @@ const CounterStyled = styled.div`
 `;
 const nextYear = new Date().getFullYear();
 
-const targetDate = new Date(`Aug 25, ${nextYear} 23:59:00`).getTime();
+const targetDate = new Date(`Sep 25, ${nextYear} 23:59:00`).getTime();
 
 const generateTimeDisplay = (): TimeDisplayValuesType => {
   const rightJustNow = new Date().getTime();
@@ -113,19 +113,14 @@ const Counter = ({ displayValue, label }: CounterType) => (
 );
 
 export const Countdown = () => {
-  const [timeDisplay, setTimeDisplay] = React.useState<TimeDisplayValuesType>({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-  // React.useState<TimeDisplayValuesType>(generateTimeDisplay);
+  const [timeDisplay, setTimeDisplay] =
+    React.useState<TimeDisplayValuesType>(generateTimeDisplay);
 
   const updateCounters = () => setTimeDisplay(generateTimeDisplay);
 
   React.useEffect(() => {
     if (timeDisplay.seconds >= 0) {
-      // setInterval(() => setTimeDisplay(generateTimeDisplay), 1000);
+      setInterval(() => setTimeDisplay(generateTimeDisplay), 1000);
     }
   }, []);
 

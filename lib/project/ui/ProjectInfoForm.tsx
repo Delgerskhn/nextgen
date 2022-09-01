@@ -108,7 +108,10 @@ export const ProjectInfoForm = () => {
         </FormErrorMessage>
       </FormControl>
       <FormControl isRequired isInvalid={!!errors.type}>
-        <FormLabel>Төслийн төрөл</FormLabel>
+        <FormLabel>
+          Таны төслийн тэргүүлэх чиглэл “Шинэ сэргэлтийн бодлого”-ын аль
+          сэргэлтэд хамаарах вэ?
+        </FormLabel>
         <Select
           {...register("type", {
             required: "Заавал",
