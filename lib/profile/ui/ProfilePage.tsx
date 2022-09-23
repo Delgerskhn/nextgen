@@ -83,7 +83,7 @@ export const ProfilePage = () => {
                 as="a"
                 color="white"
                 target={"_blank"}
-                href="/nextgen-project-guide.pdf"
+                href="/nextgen-project-guide.pptx"
               >
                 Төслийн маягт татах
               </Button>
