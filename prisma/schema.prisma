@@ -40,6 +40,7 @@ model Project {
   teamIntroFile    String?
   projectIntroFile String?
   projectDocFile   String?
+  allFileUploaded  Boolean @default(false)
   type             String?
 }
 

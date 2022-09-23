@@ -34,6 +34,31 @@ export const sendResetPasswordLink = async (
   });
 };
 
+export const sendProjectReceived = async (
+  receiverEmail: string,
+  teamName: string
+) => {
+  return new Promise((resolve, reject) => {
+    transporter().then((trans) =>
+      trans
+        .sendMail({
+          from: "Шинэ сэргэлт",
+          to: receiverEmail,
+          subject: "Шинэ сэргэлт | Төсөл хүлээн авлаа.",
+          text: `Таны ${teamName} багийн төслийн бичиг баримтуудыг хүлээн авлаа.`,
+          html: `<p>Таны ${teamName} багийн төслийн бичиг баримтуудыг хүлээн авлаа.</p>
+          <img src='${process.env.NEXT_PUBLIC_APP_URL}/logo_vertical_mn.png'/>
+          `,
+        })
+        .then((info) => {
+          resolve(true);
+          trans.close();
+        })
+        .catch(reject)
+    );
+  });
+};
+
 export const sendEmail = async (receiver: string) => {
   return new Promise((resolve, reject) => {
     transporter().then((trans) =>

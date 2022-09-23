@@ -125,7 +125,7 @@ export const updateProject = (data: Project) => {
     where: {
       userId: data.userId,
     },
-    data: data,
+    data: { ...data },
   });
 };
 
