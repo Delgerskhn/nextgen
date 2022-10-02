@@ -10,12 +10,14 @@ type PropsType = {
   onDelete: (key: string) => void;
   accept?: string;
   maxSize: number;
+  disabled: boolean;
   defaultFileKey?: string;
 };
 
 export const FileUploader = ({
   defaultFileKey,
   onUpload,
+  disabled,
   maxSize,
   accept,
   onDelete,
@@ -27,14 +29,15 @@ export const FileUploader = ({
     if (defaultFileKey) setIsLoading(false);
   }, [defaultFileKey]);
   function onSave() {
-    if (inputRef?.current?.files && inputRef?.current?.files[0]) {
-      if (validate(inputRef.current?.files[0]) == false)
-        return toaster.error(
-          `Файлын хэмжээ ${Math.floor(maxSize / 1000000)} mb байх ёстой.`
-        );
-      setIsLoading(true);
-      onUpload(inputRef.current?.files[0]);
-    }
+    return alert("Төсөл хүлээн авах хугацаа дууссан байна.");
+    // if (inputRef?.current?.files && inputRef?.current?.files[0]) {
+    //   if (validate(inputRef.current?.files[0]) == false)
+    //     return toaster.error(
+    //       `Файлын хэмжээ ${Math.floor(maxSize / 1000000)} mb байх ёстой.`
+    //     );
+    //   setIsLoading(true);
+    //   onUpload(inputRef.current?.files[0]);
+    // }
   }
   return (
     <>
@@ -62,6 +65,7 @@ export const FileUploader = ({
           <Input
             type="file"
             multiple={false}
+            disabled={disabled}
             accept={accept}
             ref={(e: any) => {
               inputRef.current = e;
